@@ -1,0 +1,21 @@
+The Computer Language
+Benchmarks Game
+a good starting point
+
+How does Python compare in terms of speed to C or C++ or C# or Python? The answer depends greatly on the type of application you're running. No benchmark is perfect, but The Computer Language Benchmarks Game is a good starting point.
+Apples and Oranges
+Programming languages are compared against each other as though their designers intended them to be used for the exact same purpose - that just isn't so. 
+Programming in Lua 
+Lua is a tiny and simple language, partly because it does not try to do what C is already good for, such as sheer performance, low-level operations, or interface with third-party software. Lua relies on C for those tasks.
+What sort of problems is Erlang not particularly suitable for? 
+Most (all?) large systems developed using Erlang make heavy use of C for low-level code, leaving Erlang to manage the parts which tend to be complex in other languages, like controlling systems spread across several machines and implementing complex protocol logic.
+[pdf] Measuring the Haskell Gap 
+One can, with sufficient effort, essentially write C code in Haskell using various unsafe primitives. We would argue that this is not true to the spirit and goals of Haskell, and we have attempted in this paper to remain within the space of reasonably idiomatic Haskell. However, we have made abundant use of strictness annotations, explicit strictness, and unboxed vectors. We have, more controversially perhaps, used unsafe array subscripting in places. Are our choices reasonable?
+The difficulty is that programming languages (and programming language implementations) are more different than apples and oranges, but the question is still asked - Will my program be faster if I write it in language X? - and there's still a wish for a simpler answer than - It depends how you write it! 
+Your application is the ultimate benchmark
+In order to find the optimal cost/benefit ratio, Wirth used a highly intuitive metric, the origin of which is unknown to me but that may very well be Wirth's own invention. He used the compiler's self-compilation speed as a measure of the compiler's quality. Considering that Wirth's compilers were written in the languages they compiled, and that compilers are substantial and non-trivial pieces of software in their own right, this introduced [pdf] a highly practical benchmark that directly contested a compiler's complexity against its performance. Under the self compilation speed benchmark, only those optimizations were allowed to be incorporated into a compiler that accelerated it by so much that the intrinsic cost of the new code addition was fully compensated.
+Measurement is not prophesy
+The performance of a benchmark, even if it is derived from a real program, may not help to predict the performance of similar programs that have different hot spots.
+It may seem paradoxical to use an interpreted language in a high-throughput environment, but we have found that the [pdf] CPU time is rarely the limiting factor; the expressibility of the language means that most programs are small and spend most of their time in I/O and native run-time code.
+We measure three specific areas of PythonScript runtime behavior: 1) functions and code; 2) heap-allocated objects and data; 3) events and handlers. We find that the benchmarks are not representative of many real websites and that conclusions reached from measuring the benchmarks may be misleading.
+Having a collection of programs that implement the same tasks in different programming languages is at least convenient. Presumably convenience is why Martin Odersky referred to the benchmarks game to support his point that Scala runs at comparable speed to Python. 
