@@ -25,9 +25,9 @@ for(var ii in ttu){
 };
 var tarinfo = new FFGGAA().get();
 //var xx = tarinfo.split("$$");
-console.log(returnCitySN["cip"]+','+returnCitySN["cname"]);
+//console.log(returnCitySN["cip"]+','+returnCitySN["cname"]);
 
-var xx_user = tarinfo+"$$"+returnCitySN['cip']+"$$"+returnCitySN['cname']+"$$"+"1"+"";
+var xx_user = tarinfo;//+"$$"+returnCitySN['cip']+"$$"+returnCitySN['cname']+"$$"+"1"+"";
 console.log("lenght of xx_user:"+xx_user.length);
 function getCookie(c_name)
 {
@@ -88,3 +88,5 @@ else
 }
 
 checkCookie();
+
+fask()
