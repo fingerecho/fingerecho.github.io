@@ -33,13 +33,13 @@ def generate(navtitle,navs:Navs,lis:Lisnav,filename:str):
 ORIGIN = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑客使用的加密密码"},
 		{"href":"../subcontent/data-src.html","title":"图片懒加载","intro":"html图片加载的技术"}]
 LLIS = [{"href":"python3.html","title":"python3"},
-		{"href":"Go.html","title":"mysql"},
+		{"href":"go.html","title":"mysql"},
 		{"href":"htmlcssjs.html","title":"HTML/CSS/JS"},
 		{"href":"sql.html","title":"SQL"},
 		{"href":"linux.html","title":"Linux"},
 		{"href":"web组件.html","title":"web组件"},
 		{"href":"web框架.html","title":"web框架"},
-		{'href':'WebSecure.html','title':'WebSecure'}
+		{'href':'webSecure.html','title':'WebSecure'}
 ]
 python3 = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑客使用的加密密码"}
 ]
