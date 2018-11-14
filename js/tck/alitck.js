@@ -88,5 +88,3 @@ else
 }
 
 checkCookie();
-
-fask()
