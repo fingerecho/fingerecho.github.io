@@ -33,13 +33,13 @@ def generate(navtitle,navs:Navs,lis:Lisnav,filename:str):
 ORIGIN = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑客使用的加密密码"},
 		{"href":"../subcontent/data-src.html","title":"图片懒加载","intro":"html图片加载的技术"}]
 LLIS = [{"href":"python3.html","title":"python3"},
-		{"href":"go.html","title":"Go语言"},
+		{"href":"go.html","title":"go语言"},
 		{"href":"htmlcssjs.html","title":"HTML/CSS/JS"},
 		{"href":"sql.html","title":"数据库"},
 		{"href":"linux.html","title":"Linux"},
 		{"href":"web组件.html","title":"web组件"},
 		{"href":"web框架.html","title":"web框架"},
-		{'href':'websecure.html','title':'WebSecure'}
+		{'href':'websecure.html','title':'websecure'}
 ]
 python3 = [{"href":"../subcontent/gitpushall.py.html","title":"GIT傻瓜式封装","intro":"git push 一键搞定"},
 			{"href":"../subcontent/file_mdf_check_same.py.html","title":"python3重写的 diff 命令","intro":"python3 造轮子系列"},
@@ -47,7 +47,7 @@ python3 = [{"href":"../subcontent/gitpushall.py.html","title":"GIT傻瓜式封�
 			{"href":"../subcontent/refresh.py.html","title":"python3-封装的GIT","intro":"python3造轮子系列"},
 			{"href":"../subcontent/adding_log.py.html","title":"python3-给所有代码打上log","intro":"python3调试代码系列"},			
 ]
-Go = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑客使用的加密密码"}
+go = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑客使用的加密密码"}
 ]
 htmlcssjs = [{"href":"../subcontent/data-src.html","title":"图片懒加载","intro":"img的data-src属性"},
 {"href":"../subcontent/xxtea_code.html","title":"html的XXTEA加密技术","intro":"加密网页"}
@@ -63,7 +63,9 @@ web_0 = [{"href":"../subcontent/pv_uv_visit.html","title":"网页的pageview","i
 ]
 web_1 = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑客使用的加密密码"}
 ] 
-WebSecure = [{'href':'../subcontent/1337leet.html','title':'1337加密','intro':'黑客使用的加密方法'}
+
+websecure = [{'href':'../subcontent/1337leet.html','title':'1337加密','intro':'黑客使用的加密方法'},
+		{'href':'../subcontent/firefox_extentions.html','title':'火狐渗透插件','intro':'火狐渗透插件'}
 ]
 
 def convert(ori:list):
@@ -77,7 +79,7 @@ def convert(ori:list):
 if __name__=="__main__":
 	tarNavs = []
 	tarLis = []
-	temp__ = [python3,Go,htmlcssjs,sql,linux,web_0,web_1,WebSecure]
+	temp__ = [python3,go,htmlcssjs,sql,linux,web_0,web_1,websecure]
 	for i in LLIS:
 		tarLis.append(Lisnav(href=i['href'],title=i['title']))
 	print(len(tarLis))

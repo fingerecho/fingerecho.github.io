@@ -24,8 +24,8 @@ def copy_rewrite(x:str): #### fix the non space of html   using pre label
 	fx.write(res)
 	fx.close()	
 if __name__=="__main__":
-    #files = [x for x in os.listdir() if x.endswith(".htm") or x.endswith(".py") ]
-    files = [ x for x in os.listdir() if x.endswith(".py")]
-    [copy_rewrite(xx) for xx in files if xx!= None]
-    files = [generate("fingerecho",x+".htm") for x in files]
+    files = [x for x in os.listdir() if x.endswith(".htm") and x=="firefox_extentions.htm"]#or x.endswith(".py") ]
+    #files = [ x for x in os.listdir() if x.endswith(".py")]
+    #[copy_rewrite(xx) for xx in files if xx!= None]
+    files = [generate("fingerecho",x) for x in files]
     
