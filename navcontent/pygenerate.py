@@ -39,9 +39,13 @@ LLIS = [{"href":"python3.html","title":"python3"},
 		{"href":"linux.html","title":"Linux"},
 		{"href":"web组件.html","title":"web组件"},
 		{"href":"web框架.html","title":"web框架"},
-		{'href':'webSecure.html','title':'WebSecure'}
+		{'href':'websecure.html','title':'WebSecure'}
 ]
-python3 = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑客使用的加密密码"}
+python3 = [{"href":"../subcontent/gitpushall.py.html","title":"GIT傻瓜式封装","intro":"git push 一键搞定"},
+			{"href":"../subcontent/file_mdf_check_same.py.html","title":"python3重写的 diff 命令","intro":"python3 造轮子系列"},
+			{"href":"../subcontent/handle_file.py.html","title":"python3遍历某目录下所有文件","intro":"系统文件操作基础-骇客(系统破坏者)必备"},
+			{"href":"../subcontent/refresh.py.html","title":"python3-封装的GIT","intro":"python3造轮子系列"},
+			{"href":"../subcontent/adding_log.py.html","title":"python3-给所有代码打上log","intro":"python3调试代码系列"},			
 ]
 Go = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑客使用的加密密码"}
 ]

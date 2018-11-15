@@ -10,10 +10,11 @@ def generate(title,mainiframe,description="",\
 	res = temp.render(title=title,\
 		description=description,author=author,\
 		iconhref=iconhref,mainiframe=mainiframe)
-	ff = open(os.path.join("./",mainiframe+"l"),"w",encoding="utf-8")
+	ff = open(os.path.join("./",mainiframe+".html"),"w",encoding="utf-8")
 	ff.write(res)
 	ff.close()
 if __name__=="__main__":
-	files = [x for x in os.listdir() if x.endswith(".htm") ]
-	files = [generate("fingerecho",x) for x in files]
-
+    #files = [x for x in os.listdir() if x.endswith(".htm") or x.endswith(".py") ]
+    files = [x for x in os.listdir() if x.endswith(".py")]
+    files = [generate("fingerecho",x) for x in files]
+    
