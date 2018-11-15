@@ -25,14 +25,16 @@ from sys import argv
 
 def add_file(path_:str):
     res_ = []
-    all_LL = [ xx[2] for xx in walk(path_)]
+    all_LL = [ (xx[0],xx[2]) for xx in walk(path_)]
     all_ = []
     for ii in all_LL:
-        all_.extend(ii)
+        all_.extend([ path.join(ii[0],xx) for xx in ii[1]])
     #print(all_)
+    info_add = []
     for suf_MODE in [PROGRAM_FILE_SUFFIX , WEB_FILE_SUFFIX , MEDIA_FILE_SUFFIX]:
         for suf_ in suf_MODE:
-            [ call([cmd[0],cmd[1],file_.strip()]) for file_ in all_ if file_.strip("\n").strip().endswith(suf_)]
+            [ info_add.append(call([cmd[0],cmd[1],file_.strip()])) for file_ in all_ if file_.strip("\n").strip().endswith(suf_)]
+    [print(xx) for xx in info_add]
     print("adding all the files that I need \n%s\n"%SEPLINE)
 def main_process(path_:str,force=""):
     add_file(path_)
