@@ -25,10 +25,10 @@ from sys import argv
 
 def add_file(path_:str):
     res_ = []
-    all_LL = [ xx[2] for xx in walk(path_)]
+    all_LL = [ (xx[0],xx[2]) for xx in walk(path_)]
     all_ = []
     for ii in all_LL:
-        all_.extend(ii)
+        all_.extend([ path.join(ii[0],xx) for xx in ii[1]])
     #print(all_)
     for suf_MODE in [PROGRAM_FILE_SUFFIX , WEB_FILE_SUFFIX , MEDIA_FILE_SUFFIX]:
         for suf_ in suf_MODE:
