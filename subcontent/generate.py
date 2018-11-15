@@ -10,10 +10,10 @@ def generate(title,mainiframe,description="",\
 	res = temp.render(title=title,\
 		description=description,author=author,\
 		iconhref=iconhref,mainiframe=mainiframe)
-	ff = open(os.path.join("./testcontent.dir",mainiframe+"l"),"w",encoding="utf-8")
+	ff = open(os.path.join("./",mainiframe+"l"),"w",encoding="utf-8")
 	ff.write(res)
 	ff.close()
-def copy_rewrite(x:str):
+def copy_rewrite(x:str): #### fix the non space of html   using pre label
 	envi = Environment(loader=PackageLoader('pygenerate'))
 	temp = envi.get_template('python_format.htm')
 	fd = open(x,"r",encoding="utf-8") 
