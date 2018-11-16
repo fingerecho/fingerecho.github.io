@@ -10,7 +10,7 @@ def generate(title,mainiframe,description="",\
 	res = temp.render(title=title,\
 		description=description,author=author,\
 		iconhref=iconhref,mainiframe=mainiframe)
-	ff = open(os.path.join("./",mainiframe+"l"),"w",encoding="utf-8")
+	ff = open(os.path.join("./",mainiframe+".html"),"w",encoding="utf-8")
 	ff.write(res)
 	ff.close()
 def copy_rewrite(x:str): #### fix the non space of html   using pre label
@@ -26,6 +26,6 @@ def copy_rewrite(x:str): #### fix the non space of html   using pre label
 if __name__=="__main__":
     #files = [x for x in os.listdir() if x.endswith(".htm") and x=="firefox_extentions.htm"]#or x.endswith(".py") ]
     files = [ x for x in os.listdir() if x.endswith(".py") and x=="scpupdate_code_toserver.py"]
-    #[copy_rewrite(xx) for xx in files if xx!= None]
+    [copy_rewrite(xx) for xx in files if xx!= None and xx=="scpupdate_code_toserver.py"]
     files = [generate("fingerecho",x) for x in files]
     
