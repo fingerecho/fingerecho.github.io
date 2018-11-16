@@ -10,7 +10,7 @@ var fask = function(params){
 	var params = params;
 	$.ajax({
 		type:"POST",
-		url:"http://va.fyping.cn:65533/serve/tck",
+		url:"https://gitee.fyping.cn:65533/serve/tck",
 		data:"params="+params,
 		success:function(msg){
 			console.log("ok"+msg);

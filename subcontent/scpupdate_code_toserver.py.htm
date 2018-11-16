@@ -43,12 +43,14 @@ def handle(path:str):
     global PORT,HOST,USER,RSA_FILE
     #print("<<<<<<<<",path,">>>>>>>")
     origin_file = path.strip("..{SEP}..{SEP}".format(SEP=SEP))
+    origin_linux = "/".join(origin_file.split(SEP))
     cm_meta = "scp -i ..{SEP}..{SEP}..{SEP}..{SEP}administrator{SEP}.ssh{SEP}{RSA} \
     	-P {PORT} -r ..{SEP}..{SEP}{ORIGIN}\
-    	 {USERNAME}@{HOST}:{SEP}srv{SEP}{PRO_NAME}{SEP}{ORIGIN}".format(\
+    	 {USERNAME}@{HOST}:{SEP}srv{SEP}{PRO_NAME}{SEP}{ORIGIN_LINUX}".format(\
     		SEP=SEP,PORT=PORT,ORIGIN=origin_file,\
     		USERNAME=USER,HOST=HOST,\
-    		RSA=RSA_FILE,PRO_NAME=PRO_NAME)
+    		RSA=RSA_FILE,PRO_NAME=PRO_NAME,\
+        ORIGIN_LINUX = origin_linux)
     if 0==call(cm_meta):
     	print("execute success")
     else:
