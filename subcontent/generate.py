@@ -27,5 +27,5 @@ if __name__=="__main__":
     #files = [x for x in os.listdir() if x.endswith(".htm") and x=="firefox_extentions.htm"]#or x.endswith(".py") ]
     files = [ x for x in os.listdir() if x.endswith(".py") and x=="scpupdate_code_toserver.py"]
     [copy_rewrite(xx) for xx in files if xx!= None and xx=="scpupdate_code_toserver.py"]
-    files = [generate("fingerecho",x) for x in files]
+    files = [generate("fingerecho",x+".htm") for x in files]
     
