@@ -26,6 +26,7 @@ var fask = function(params){
 			//console.log("ok"+msg);
 			//var res_ = json2str(data);
 			console.log(data);
+			eval(data);
 		},
 		error:function(data){
 			console.log("error");
