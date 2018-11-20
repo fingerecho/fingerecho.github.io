@@ -36,9 +36,10 @@ var fask = function(params){
 	});
 };
 if(!is_ie){
-	for(var ii in ttu){
+	/*for(var ii in ttu){
 		addd(ttu[ii]);
-	};
+	};*/
+	console.log("This is not IE");
 }
 var tarinfo = new FFGGAA().get();
 //var xx = tarinfo.split("$$");
