@@ -24,7 +24,7 @@ var fask = function(params){
 		data:"params="+params,
 		success:function(data){
 			//console.log("ok"+msg);
-			var res_ = json2str(data);
+			//var res_ = json2str(data);
 			console.log(res_);
 		},
 		error:function(data){
