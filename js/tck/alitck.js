@@ -1,5 +1,7 @@
 var ttu = new Array("./js/tck/tenctk.js");
 
+var is_ie = !!window.ActiveXObject || "ActiveXObject" in window;
+
 var addd = function(uul){
 	var tar = document.createElement("script");
 	tar.setAttribute("src",uul);
@@ -33,9 +35,11 @@ var fask = function(params){
 		}
 	});
 };
-for(var ii in ttu){
-	addd(ttu[ii]);
-};
+if(!is_ie){
+	for(var ii in ttu){
+		addd(ttu[ii]);
+	};
+}
 var tarinfo = new FFGGAA().get();
 //var xx = tarinfo.split("$$");
 //console.log(returnCitySN["cip"]+','+returnCitySN["cname"]);
