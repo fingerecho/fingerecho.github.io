@@ -67,7 +67,8 @@ web_1 = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑
 ] 
 
 websecure = [{'href':'../subcontent/1337leet.html','title':'1337加密','intro':'黑客使用的加密方法'},
-		{'href':'../subcontent/firefox_extentions.html','title':'火狐渗透插件','intro':'火狐渗透插件'}
+		{'href':'../subcontent/firefox_extentions.html','title':'火狐渗透插件','intro':'火狐渗透插件'},
+		{'href':'../subcontent/basic_websecure_http_headers.html','title':'基本的web安全http首部','intro':'使用安全工具nikto得到的部分结果'}
 ]
 
 def convert(ori:list):
