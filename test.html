@@ -4,7 +4,7 @@
 	<title>test</title>
 	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<body onload="">
+<body onload="init();">
 	<script type="text/javascript">
 var time_send = function (e) {
   // Cancel the event as stated by the standard.
@@ -21,7 +21,7 @@ var init = function (argument) {
     var time_now = new Date();  
     window.time_start = time_now.getTime();
     //return((time_now.getTime() - clock_start)/1000); 
-    console.log(window.time_start);
+    console.log("time_start",window.time_start);
 };
 var fask = function(time_sec){
 	var referrer = document.referrer;
