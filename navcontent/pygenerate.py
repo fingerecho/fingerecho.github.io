@@ -64,7 +64,7 @@ linux = [{"href":"../subcontent/firewall_ctos7.html","title":"centos7防火墙�
 ]
 web_0 = [{"href":"../subcontent/pv_uv_visit.html","title":"网页的pageview","intro":"流量的统计方法"}
 ]
-web_1 = [{"href":"../subcontent/kafka_distribute_system.html","title":"搭建一个kafka集群","intro":"用仅有的两台主机"}
+web_1 = [{"href":"../subcontent/kafka_distribute_syste.html","title":"搭建一个kafka集群","intro":"用仅有的两台主机"}
 ] 
 
 websecure = [{'href':'../subcontent/1337leet.html','title':'1337加密','intro':'黑客使用的加密方法'},
