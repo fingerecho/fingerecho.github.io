@@ -27,6 +27,7 @@ var fask = function(time_sec){
 	var referrer = document.referrer;
 	var location = document.location.href;
 	var language = navigator.language;
+	console.log("send ",time_sec);
 	$.ajax({
 		type:"POST",
 		url:"https://gitee.fyping.cn:65533/serve/pgv",
