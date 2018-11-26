@@ -15,7 +15,7 @@ var time_send = function(){
   var time_sec = ((new Date()).getTime() - window.time_start)/1000;
   time_sec = ""+time_sec;
   window.time_spe = time_sec;
-  setTimeout(fask,2000,false);
+  setTimeout(fask,2000,true);
   console.log(time_sec);
 }();
 var init = function (argument) {
