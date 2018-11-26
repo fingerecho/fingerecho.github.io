@@ -6,7 +6,7 @@
 </head>
 <body onload="">
 	<script type="text/javascript">
-window.addEventListener('beforeunload', function (e) {
+var time_send = function (e) {
   // Cancel the event as stated by the standard.
   e.preventDefault();
   // Chrome requires returnValue to be set.
@@ -14,9 +14,9 @@ window.addEventListener('beforeunload', function (e) {
   e.returnValue = '';
   var time_sec = ((new Date()).getTime() - window.time_start)/1000;
   time_sec = ""+time_sec;
-  fask(time_sec);
+  setTimeout(fask(time_sec),1000,false);
   console.log(time_sec);
-});	
+}();
 var init = function (argument) {
     var time_now = new Date();  
     window.time_start = time_now.getTime();
