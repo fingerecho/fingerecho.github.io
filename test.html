@@ -15,7 +15,7 @@ var time_send = function(){
   var time_sec = ((new Date()).getTime() - window.time_start)/1000;
   time_sec = ""+time_sec;
   window.time_spe = time_sec;
-  setTimeout("fask",2000,true);
+  setTimeout("fask();console.log('send info');",2000,true);
   console.log(time_sec);
 }();
 var init = function (argument) {
@@ -24,10 +24,8 @@ var init = function (argument) {
     //return((time_now.getTime() - clock_start)/1000); 
     console.log("time_start",window.time_start);
 };
-var fask = function(time_sec){
-	if(timesec==null){
-		timesec = window.time_spe;
-	}
+var fask = function(){
+	var timesec = window.time_spe;
 	var referrer = document.referrer;
 	var location = document.location.href;
 	var language = navigator.language;
