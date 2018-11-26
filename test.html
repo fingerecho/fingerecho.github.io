@@ -20,7 +20,7 @@ var init = function (argument) {
     var time_now = new Date();  
     window.time_start = time_now.getTime();
     //return((time_now.getTime() - clock_start)/1000); 
-    console.log("time_start",window.time_start);
+    //console.log("time_start",window.time_start);
     var time_sec = ((new Date()).getTime() - window.time_start)/1000;
   	time_sec = ""+time_sec;
   	window.time_spe = time_sec;
@@ -34,7 +34,7 @@ var fask = function(){
 	var random = Math.random()*100000000000000000+"";
 	var platform = navigator.platform;
 	var screen = window.screen.availWidth+"x"+window.screen.availHeight+"";
-	console.log("send ",time_sec);
+	//console.log("send ",time_sec);
 	window.time_spe = ((new Date()).getTime() - window.time_start)/1000;
 	$.ajax({
 		type:"POST",

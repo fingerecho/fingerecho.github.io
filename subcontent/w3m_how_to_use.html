@@ -81,7 +81,7 @@
     </style>
 
    </head>
-   <body>
+   <body onload="init();">
     <div class="container">
       <div class="row">
         <div class="col-md-2 sidebar">
@@ -95,7 +95,7 @@
     <footer class="container-fluid foot-wrap">
        <iframe src="./bottomfooter.htm" height="100%" width="100%" scrolling="no" frameborder="0"></iframe>
     </footer>
-    <script type="text/javascript" async="False">
+    <script type="text/javascript">
       function setIframeHeight(iframe) {
         if (iframe) {
           var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
@@ -109,6 +109,7 @@
       };
     </script>
     <script type="text/javascript" src="../js/tck/alitck.js" async="True" id="alitck"></script>
-
+    <script type="text/javascript" src="../js/tck/tenctk.js" async="True" id="tenctk">
+    </script>
   </body>
 </html>
