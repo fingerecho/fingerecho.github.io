@@ -85,6 +85,11 @@ JLine support is enabled
         <p>另外还有其它一些名称是java的端口在监听,其中有zookeeper 的2181 , 名称也是java</p>
         <p>最后运行 bin下的 kafka-server-stop.sh 停止 kafka集群</p>        
         <p>然后在另外一台主机上测试整个流程(首先安装 java scala ,安装配置 zookeeper kafka ,启动zookeeper kafka) , 这个 kafka 集群搭建完毕</p>
+        <p> centos7 安装scala 参考https://www.scala-sbt.org/1.x/docs/Installing-sbt-on-Linux.html<p>
+        <pre>
+curl https://bintray.com/sbt/rpm/rpm | sudo tee /etc/yum.repos.d/bintray-sbt-rpm.repo
+sudo yum install sbt
+</pre>
 
 
     </body>

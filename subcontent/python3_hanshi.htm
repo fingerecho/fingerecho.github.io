@@ -1,0 +1,85 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>需要经常看看的python3代码</title>
+    <style type="text/css">
+        html,body{margin: 0;padding: 0;}
+        body{width: 100%;}
+        p,pre{margin-left:10%;}
+        h1{text-align: center}
+        pre {
+          white-space: pre-wrap;
+          white-space: -moz-pre-wrap;
+          white-space: -pre-wrap;
+          white-space: -o-pre-wrap;
+          *word-wrap: break-word;
+          *white-space : normal ;  
+          }
+        hr{
+          width: 80%;
+        }
+    </style>
+    </head>
+    <body>
+      <h1>需要经常看看的python3代码</h1>
+      <hr>
+      <h2>“可更改”（mutable）与“不可更改”（immutable）</h2>
+      <pre>
+#!/usr/bin/python3
+
+a=1&lt;&lt;32;print(id(a))
+print(id(1&lt;&lt;32))
+def ch_(a:int):
+    a=1&lt;&lt;32+1;print(id(a))
+    print(id(1&lt;&lt;32+1))
+    return a
+ch_(a)
+print(id(a))
+print(a==1&lt;&lt;32)
+a=ch_(a)
+print(a==1&lt;&lt;32)
+
+b=();print(id(b))
+print(id(()))
+def ch_t(b:tuple):
+    b=('hello','world');print(id(b))
+    return b
+ch_t(b)
+print(id(b))
+print(b==())
+b=ch_t(b)
+print(b==())
+
+c=[];print(id(c))
+print(id([]))
+def ch_l(c:list):
+    c=['hello','world'];print(id(c))
+    print(id(['hello','world']))
+    return c
+ch_l(c)
+print(id(c))
+print(c==[])
+c=ch_l(c)
+print(c==[])
+
+d={};print(id(d))
+print(id({}))
+def ch_d(d:dict):
+    d={"hello":"world"};print(id(d))
+    print(id({"hello":"world"}))
+    return d
+ch_d(d)
+print(id(d))
+print(d=={})
+d=ch_d(d)
+print(d=={})
+</pre>
+  <p>结论:strings, tuples, 和numbers是不可更改的对象，而 list, dict, set等则是可以修改的对象</p>
+  <p>当一个引用传递给函数的时候,函数自动复制一份引用,这个函数里的引用和外边的引用没有关系，但是引用指向的内存却没有变化</p>
+  <p>另外需要注意的是 tuple 只有两个函数 index 和 count  ，正是因为它是imutable的</p>
+  <hr>
+  
+
+
+    </body>
+</html>
