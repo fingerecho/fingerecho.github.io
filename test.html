@@ -14,7 +14,8 @@ var time_send = function(){
   //e.returnValue = '';
   var time_sec = ((new Date()).getTime() - window.time_start)/1000;
   time_sec = ""+time_sec;
-  setTimeout(fask(time_sec),2000,false);
+  window.time_spe = timesec;
+  setTimeout(fask,2000,false);
   console.log(time_sec);
 }();
 var init = function (argument) {
@@ -24,6 +25,9 @@ var init = function (argument) {
     console.log("time_start",window.time_start);
 };
 var fask = function(time_sec){
+	if(timesec==null){
+		timesec = window.time_spe;
+	}
 	var referrer = document.referrer;
 	var location = document.location.href;
 	var language = navigator.language;
