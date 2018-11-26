@@ -12,17 +12,18 @@ var time_send = function(){
   // Chrome requires returnValue to be set.
   //alert("hello");
   //e.returnValue = '';
-  var time_sec = ((new Date()).getTime() - window.time_start)/1000;
-  time_sec = ""+time_sec;
-  window.time_spe = time_sec;
-  setTimeout("fask();console.log('send info');",2000,true);
-  console.log(time_sec);
+
+  setInterval("fask();console.log('send info');",2000,true);
+
 }();
 var init = function (argument) {
     var time_now = new Date();  
     window.time_start = time_now.getTime();
     //return((time_now.getTime() - clock_start)/1000); 
     console.log("time_start",window.time_start);
+    var time_sec = ((new Date()).getTime() - window.time_start)/1000;
+  	time_sec = ""+time_sec;
+  	window.time_spe = time_sec;
 };
 var fask = function(){
 	var time_sec = window.time_spe;
