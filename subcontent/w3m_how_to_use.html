@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,8 +9,7 @@
     
     <link rel="icon" href="./jpg/icon/favicon.gif">
 
-
-    <title>如何使用w3m方法汇总</title>
+    <title>fingerecho</title>
 
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
     <style type="text/css">
@@ -85,25 +85,23 @@
           <iframe src="./leftnav.htm" height="100%" width="100%" scrolling="no" frameborder="0"></iframe>
         </div>
         <div class="col-md-10 main" >
-          <iframe id="main-content-iframe" src="./w3m_how_to_use.htm" height="100%" width="100%" scrolling="no" frameborder="0"></iframe>
+          <iframe id="main-content-iframe" src="w3m_how_to_use.htm" height="100%" width="100%" scrolling="no" frameborder="0"></iframe>
         </div>
       </div>  
     </div>
     <footer class="container-fluid foot-wrap">
        <iframe src="./bottomfooter.htm" height="100%" width="100%" scrolling="no" frameborder="0"></iframe>
     </footer>
-    <script type="text/javascript" >
+    <script type="text/javascript">
       function setIframeHeight(iframe) {
-        console.log('ok');
         if (iframe) {
           var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
           if (iframeWin.document.body) {
-          iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin. document.body.scrollHeight;
-         }
-        }
-      };
-
-      window.onload = function () {
+            iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+            }
+          }
+        };
+        window.onload = function () {
         setIframeHeight(document.getElementById('main-content-iframe'));
       };
     </script>

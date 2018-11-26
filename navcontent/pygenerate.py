@@ -52,7 +52,8 @@ python3 = [{"href":"../subcontent/gitpushall.py.html","title":"GIT傻瓜式封�
 go = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑客使用的加密密码"}
 ]
 htmlcssjs = [{"href":"../subcontent/data-src.html","title":"图片懒加载","intro":"img的data-src属性"},
-{"href":"../subcontent/xxtea_code.html","title":"html的XXTEA加密技术","intro":"加密网页"}
+{"href":"../subcontent/xxtea_code.html","title":"html的XXTEA加密技术","intro":"加密网页"},
+{"href":"../subcontent/w3m_how_to_use.html","title":"如何使用w3m","intro":"w3m安全的浏览工具"}
 ]
 sql = [{"href":"../subcontent/postgresql_installconfigoncentos7.html","title":"Postgresql 在centos7上的安装","intro":"Postgresl 的安装配置"}
 ]

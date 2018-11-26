@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -8,7 +9,7 @@
     
     <link rel="icon" href="./jpg/icon/favicon.gif">
 
-    <title>title</title>
+    <title>fingerecho</title>
 
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
     <style type="text/css">
@@ -64,6 +65,16 @@
       .pcent{
         text-align:center;
       }
+      
+      pre {
+      white-space: pre-wrap;
+      white-space: -moz-pre-wrap;
+      white-space: -pre-wrap;
+      white-space: -o-pre-wrap;
+      *word-wrap: break-word;
+      *white-space : normal ;  
+      }
+
     </style>
 
    </head>
@@ -82,17 +93,17 @@
        <iframe src="./bottomfooter.htm" height="100%" width="100%" scrolling="no" frameborder="0"></iframe>
     </footer>
     <script type="text/javascript">
-      var setIframe = function(id) {
-      var Iframe = document.getElementById(id);
-        try {
-          // 声明变量取值
-          var bHeight = Iframe.contentWindow.document.body.scrollHeight;
-          var dHeight = Iframe.contentWindow.document.documentElement.scrollHeight;
-          var height = Math.max(bHeight, dHeight); // 取最大值
-          Iframe.height = height;
-          } catch (ex) { }
+      function setIframeHeight(iframe) {
+        if (iframe) {
+          var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+          if (iframeWin.document.body) {
+            iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+            }
+          }
         };
-      window.setInterval("setIframe('main-content-iframe')",10);
+        window.onload = function () {
+        setIframeHeight(document.getElementById('main-content-iframe'));
+      };
     </script>
   </body>
 </html>
