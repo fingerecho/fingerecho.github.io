@@ -34,7 +34,7 @@ var time_send = function(){
   //alert("hello");
   //e.returnValue = '';
 
-  setInterval("fask();console.log('send info');",2000,true);
+  setInterval("fask();",2000,true);
 
 }();
 var init = function (argument) {
