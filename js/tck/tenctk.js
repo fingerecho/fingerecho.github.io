@@ -27,13 +27,13 @@ function _addFavorite() {
 }    */
 
 
-var time_send = function(){
+/*var time_send = function(){*/
   // Cancel the event as stated by the standard.
   //e.preventDefault();
   // Chrome requires returnValue to be set.
   //alert("hello");
   //e.returnValue = '';
-
+/*
   setInterval("fask();",2000,true);
 
 }();
@@ -45,8 +45,8 @@ var init = function (argument) {
     var time_sec = ((new Date()).getTime() - window.time_start)/1000;
     time_sec = ""+time_sec;
     window.time_spe = time_sec;
-};
-var fask = function(){
+};*/
+/*var fask = function(){
   
   var time_sec = Math.round(window.time_spe);
   var referrer = document.referrer;
@@ -65,7 +65,7 @@ var fask = function(){
       var wel = window.welcome_info == null ? window.welcome_info : 'isnull';
         XMLHttpRequest.setRequestHeader("Welcome", "");
         },*/
-    success:function(data){
+    /*success:function(data){
       //console.log("ok"+msg);
       //var res_ = json2str(data);
       console.log(data);
@@ -73,7 +73,7 @@ var fask = function(){
     },
     error:function(data){
       console.log("error");
-    }/*,
+    }*//*,
      complete: function( xhr,data ){
           // 获取相关Http Response header
           var wpoInfo = {
@@ -99,6 +99,6 @@ var fask = function(){
           };
           window.welcome_info = wpoInfo['welcome'];
       }*/
-  });
+/*  });
 };
-
+*/

@@ -58,4 +58,4 @@ if(window.localStorage){
 	}
 }
 console.log("xx_user:"+xx_user);
-setTimeout(fask(xx_user),5000,false);
+/*setTimeout(fask(xx_user),5000,false);*/
