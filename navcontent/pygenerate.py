@@ -60,7 +60,8 @@ sql = [{"href":"../subcontent/postgresql_installconfigoncentos7.html","title":"P
 linux = [{"href":"../subcontent/firewall_ctos7.html","title":"centos7防火墙配置","intro":"UFW Centos7防火墙"},
 		{"href":"../subcontent/ip_long_2_ver.html","title":"IP 长整形转换","intro":"使用长整形的IP"},
 		{"href":"../subcontent/selinux_learning.html","title":"selinux","intro":"Selinux配置"},
-		{"href":"../subcontent/zabbix_install_on_centos_7.html","title":"Zabbix在centos7上的安装配置","intro":"使用Zabbix进行系统维护"}
+		{"href":"../subcontent/zabbix_install_on_centos_7.html","title":"Zabbix在centos7上的安装配置","intro":"使用Zabbix进行系统维护"},
+		{"href":"../subcontent/rpm_open_fail.html","title":"rpm出现的错误","intro":"rpm出现错误"}
 ]
 web_0 = [{"href":"../subcontent/pv_uv_visit.html","title":"网页的pageview","intro":"流量的统计方法"}
 ]
