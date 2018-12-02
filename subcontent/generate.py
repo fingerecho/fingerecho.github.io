@@ -28,7 +28,7 @@ def copy_rewrite(x:str): #### fix the non space of html   using pre label
 	fx.write(res)
 	fx.close()	
 if __name__=="__main__":
-    files = [x for x in os.listdir() if x.endswith(".htm") ]
+    files = [x for x in os.listdir() if x.endswith(".htm") and x=="python3_encode_type.htm" ]
     #files = [ x for x in os.listdir() if x.endswith(".py") and x=="python3_closure_nonlocal.py"]
     #[copy_rewrite(xx) for xx in files if xx!= None and xx=="python3_closure_nonlocal.py"]
     files = [generate("fingerecho",x) for x in files]

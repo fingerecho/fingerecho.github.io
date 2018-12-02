@@ -47,7 +47,8 @@ python3 = [{"href":"../subcontent/gitpushall.py.html","title":"GIT傻瓜式封�
 			{"href":"../subcontent/refresh.py.html","title":"python3-封装的GIT","intro":"python3造轮子系列"},
 			{"href":"../subcontent/adding_log.py.html","title":"python3-给所有代码打上log","intro":"python3调试代码系列"},	
 			{"href":"../subcontent/scpupdate_code_toserver.py.html","title":"python3-模仿merical 签出代码","intro":"python3造轮子系列之 hg "},
-			{'href':'../subcontent/python3_closure_nonlocal.py.html','title':'python3-闭包-nonlocal关键字','intro':' '},			
+			{'href':'../subcontent/python3_closure_nonlocal.py.html','title':'python3-闭包-nonlocal关键字','intro':' '},
+			{'href':'../subcontent/python3_encode_type.htm.html','title':'python3编码类型汇总','intro':''},			
 ]
 go = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑客使用的加密密码"}
 ]
