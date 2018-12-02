@@ -18,7 +18,7 @@
     </head>
     <body>
       <h1>python3编码</h1>
-      <h2>为止文件编码检测</h2>
+      <h3>为止文件编码检测</h3>
       <p>python3内置库 chardet</p>
       <pre>
 #!/usr/bin/python3
@@ -30,7 +30,7 @@ fh.close()
 print(chardet.detect(dat))
 #{'encoding': 'GB2312', 'confidence': 0.99, 'language': 'Chinese'}
 </pre>
-      <p>python的执行环境编码</p>
+      <h3>python的执行环境编码</h3>
       <pre>
 #!/usr/bin/python3
 import sys
@@ -38,7 +38,7 @@ print(sys.getdefaultencoding())
 #window 默认 gbk
 #linux utf-8
 </pre>
-      <p>bytes编码str,str解码bytes</p>
+      <h3>bytes编码str,str解码bytes</h3>
       <pre>
 #!/usr/bin/python
 a=bytes('hello',encoding="ascii")
