@@ -55,7 +55,8 @@ htmlcssjs = [{"href":"../subcontent/data-src.html","title":"图片懒加载","in
 {"href":"../subcontent/xxtea_code.html","title":"html的XXTEA加密技术","intro":"加密网页"},
 {"href":"../subcontent/w3m_how_to_use.html","title":"如何使用w3m","intro":"w3m安全的浏览工具"}
 ]
-sql = [{"href":"../subcontent/postgresql_installconfigoncentos7.html","title":"Postgresql 在centos7上的安装","intro":"Postgresl 的安装配置"}
+sql = [{"href":"../subcontent/postgresql_installconfigoncentos7.html","title":"Postgresql 在centos7上的安装","intro":"Postgresl 的安装配置"},
+{"href":"../subcontent/django_mysql_datatype.html","title":"mysql postgresql 在 django中的数据类型","intro":"django中mysql和pg的数据类型"},
 ]
 linux = [{"href":"../subcontent/firewall_ctos7.html","title":"centos7防火墙配置","intro":"UFW Centos7防火墙"},
 		{"href":"../subcontent/ip_long_2_ver.html","title":"IP 长整形转换","intro":"使用长整形的IP"},
@@ -63,12 +64,12 @@ linux = [{"href":"../subcontent/firewall_ctos7.html","title":"centos7防火墙�
 		{"href":"../subcontent/zabbix_install_on_centos_7.html","title":"Zabbix在centos7上的安装配置","intro":"使用Zabbix进行系统维护"},
 		{"href":"../subcontent/rpm_open_fail.html","title":"rpm出现的错误","intro":"rpm出现错误"}
 ]
-web_0 = [{"href":"../subcontent/pv_uv_visit.html","title":"网页的pageview","intro":"流量的统计方法"}
+web_0 = [{"href":"../subcontent/pv_uv_visi.html","title":"网页的pageview","intro":"流量的统计方法"}
 ]
 web_1 = [{"href":"../subcontent/kafka_distribute_syste.html","title":"搭建一个kafka集群","intro":"用仅有的两台主机"}
 ] 
 
-websecure = [{'href':'../subcontent/1337leet.html','title':'1337加密','intro':'黑客使用的加密方法'},
+websecure = [{'href':'../subcontent/1337lee.html','title':'1337加密','intro':'黑客使用的加密方法'},
 		{'href':'../subcontent/firefox_extentions.html','title':'火狐渗透插件','intro':'火狐渗透插件'},
 		{'href':'../subcontent/basic_websecure_http_headers.html','title':'基本的web安全http首部','intro':'使用安全工具nikto得到的部分结果'}
 ]
