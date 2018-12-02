@@ -42,16 +42,16 @@ for root , dirs , files in os.walk("./"):
         if i in dirs:
             dirs.remove(i)
 print(len(names),len(hrefs),names,hrefs)
-head=["<html>","<head>","<meta charset=\"utf-8\">","<title>目录</title>","</head>","<body>"]
-bottom=["</body></html>"]
+head=["&lt;html&gt;","&lt;head&gt;","&lt;meta charset=\"utf-8\"&gt;","&lt;title&gt;目录&lt;/title>","&lt;/head&gt;","&lt;body&gt;"]
+bottom=["&lt;/body&gt;&lt;/html&gt;"]
 with open("./index.html","w",encoding="utf-8") as f:
     for i in head:
         f.write(i)
-    f.write("<ul>")
+    f.write("&lt;ul&gt;")
     for i in range(len(hrefs)):
-        f.write("<li><a href=\"%s\">%s{dirs:%s}</li>"%(hrefs[i],names[i],hrefs[i]))
-    f.write("</ul>")
-    for i in bottom:
+        f.write("&lt;li&gt;&lt;a href=\"%s\"&gt;%s{dirs:%s}&lt;/li&gt;"%(hrefs[i],names[i],hrefs[i]))
+    f.write("&lt;/ul&gt;")
+    for i in bottom:：
         f.write(i)
 args=["git pull","git add .","git commit -m'200'","git push -f"]
 for i in args:
