@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: 
+Disallow: /website/
+Disallow: /pyt
+Disallow: /old_version
+Disallow: /config
+Disallow: /navcontent/__pycache__
+Disallow: /navcontent/pygenerate
+Disallow: /navcontent/testcontent.dir
+Disallow: /subcontent/pygenerate
+Disallow: /subcontent/testcontent.dir
