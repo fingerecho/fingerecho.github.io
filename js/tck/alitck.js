@@ -76,6 +76,15 @@ return r ? r[1] : undefined;
 	var platform = navigator.platform;
 	var screen = window.screen.availWidth+"x"+window.screen.availHeight+"";
 	//console.log("send ",time_sec);
+	func generate_randstr(){
+	　var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+　 	　var maxPos = $chars.length;
+　　　 var pwd = '';
+　　for (i = 0; i < 32; i++) {
+　　　　pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+　　}
+	return pwd;　
+	}
 	window.time_spe = ((new Date()).getTime() - window.time_start)/1000;
 	var xsrf = getCookie("_xsrf");
 	if(xsrf=="" || xsrf==null){
@@ -85,7 +94,7 @@ return r ? r[1] : undefined;
 	$.ajax({
 		type:"POST",
 		url:"https://gitee.fyping.cn:65533/uv",
-		data:"timesec="+time_sec+"&referrer="+referrer+"&location="+location+"&language="+language+"&randoms="+random+"&platform="+platform+"&screen="+screen+"&_xsrf="+xsrf+"&tokens="+"13131321312231",
+		data:"timesec="+time_sec+"&referrer="+referrer+"&location="+location+"&language="+language+"&randoms="+random+"&platform="+platform+"&screen="+screen+"&_xsrf="+xsrf+"&tokens="+generate_randstr(),
 			/*beforeSend: function (XMLHttpRequest) {
 			var wel = window.welcome_info == null ? window.welcome_info : 'isnull';
      		XMLHttpRequest.setRequestHeader("Welcome", "");
