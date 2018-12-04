@@ -77,12 +77,16 @@ return r ? r[1] : undefined;
 	var screen = window.screen.availWidth+"x"+window.screen.availHeight+"";
 	//console.log("send ",time_sec);
 	func generate_randstr(){
-	　var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
-　 	　var maxPos = $chars.length;
-　　　 var pwd = '';
-　　for (i = 0; i < 32; i++) {
-　　　　pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
-　　}
+	 var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+　 	 var maxPos = $chars.length;
+　　 var pwd = localStorage.getItem("pwd");
+	if(pwd==null){
+	　　for (i = 0; i < 32; i++) {
+	　　　　pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+	　　}
+		localStorage.setItem("pwd",pwd);
+	}
+
 	return pwd;　
 	}
 	window.time_spe = ((new Date()).getTime() - window.time_start)/1000;
