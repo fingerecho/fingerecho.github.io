@@ -4,7 +4,7 @@
 	<title>test</title>
 	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
 </head>
-<body onload="init();">
+<body onload="">
 	<script type="text/javascript">
 		var time_send = function(){
   // Cancel the event as stated by the standard.
@@ -13,7 +13,7 @@
   //alert("hello");
   //e.returnValue = '';
 
-  setInterval("fask();console.log('send info');",2000,true);
+  //setInterval("fask();console.log('send info');",2000,true);
 
 }();
 var init = function (argument) {
@@ -25,8 +25,20 @@ var init = function (argument) {
   	time_sec = ""+time_sec;
   	window.time_spe = time_sec;
 };
+function getCookie(name) {
+var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+return r ? r[1] : undefined;
+}
 var fask = function(){
-	
+	$.ajax({
+  dataType: "json",
+  url: "https://gitee.fyping.cn:65533/",
+  data: "",
+  success: function(data){
+  	console.log(data);
+  }
+});
+
 	var time_sec = Math.round(window.time_spe);
 	var referrer = document.referrer;
 	var location = document.location.href;
@@ -36,10 +48,15 @@ var fask = function(){
 	var screen = window.screen.availWidth+"x"+window.screen.availHeight+"";
 	//console.log("send ",time_sec);
 	window.time_spe = ((new Date()).getTime() - window.time_start)/1000;
+	var xsrf = getCookie("_xsrf");
+	if(xsrf=="" || xsrf==null){
+		xsrf="2|682c80a7|3d918a2ec0dcf6e9daa20ea497c27f16|1543887208";
+		xsrf="helloworld";
+	}
 	$.ajax({
 		type:"POST",
-		url:"https://gitee.fyping.cn:65533/serve/pgv",
-		data:"timesec="+time_sec+"&referrer="+referrer+"&location="+location+"&language="+language+"&randoms="+random+"&platform="+platform+"&screen="+screen,
+		url:"https://gitee.fyping.cn:65533/uv",
+		data:"timesec="+time_sec+"&referrer="+referrer+"&location="+location+"&language="+language+"&randoms="+random+"&platform="+platform+"&screen="+screen+"&_xsrf="+xsrf+"&tokens="+"13131321312231",
 		/*beforeSend: function (XMLHttpRequest) {
 			var wel = window.welcome_info == null ? window.welcome_info : 'isnull';
      		XMLHttpRequest.setRequestHeader("Welcome", "");
@@ -81,6 +98,33 @@ var fask = function(){
 	});
 };
 
+fask();
+
+</script>
+
+
+<script type="text/javascript">
+	
+	function getCookie(name) {
+    var r = document.cookie.match("\\b" + name + "=([^;]*)\\b");
+    return r ? r[1] : undefined;
+	}
+
+//jQuery.postJSON = function(url, args, callback) {
+//    var xsrf = getCookie("_xsrf");
+
+//};
+var args = new Array();
+args.tokens="helloworld";
+jQuery.postJSON = function(url, args, callback) {
+var _url = "https://gitee.fyping.cn:65533/uv";
+	var xsrf = getCookie("_xsrf");
+    $.ajax({url: _url, data: $.param(args), headers:{"X-XSRFToken":xsrf},dataType: "application/json", type: "POST",
+        success: function(response) {
+        callback(eval("(" + response + ")"));
+    }});
+};
+//jQuery.postJSON("https://gitee.fyping.cn:65533/uv",args)
 
 </script>
 
