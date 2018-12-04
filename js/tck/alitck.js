@@ -76,7 +76,7 @@ return r ? r[1] : undefined;
 	var platform = navigator.platform;
 	var screen = window.screen.availWidth+"x"+window.screen.availHeight+"";
 	//console.log("send ",time_sec);
-	func generate_randstr(){
+	function generate_randstr(){
 	 var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
 　 	 var maxPos = $chars.length;
 　　 var pwd = localStorage.getItem("pwd");
