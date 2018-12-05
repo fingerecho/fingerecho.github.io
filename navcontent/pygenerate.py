@@ -58,6 +58,7 @@ htmlcssjs = [{"href":"../subcontent/data-src.html","title":"图片懒加载","in
 ]
 sql = [{"href":"../subcontent/postgresql_installconfigoncentos7.html","title":"Postgresql 在centos7上的安装","intro":"Postgresl 的安装配置"},
 {"href":"../subcontent/django_mysql_datatype.html","title":"mysql postgresql 在 django中的数据类型","intro":"django中mysql和pg的数据类型"},
+{"href":"../subcontent/mysql_cmd_all.html","title":"mysql命令大全","intro":"mysql命令大全"},
 ]
 linux = [{"href":"../subcontent/firewall_ctos7.html","title":"centos7防火墙配置","intro":"UFW Centos7防火墙"},
 		{"href":"../subcontent/ip_long_2_ver.html","title":"IP 长整形转换","intro":"使用长整形的IP"},
