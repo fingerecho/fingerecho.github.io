@@ -48,7 +48,8 @@ python3 = [{"href":"../subcontent/gitpushall.py.html","title":"GIT傻瓜式封�
 			{"href":"../subcontent/adding_log.py.html","title":"python3-给所有代码打上log","intro":"python3调试代码系列"},	
 			{"href":"../subcontent/scpupdate_code_toserver.py.html","title":"python3-模仿merical 签出代码","intro":"python3造轮子系列之 hg "},
 			{'href':'../subcontent/python3_closure_nonlocal.py.html','title':'python3-闭包-nonlocal关键字','intro':' '},
-			{'href':'../subcontent/python3_encode_type.html','title':'python3编码类型汇总','intro':''},			
+			{'href':'../subcontent/python3_encode_type.html','title':'python3编码类型汇总','intro':''},
+			{'href':'../subcontent/shadowsock_in_python.html','title':'如何用Python番GREAT-FFFIIRE-EWLLL','intro':'更加人性化的技术'},			
 ]
 go = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑客使用的加密密码"}
 ]
@@ -64,7 +65,8 @@ linux = [{"href":"../subcontent/firewall_ctos7.html","title":"centos7防火墙�
 		{"href":"../subcontent/ip_long_2_ver.html","title":"IP 长整形转换","intro":"使用长整形的IP"},
 		{"href":"../subcontent/selinux_learning.html","title":"selinux","intro":"Selinux配置"},
 		{"href":"../subcontent/zabbix_install_on_centos_7.html","title":"Zabbix在centos7上的安装配置","intro":"使用Zabbix进行系统维护"},
-		{"href":"../subcontent/rpm_open_fail.html","title":"rpm出现的错误","intro":"rpm出现错误"}
+		{"href":"../subcontent/rpm_open_fail.html","title":"rpm出现的错误","intro":"rpm出现错误"},
+		{"href":"../subcontent/linux_software_cmd.html","title":"20款堪称神器的linux命令行软件","intro":"linux命令行神器"}
 ]
 web_0 = [{"href":"../subcontent/pv_uv_visit.html","title":"网页的pageview","intro":"流量的统计方法"}
 ]

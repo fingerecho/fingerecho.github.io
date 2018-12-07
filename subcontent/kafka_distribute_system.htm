@@ -4,8 +4,8 @@
     <title>搭建一个kafka集群</title>
     <style type="text/css">
         html,body{margin: 0;padding: 0;}
-        p,pre{margin-left:10%;}
-        h1{text-align: center}
+        p,pre,h2,h3,h4{margin-left:10%;font-family: Palatino, "Palatino Linotype", SimSun;}
+        h1{text-align: center;font-family:  "Palatino Linotype", SimSun;}
         pre {
           white-space: pre-wrap;
           white-space: -moz-pre-wrap;
@@ -76,6 +76,16 @@ JLine support is enabled
         <p>kafka 的配置<p>
         <p>修改 config/server.properties</p>
         <p>其中 log.dir , zookeeper.connect 需要配置</p>
+        <pre>
+.......
+broker.id=0 # 这个id 即代表本机，拷贝到其它机器上时，相应的增加这个id 值即可
+.......
+log.dirs=/tmp/kafka-logs # 每台主机确定一个可访问的日志目录
+.......
+zookeep.connect=本机ip或者主机名:2181 #2181是指zookeeper的监听端口
+......
+#其它没发现需要更多配置的，默认的监听端口是9092 ，程序中需要访问到,如果没有修改的话就是默认的端口9092
+</pre>
         <p>启动kafka</p>
         <p>定位到相对根目录</p>
         <pre>JMX_PORT=10000 bin/kafka-server-start.sh config/server.properties & </pre>
@@ -90,6 +100,8 @@ JLine support is enabled
 curl https://bintray.com/sbt/rpm/rpm | sudo tee /etc/yum.repos.d/bintray-sbt-rpm.repo
 sudo yum install sbt
 </pre>
+    <p>参考</p>
+    <p>https://blog.csdn.net/weixin_40596016/article/details/79562023</p>
 
 
     </body>
