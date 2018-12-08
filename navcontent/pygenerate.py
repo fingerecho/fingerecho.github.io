@@ -66,7 +66,8 @@ linux = [{"href":"../subcontent/firewall_ctos7.html","title":"centos7防火墙�
 		{"href":"../subcontent/selinux_learning.html","title":"selinux","intro":"Selinux配置"},
 		{"href":"../subcontent/zabbix_install_on_centos_7.html","title":"Zabbix在centos7上的安装配置","intro":"使用Zabbix进行系统维护"},
 		{"href":"../subcontent/rpm_open_fail.html","title":"rpm出现的错误","intro":"rpm出现错误"},
-		{"href":"../subcontent/linux_software_cmd.html","title":"20款堪称神器的linux命令行软件","intro":"linux命令行神器"}
+		{"href":"../subcontent/linux_software_cmd.html","title":"20款堪称神器的linux命令行软件","intro":"linux命令行神器"},
+		{"href":"../subcontent/vim_plugin_config_and_vimrc.html","title":"vim插件的配置和.vimrc的编写","intro":"vim神器的配置与使用"}
 ]
 web_0 = [{"href":"../subcontent/pv_uv_visit.html","title":"网页的pageview","intro":"流量的统计方法"}
 ]
