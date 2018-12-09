@@ -20,14 +20,14 @@
  <h1>centos 7 firewall configure </h1>
  <h3>关闭SELinux </h3>
  <p>关于Selinux  见<a href="./selinux_123.htm" title="selinux" >selinux</a></p>
- <code>sudo sed -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config</code><br>
+ <pre>sudo sed -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config</pre><br>
  <h3>Firewalld 防火墙的关闭</h3>
- <code>sudo systemctl stop firewalld.service && systemctl disable firewalld.service</code>
+ <pre>sudo systemctl stop firewalld.service && systemctl disable firewalld.service</pre>
  <h3>切换成UFW 防火墙</h3>
- <code> yum install ufw </code>
+ <pre> yum install ufw </pre>
  <h4>UFW 的开启 与 关闭</h4>
- <code>ufw enable </code><br>
- <code>ufw disable</code>
+ <pre>ufw enable </pre><br>
+ <pre>ufw disable</pre>
  
 </body>
 </html>
