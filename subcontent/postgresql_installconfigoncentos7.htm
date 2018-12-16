@@ -52,5 +52,12 @@ max_connections = 100                   # (change requires restart)<br>
 shared_buffers = 128MB                  # min 128kB 共享缓存 非常重要的参数<br>
 </code>
 </p>
+    <p>在centos6下 initdb </p>
+    <p>必须使用 postgres用户，因此先把 /var/lib 这个默认的PGDATA目录属主设置为 postgres:postgres </p>
+    <p>之后切换到postgres </p>
+    <p> initdb -D /var/lib/....(your PGDATA)</p>
+    <p>开启数据库</p>
+    <pre>bin/pg_ctl -D /var/lib/postgres/data -l logfile start</pre>
+    
 </body>
 </html>
