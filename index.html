@@ -35,20 +35,69 @@
         #right-archive{
           display: none;
         }
-        @media (min-width: 768px) {
+        #web-nav{
+          display: none;
+        }
+        #mobi-nav{
+          display: block;
+          width: 100%;
+          position: fixed;
+          background-color: #f40;
+          z-index:999;
+          top: 0px;
+        }
+        /* 移动端 三条 小杠 */
+      .nav-content-bar-li {
+        position: relative;
+        float: right;
+        padding: 9px 10px;
+        margin-top: 8px;
+        margin-right: 15px;
+        margin-bottom: 8px;
+        background-color: transparent;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        background: #eee; 
+      }
+    .nav-content-bar-li .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0; 
+    }
+    .nav-content-bar-li .icon-bar {
+        display: block;
+        margin-top: 4px;
+        width: 22px;
+        height: 2px;
+        background: #f65d3f;
+        border-radius: 1px; 
+    }
+    /* 以上是 移动端三条小杠*/
+        #web-header, #zoomImage-web{
+          display: none;
+        }
+        @media (min-width: 780px) {
           #right-archive{
             float: right;
             display: block;
           }
+          #web-nav, #zoomImage-web, #web-header{
+            display: block;
+          }
+          #mobi-nav{
+            display: none;
+          }
         }
         .main-title{
-           font-size: 15px; 
+           font-size: 30px; 
         }
-        @media (min-width: 768px) {
-            .main-title{
-              font-size: 30px;
-            }
-        }
+      }
       </style>
       <meta name="baidu_ssp_verify" content="5c4710fe5772e40638d709c25d86e7fe">
       <meta name="baidu-site-verification" content="6UKNbbIR2L" />
@@ -57,7 +106,7 @@
     <body>
 
       <div class="container">
-        <header class="blog-header py-3">
+        <header id="web-header" class="blog-header py-3">
           <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-2 pt-1">
               <a class="text-muted" href="javascript:void(0)" onclick="_addFavorite()">订阅</a>
@@ -74,13 +123,13 @@
           </div>
         </header>
 
-        <div class="nav-scroller py-1 mb-2">
+         <div id="web-nav" class="nav-scroller py-1 mb-2">
           <nav class="nav d-flex justify-content-between">
             <a class="p-2 text-muted" target="_blank" href="https://blog.csdn.net/fyping_1">CSDN blog</a>
             <a class="p-2 text-muted" target="_blank" href="https://github.com/fingerecho">GitHub</a>
             <a class="p-2 text-muted" target="_blank" href="https://gitee.com/fingerecho">Gitee</a>
-            <!-- <a class="p-2 text-muted" target="_blank" href="https://fingerecho.gitee.io/bmk">BookMark</a>
-             --><a class="p-2 text-muted" href="./navcontent/python3.html">Python3</a>
+            <a class="p-2 text-muted" target="_blank" href="https://fingerecho.gitee.io/bmk">BookMark</a>
+             <a class="p-2 text-muted" href="./navcontent/python3.html">Python3</a>
             <a class="p-2 text-muted" href="./navcontent/go.html">Go</a>
             <a class="p-2 text-muted" href="./navcontent/htmlcssjs.html">Html/css/js</a>
             <a class="p-2 text-muted" href="./navcontent/sql.html">SQL</a>
@@ -94,11 +143,44 @@
             <a class="p-2 text-muted" href="#">中文</a>
             <a class="p-2 text-muted" href="#">About</a>
           </nav>
-        </div>
+        </div> 
+
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container">
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle nav-content-bar-li" data-toggle="collapse" data-target=".navbar-collapse" style="float: right;margin-right: 0px;">
+                  <span class="sr-only">导航条</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" style="padding: 10px 15px;" href="">
+                  <img alt="fingerecho" src="https://fingerecho.gitee.io/myblog/jpg/icon/favicon.gif" style="width:10px;height: 10px;" src=""/>
+              </a>
+          </div>
+          <div class="collapse navbar-collapse">
+              <ul class="nav navbar-nav" id="nav-list">
+                  <li><a class="p-<li>2 text-muted" target="_blank" href="https://blog.csdn.net/fyping_1">CSDN blog</a></li>
+            <li><a class="p-2 text-muted" target="_blank" href="https://github.com/fingerecho">GitHub</a></li>
+            <li><a class="p-2 text-muted" target="_blank" href="https://gitee.com/fingerecho">Gitee</a></li>
+            <li> <a class="p-2 text-muted" href="./navcontent/python3.html">Python3</a></li>
+            <li><a class="p-2 text-muted" href="./navcontent/htmlcssjs.html">Html/css/js</a></li>
+            <li><a class="p-2 text-muted" href="./navcontent/sql.html">SQL</a></li>
+            <li><a class="p-2 text-muted" href="./navcontent/linux.html">Linux</a></li>
+            <li><a class="p-2 text-muted" href="./navcontent/web组件.html">Web组件</a></li>
+            <li><a class="p-2 text-muted" href="./navcontent/web框架.html">Web框架</a></li>
+            <li><a class="p-2 text-muted" href="./navcontent/websecure.html">WebSecure</a></li>
+            <li><a class="p-2 text-muted" href="./lives/">Lives</a></li>
+            <li><a class="p-2 text-muted" href="#">About</a></li>
+              </ul>
+            </div>
+          </div>
+      </nav>
+
 
         <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark" style="text-align: center;">
         
-          <div class="zoomImage" style="background-image:url(https://fingerecho.gitee.io/myblog/jpg/bg.png)"></div>
+          <div id= "zoomImage-web" class="zoomImage" style="background-image:url(https://fingerecho.gitee.io/myblog/jpg/bg.png)"></div>
 
 
         </div>
