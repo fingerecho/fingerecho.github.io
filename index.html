@@ -99,6 +99,40 @@
         color: #fff;
         line-height: -15px;
       }
+
+      .btn-slide-bar{
+        width: 44px;
+        height: 44px;
+        display: block;
+        float: right;
+        line-height: 2.8;
+        cursor: pointer;/*鼠标变手*/
+        margin-left: 10px;
+      }
+      .btn-slide-bar::after{/*面包屑导航*/
+        content: "";
+        width: 20px;
+        height: 2px;
+        background: #999;
+        display: inline-block; /*文字属性*/
+        box-shadow:0 7px 0 #999,0 -7px 0 #999;
+      }
+      .slide-bar{
+        display: none;
+        width: 100%;
+        background: #f40;
+        top:44px;
+        margin-top: 44px;
+      }
+      .slide-bar li{
+        list-style: none;
+        height: 40px;
+        text-align: center;
+        line-height: 40px;
+        color: white;
+        border-bottom: 2px solid #000000;
+      }
+
       /* 超小设备（手机，小于 768px） */
       /* Bootstrap 中默认情况下没有媒体查询 */
       @media (min-width: 200px) {
@@ -131,6 +165,9 @@
           display: block;
           float: left;
           width: 30%;
+        }
+        .btn-slide-bar{
+          display: none;
         } 
       }
       /* 大型设备（大台式电脑，1500px 起） */
@@ -146,6 +183,9 @@
           float: left;
           width: 30%;
           margin-left: 10%;
+        }
+        .btn-slide-bar{
+          display: none;
         } 
       }
       /* 大型设备（大台式电脑，1800px 起） */
@@ -161,8 +201,36 @@
           float: left;
           width: 22%;
           margin-left: 20%;
+        }
+        .btn-slide-bar{
+          display: none;
         } 
       }
+
+
+/*      .slide-bar{
+        position: absolute;
+        top: -1px;
+        bottom: -1px;
+        background: #333333;
+        width: 150px;
+        left: 0;
+        z-index: 2;
+        transform: translateX(-150px);
+        -moz-transform: translateX(-150px);
+        -o-transform: translateX(-150px);
+        -webkit-transform: translateX(-150px);
+        -ms-transform: translateX(-150px);
+        
+        transition: all 0.2s ease-in-out;
+        -moz-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        -webkit-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+        display: none;
+      }
+      
+*/
     </style>
     <meta name="baidu_ssp_verify" content="5c4710fe5772e40638d709c25d86e7fe">
     <meta name="baidu-site-verification" content="6UKNbbIR2L" />
@@ -184,6 +252,21 @@
       </div>
     </div>
     <div id="right-main">
+      <span class="btn-slide-bar">
+      </span>
+      <div class="slide-bar">
+        <ul>
+          <li><a href="./navcontent/python3.html" title="我对python3的一些文章">我对python3的一些认知</a></li>
+          <li><a href="./navcontent/linux.html" title="Linux 命令行使用的一些心得">Linux使用的一些心得</a></li>
+          <li><a href="./navcontent/sql.html" title="使用数据库的一些总结">使用数据库的一些总结</a></li>
+          <li><a href="./navcontent/web组件.html" title="用过的Web组件">用过的Web组件</a></li>
+          <li><a href="./navcontent/web框架.html" title="用过的Web框架">用过的Web框架</a></li>
+          <li><a href="./navcontent/websecure.html" title="Web安全问题的记录">我遇到过的Web安全问题</a></li>
+          <li><a href="./lives/" title="不存在的">乱拍的照片和与代码无关的内容</a></li>
+          <li><a href="./cv.html" title="about me">关于我</a></li>
+        </ul>
+      </div>
+
       <div id="main-content">
         <span>听说在互联网的江湖中，想成为牛逼的人都自己做了个博客，所以这个博客孕育而生...</span>
         <br>
@@ -199,7 +282,7 @@
         <p>在csdn，我只是在编程入行的前几年写了几篇文章，现在几乎都忘掉了，因为所有的博客都迁移到了这里，当然，如果你感兴趣，我相信你能在这里找到入口</p>
         <!-- csdn 的用户名 好像是 fyping_1 -->
         <script>console.log("我的csdn 博客地址是https://blog.csdn.net/fyping_1");</script>
-        <p>假如你使用桌面的web端浏览，那么左边是我刚刚所说内容的全部索引，如果仅仅只是手机页面</p>
+        <p>假如你使用桌面的web端浏览，那么左边是我刚刚所说内容的全部索引，如果仅仅只是手机页面,点右上角的三个杠(那是一个菜单按钮),即可弹出索引</p>
         <p>我很久之前做了一个书签，类似于浏览器 按ctrl+D 保存的页面(我现在也会这么做),但是我发现我按下Ctrl+d次数太多了，我收藏的页面质量参差不齐，分类不明确，于是我做了个<a href="https://fingerecho.gitee.io/bmk" title="我在码云的bookmark">Bookmark</a>，把经常要用的页面收藏在这里，不过这个页面一般人是浏览不了的，如果你非得要看看，我相信你可以</p>
         <p>这整个网站托管在Github, 如果被微软收购的Github出了什么问题，那么这里也一样是不可访问的</p>
         <script>console.log("我在码云的书签页地址是： http://fingerecho.gitee.io/bmk/index_bb.html 只有这个页面是可以进去的");</script>
@@ -209,5 +292,25 @@
     </div>
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootrape.min.js"></script>
+    <script type="text/javascript">
+      //将我们的dom树加载完毕以后执行 它不会去理会js ，css 图像 是否加载完毕
+       document.addEventListener("DOMContentLoaded",function(){
+         (function(){
+            var _btn = document.querySelector(".btn-slide-bar"),
+                _body = document.querySelector("body"),
+                _slide_bar = document.querySelector(".slide-bar");
+                
+                _btn.onclick = function(){
+                  console.log("click slide bar ")
+                  _body.classList.toggle("active")
+                  if(_slide_bar.style.display=="block"){
+                    _slide_bar.style.display="none"  
+                  }else{
+                    _slide_bar.style.display="block"
+                  }
+                }
+         })(window)
+       })
+    </script>
   </body>
 </html>
