@@ -1,341 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://fingerecho.gitee.io/myblog/jpg/icon/favicon.gif">
+    <title>小方个人网</title>
+    <!--<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- <script src="https://fingerecho.gitee.io/bmk/html/js/fingerprint.js"></script> -->
+    <!--<script src="https://cdn.staticfile.org/blueimp-md5/2.10.0/js/md5.min.js"></script>-->  
+    <!-- <script src="./js/md5-js/md5.js"></script> -->
+    <style type="text/css">
+      html,body{
+        margin: 0px;
+        padding: 0px;
+      }
+      html,body{
+        width: 100%;
+        height: 100%;
+      }
+      #right-main, #left-nav,#nav,#site-title-name,#main-content,table,tr,td,span,p{
+        margin: 0px;padding: 0px;
+      }
+      span,p,a{
+        font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+      }
+      a{
+        text-decoration: none;
+        font-size: 18px;
+        color: #fff;
+      }
+      a:hover{
+        text-decoration: none;
+        color:#fff;
+      }
+      #right-main, #left-nav{
+        height: 100%;
+      }
+      #right-main{
+        display: none;
+        background-color: #2e2256;
+      }
+      #left-nav{
+        display: none;
+        background-color: #f40;
+        padding-top: 3%;
+      }
+      #nav{
+        height: 80%;
+        width: 80%;
+        margin-top: 10%;
+        margin-left: 10%;
+        /*background-color: #FFF7FB;*/
+      }
+      #nav table{
+        width:80%;
+        height: 80%;
+        margin-left: 10%;
+      }
+      #site-title-name{
+        width: 90%;
+        height: 10%;
+        /*background-color: #fff;*/
+        top:10%;
+        margin-left: 5%;
+        font-size: 30px;
+        line-height: -30px;
+        color: #FFF;
+        font-weight: 700;
 
-  <!doctype html>
-  <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      
-      <link rel="icon" href="https://fingerecho.gitee.io/myblog/jpg/icon/favicon.gif">
+      }
+      #site-title-name span p{
+        font-family: "Microsoft YaHei";
+      }
+      table tr{
+        font-size: 20px;
+        font-weight: 18px;
+        color: #FFF;
+      }
+      #main-content{
+        width: 68%;
+        margin-left: 15%; 
+        margin-top: 16%;
 
-      <title>Func</title>
-
-  <!-- ÐÂ Bootstrap4 ºËÐÄ CSS ÎÄ¼þ -->
-      <!-- <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css"> -->
-      <link rel="stylesheet" href="./css/bootstrap.min.css">
-      <link href="./css/blog.css" rel="stylesheet">
-      <script src="https://fingerecho.gitee.io/bmk/html/js/fingerprint.js"></script>
-<!--       <script src="https://cdn.staticfile.org/blueimp-md5/2.10.0/js/md5.min.js"></script>
- -->  
-      <script src="./js/md5-js/md5.js"></script>  
-      <style type="text/css">
-        .zoomImage{
-        width:100%;
-        height:0;
-        padding-bottom: 35%;
-        overflow:hidden;
-        background-position: center center;
-
-        background-repeat: no-repeat;
-  /*     -webkit-background-size:cover;
-        -moz-background-size:cover;
-        background-size:cover;*/
-        }
-
-        #right-archive{
-          display: none;
-        }
-        #web-nav{
-          display: none;
-        }
-        #mobi-nav{
-          display: block;
+      }
+      #main-content span{
+        font-size: 26px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 50px;
+        line-height: -30px;
+      }
+      #main-content p{
+        font-size: 15px;
+        font-weight: 500;
+        color: #fff;
+        line-height: -15px;
+      }
+      /* 超小设备（手机，小于 768px） */
+      /* Bootstrap 中默认情况下没有媒体查询 */
+      @media (min-width: 200px) {
+        #right-main{
           width: 100%;
-          position: fixed;
-          background-color: #eee;
-          z-index:999;
-          top: 0px;
+          display: block;
+          float: left;
         }
-        /* 移动端 三条 小杠 */
-      .nav-content-bar-li {
-        position: relative;
-        float: right;
-        padding: 9px 10px;
-        margin-top: 8px;
-        margin-right: 15px;
-        margin-bottom: 8px;
-        background-color: transparent;
-        background-image: none;
-        border: 1px solid transparent;
-        border-radius: 4px;
-        background: #eee; 
-      }
-    .nav-content-bar-li .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0; 
-    }
-    .nav-content-bar-li .icon-bar {
-        display: block;
-        margin-top: 4px;
-        width: 22px;
-        height: 2px;
-        background: #f65d3f;
-        border-radius: 1px; 
-    }
-    /* 以上是 移动端三条小杠*/
-        #web-header, #zoomImage-web{
-          display: none;
-        }
-        @media (min-width: 780px) {
-          #right-archive{
-            float: right;
-            display: block;
-          }
-          #web-nav, #zoomImage-web, #web-header{
-            display: block;
-          }
-          #mobi-nav{
-            display: none;
-          }
-        }
-        .main-title{
-           font-size: 30px; 
+        #left-nav{
         }
       }
-      </style>
-      <meta name="baidu_ssp_verify" content="5c4710fe5772e40638d709c25d86e7fe">
-      <meta name="baidu-site-verification" content="6UKNbbIR2L" />
-   </head>
-
-    <body>
-
-      <div class="container">
-        <header id="web-header" class="blog-header py-3">
-          <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-2 pt-1">
-              <a class="text-muted" href="javascript:void(0)" onclick="_addFavorite()">订阅</a>
-            </div>
-            <div class="col-8 text-center">
-              <a class="blog-header-logo text-dark main-title" href="#">Fingerecho</a>
-            </div>
-            <div class="col-2 d-flex justify-content-end align-items-center">
-             <!--  <a class="text-muted" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mx-3"><circle cx="10.5" cy="10.5" r="7.5"></circle><line x1="21" y1="21" x2="15.8" y2="15.8"></line></svg>
-              </a> -->
-              <a class="btn btn-sm btn-outline-secondary" href="#">Leave A Trace</a>
-            </div>
-          </div>
-        </header>
-
-         <div id="web-nav" class="nav-scroller py-1 mb-2">
-          <nav class="nav d-flex justify-content-between">
-            <a class="p-2 text-muted" target="_blank" href="https://blog.csdn.net/fyping_1">CSDN blog</a>
-            <a class="p-2 text-muted" target="_blank" href="https://github.com/fingerecho">GitHub</a>
-            <a class="p-2 text-muted" target="_blank" href="https://gitee.com/fingerecho">Gitee</a>
-            <a class="p-2 text-muted" target="_blank" href="https://fingerecho.gitee.io/bmk">BookMark</a>
-             <a class="p-2 text-muted" href="./navcontent/python3.html">Python3</a>
-            <a class="p-2 text-muted" href="./navcontent/go.html">Go</a>
-            <a class="p-2 text-muted" href="./navcontent/htmlcssjs.html">Html/css/js</a>
-            <a class="p-2 text-muted" href="./navcontent/sql.html">SQL</a>
-            <a class="p-2 text-muted" href="./navcontent/linux.html">Linux</a>
-            <a class="p-2 text-muted" href="./navcontent/web组件.html">Web组件</a>
-            <a class="p-2 text-muted" href="./navcontent/web框架.html">Web框架</a>
-            <a class="p-2 text-muted" href="./navcontent/websecure.html">WebSecure</a>
-            <a class="p-2 text-muted" href="./cv.html">Resume</a>
-            <a class="p-2 text-muted" href="#">Pictures</a>
-            <a class="p-2 text-muted" href="./lives/">Lives</a>
-            <a class="p-2 text-muted" href="#">中文</a>
-            <a class="p-2 text-muted" href="#">About</a>
-          </nav>
-        </div> 
-
-      <nav id="mobi-nav" class="navbar navbar-default navbar-fixed-top" role="navigation">
-      <div class="container">
-          <div class="navbar-header">
-              <button type="button" class="navbar-toggle nav-content-bar-li" data-toggle="collapse" data-target=".navbar-collapse" style="float: right;margin-right: 0px;">
-                  <span class="sr-only">导航条</span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" style="padding: 10px 15px;" href="">
-                  <img alt="fingerecho" src="https://fingerecho.gitee.io/myblog/jpg/icon/favicon.gif" style="width:10px;height: 10px;" src=""/>
-              </a>
-          </div>
-          <div class="collapse navbar-collapse">
-              <ul class="nav navbar-nav" id="nav-list">
-                  <li><a class="p-<li>2 text-muted" target="_blank" href="https://blog.csdn.net/fyping_1">CSDN blog</a></li>
-            <li><a class="p-2 text-muted" target="_blank" href="https://github.com/fingerecho">GitHub</a></li>
-            <li><a class="p-2 text-muted" target="_blank" href="https://gitee.com/fingerecho">Gitee</a></li>
-            <li> <a class="p-2 text-muted" href="./navcontent/python3.html">Python3</a></li>
-            <li><a class="p-2 text-muted" href="./navcontent/htmlcssjs.html">Html/css/js</a></li>
-            <li><a class="p-2 text-muted" href="./navcontent/sql.html">SQL</a></li>
-            <li><a class="p-2 text-muted" href="./navcontent/linux.html">Linux</a></li>
-            <li><a class="p-2 text-muted" href="./navcontent/web组件.html">Web组件</a></li>
-            <li><a class="p-2 text-muted" href="./navcontent/web框架.html">Web框架</a></li>
-            <li><a class="p-2 text-muted" href="./navcontent/websecure.html">WebSecure</a></li>
-            <li><a class="p-2 text-muted" href="./lives/">Lives</a></li>
-            <li><a class="p-2 text-muted" href="#">About</a></li>
-              </ul>
-            </div>
-          </div>
-      </nav>
-
-
-        <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark" style="text-align: center;">
-        
-          <div id= "zoomImage-web" class="zoomImage" style="background-image:url(https://fingerecho.gitee.io/myblog/jpg/bg.png)"></div>
-
-
-        </div>
-
-        <div class="row mb-2">
-          <div class="col-md-6">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250">
-              <div class="card-body d-flex flex-column align-items-start">
-                <strong class="d-inline-block mb-2 text-primary">GitHub Info</strong>
-                <h3 class="mb-0">
-                  <a class="text-dark" href="https://github.com/fingerecho">Coding All</a>
-                </h3>
-                <div class="mb-1 text-muted">10/24</div>
-                <p class="card-text mb-auto"><a target="_blank" href="https://github.com/fingerecho">The global free original coding site .</a></p>
-                <a target="_blank" href="https://github.com/fingerecho">Letmesee</a>
-              </div>
-              <a target="_blank" href="https://github.com/fingerecho">
-                <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumbgit" alt="Card image cap">
-              </a>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="card flex-md-row mb-4 box-shadow h-md-250">
-              <div class="card-body d-flex flex-column align-items-start">
-                <strong class="d-inline-block mb-2 text-success">CSDN</strong>
-                <h3 class="mb-0">
-                  <a class="text-dark" href="https://blog.csdn.net/fyping_1">The CSDN BBLL post.</a>
-                </h3>
-                <div class="mb-1 text-muted">Nov 10</div>
-                <p class="card-text mb-auto"><a target="_blank" href="https://blog.csdn.net/fyping_1">My Posters.</a></p>
-                <a target="_blank" href="https://blog.csdn.net/fyping_1">Continue reading.....</a>
-              </div>
-              <a target="_blank" href="https://blog.csdn.net/fyping_1">
-                <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumbcsdn" alt="Card image cap">
-              </a>
-            </div>
-          </div>
-        </div>
+      /* 小型设备（平板电脑，768px 起） */
+      @media (min-width: 768px) {
+        #right-main{
+          width: 100%;
+          display: block;
+          float: left;
+        }
+        #left-nav{
+        }
+      }
+      /* 中型设备（台式电脑，992px 起） */
+      @media (min-width: 992px) { 
+        #right-main{
+          display: block;
+          float: right;
+          width: 70%;
+        }
+        #left-nav{
+          display: block;
+          float: left;
+          width: 30%;
+        } 
+      }
+      /* 大型设备（大台式电脑，1500px 起） */
+      @media (min-width: 1500px) {
+        #right-main{
+          display: block;
+          float: right;
+          width: 50%;
+          margin-right: 10%;
+        }
+        #left-nav{
+          display: block;
+          float: left;
+          width: 30%;
+          margin-left: 10%;
+        } 
+      }
+      /* 大型设备（大台式电脑，1800px 起） */
+      @media (min-width: 1800px) {
+        #right-main{
+          display: block;
+          float: right;
+          width: 38%;
+          margin-right: 20%;
+        }
+        #left-nav{
+          display: block;
+          float: left;
+          width: 22%;
+          margin-left: 20%;
+        } 
+      }
+    </style>
+    <meta name="baidu_ssp_verify" content="5c4710fe5772e40638d709c25d86e7fe">
+    <meta name="baidu-site-verification" content="6UKNbbIR2L" />
+  </head>
+  <body>
+    <div id="left-nav">
+      <div id="site-title-name"><span>fingerecho's Weekly Blog</span></div>
+      <div id="nav">
+        <table>
+          <tr><td><a href="./navcontent/python3.html" title="我对python3的一些文章">我对python3的一些认知</a></td></tr>
+          <tr><td><a href="./navcontent/linux.html" title="Linux 命令行使用的一些心得">Linux使用的一些心得</a></td></tr>
+          <tr><td><a href="./navcontent/sql.html" title="使用数据库的一些总结">使用数据库的一些总结</a></td></tr>
+          <tr><td><a href="./navcontent/web组件.html" title="用过的Web组件">用过的Web组件</a></td></tr>
+          <tr><td><a href="./navcontent/web框架.html" title="用过的Web框架">用过的Web框架</a></td></tr>
+          <tr><td><a href="./navcontent/websecure.html" title="Web安全问题的记录">我遇到过的Web安全问题</a></td></tr>
+          <tr><td><a href="./lives/" title="不存在的">乱拍的照片和与代码无关的内容</a></td></tr>
+          <tr><td><a href="./cv.html" title="about me">关于我</a></td></tr>
+        </table>
       </div>
-
-      <main role="main" class="container">
-        <div class="row">
-          <div class="col-md-8 blog-main" style="float:left;">
-            <h3 class="pb-3 mb-4 font-italic border-bottom">
-              From the Firehose
-            </h3>
-
-              <!-- /.blog-post -->
-
-            <div class="blog-post">
-              <h2 class="blog-post-title">About My private project</h2>
-              <p class="blog-post-meta">2018/10/23 by <a href="https://fangself.com.cn">Fingerecho</a></p>
-              <p> This project origin from http://www.runoob.com </p>
-              <p> I called it baserouter.com .Now it located in <a href="https://github.com/fingerecho/baserouter" title="baserouter.com">here</a> </p>
-            </div><!-- /.blog-post -->
-
-            <div class="blog-post">
-              <h2 class="blog-post-title">My BookMarks</h2>
-              <p class="blog-post-meta">2018/11/10 <a href="https://fangself.com.cn">Fingerecho</a></p>
-              <p>This is my bookmarks , located in gitee.com </p>
-              <p> Now , Look at it . <a target="_blank" href="https://fingerecho.gitee.io/bmk"> BMKs</a></p>
-              <p> I use fingerprint.js to defend others, So if you would ,GO to <a target="_blank" href="https://fingerecho.gitee.io/bmk/index_0.html">BMKs</a></p>
-            </div><!-- /.blog-post -->
-
-            <nav class="blog-pagination">
-              <a class="btn btn-outline-primary" href="#">Older</a>
-              <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
-            </nav>
-
-          </div><!-- /.blog-main -->
-
-          <aside class="col-md-4 blog-sidebar" style="float:right;">
-            <div class="p-3 mb-3 bg-light rounded">
-              <h4 class="font-italic">About</h4>
-              <p class="mb-0">Hello. <em>Welcome to here </em> <br>This is a blog which record all my coding skills.</p>
-            </div>
-
-            <div class="p-3" id="right-archive">
-              <h4 class="font-italic">Archives</h4>
-              <ol class="list-unstyled mb-0">
-                <li><a href="#">March 2014</a></li>
-                <li><a href="#">February 2014</a></li>
-                <li><a href="#">January 2014</a></li>
-                <li><a href="#">December 2013</a></li>
-                <li><a href="#">November 2013</a></li>
-                <li><a href="#">October 2013</a></li>
-                <li><a href="#">September 2013</a></li>
-                <li><a href="#">August 2013</a></li>
-                <li><a href="#">July 2013</a></li>
-                <li><a href="#">June 2013</a></li>
-                <li><a href="#">May 2013</a></li>
-                <li><a href="#">April 2013</a></li>
-              </ol>
-            </div>
-
-           <!--  <div class="p-3">
-              <h4 class="font-italic">Elsewhere</h4>
-              <ol class="list-unstyled">
-                <li><a href="#">GitHub</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Facebook</a></li>
-              </ol>
-            </div> -->
-          </aside><!-- /.blog-sidebar -->
-
-        </div><!-- /.row -->
-
-      </main><!-- /.container -->
-
-      <footer class="blog-footer">
-        <p>&copy; <a href="https://fangself.com.cn">Fingec</a> 2015-2018.</p>
+    </div>
+    <div id="right-main">
+      <div id="main-content">
+        <span>听说在互联网的江湖中，想成为牛逼的人都自己做了个博客，所以这个博客孕育而生...</span>
+        <br>
+        <span>
+        当你看到这些文字，你别以为我不知道，我正悄悄看着你...
+        </span>
+        <br>
         <p>
-          <a href="#">Back to top</a>
+        这是我在2019年1月初刚刚改好的主页，原来的主页是在bootstrap里捡来的，现在我亲手构建了这个目前我看来比较整洁的页面
         </p>
-      </footer>
-
-  <!-- Bootstrap core JavaScript
-     ================================================== -->
-
-
-
-      <!-- jQueryÎÄ¼þ¡£Îñ±ØÔÚbootstrap.min.js Ö®Ç°ÒýÈë -->
-      <!-- <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script> -->
-      <script src="./js/jquery.min.js"></script>
-      <!-- popper.min.js ÓÃÓÚµ¯´°¡¢ÌáÊ¾¡¢ÏÂÀ­²Ëµ¥ -->
-      <!-- <script src="https://cdn.staticfile.org/popper.js/1.12.5/umd/popper.min.js"></script> -->
-      <script src="./js/poper.min.js"></script>
-      <!-- ×îÐÂµÄ Bootstrap4 ºËÐÄ JavaScript ÎÄ¼þ -->
-      <script src="./js/bootrape.min.js"></script>
-
-      <!-- bootstrap ¹ÙÍøÌá¹©cdn -->
-  	<!--
-  	<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  	<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  	<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  	
-  	-->
-      <!-- custom js -->
-    <!-- <script type="text/javascript" src="http://pv.sohu.com/cityjson?ie=utf-8"></script> -->
-  	<script src="./js/vendor/holder.min.js"></script>
-    <!--     <script src="http://cdn.bootcss.com/blueimp-md5/1.1.0/js/md5.min.js"></script> -->    
-    <script type="text/javascript" src="./js/tck/alitck.js" async="True" id="alitck"></script>
-    <script type="text/javascript" src="./js/tck/tenctk.js" async="True" id="tenctk">
-    </script>
-      <script>
-        var ss=function(tttname,ttxx){
-          Holder.addTheme(tttname, {
-            bg: '#55595c',
-            fg: '#eceeef',
-            text: ttxx 
-          });
-        };
-        ss('thumbgit','GitHub');ss('thumbcsdn','CSDN');
-      </script>
-
-    </body>
-  </html>
+        <p>我每周都会把一周的总结写在这里，这个页面就是所有内容的索引。</p>
+        <p>当然，假如你对我的技术栈感兴趣，你可以fork我在<a href="https://github.com/fingerecho" title="我在git里的代码">Github</a>维护的代码</p>
+        <p>在csdn，我只是在编程入行的前几年写了几篇文章，现在几乎都忘掉了，因为所有的博客都迁移到了这里，当然，如果你感兴趣，我相信你能在这里找到入口</p>
+        <!-- csdn 的用户名 好像是 fyping_1 -->
+        <script>console.log("我的csdn 博客地址是https://blog.csdn.net/fyping_1");</script>
+        <p>假如你使用桌面的web端浏览，那么左边是我刚刚所说内容的全部索引，如果仅仅只是手机页面</p>
+        <p>我很久之前做了一个书签，类似于浏览器 按ctrl+D 保存的页面(我现在也会这么做),但是我发现我按下Ctrl+d次数太多了，我收藏的页面质量参差不齐，分类不明确，于是我做了个<a href="https://fingerecho.gitee.io/bmk" title="我在码云的bookmark">Bookmark</a>，把经常要用的页面收藏在这里，不过这个页面一般人是浏览不了的，如果你非得要看看，我相信你可以</p>
+        <p>这整个网站托管在Github, 如果被微软收购的Github出了什么问题，那么这里也一样是不可访问的</p>
+        <script>console.log("我在码云的书签页地址是： http://fingerecho.gitee.io/bmk/index_bb.html 只有这个页面是可以进去的");</script>
+        <script>console.log("如果你使用桌面版，你会发现左边的导航采用了淘宝色做背景，右边的内容背景用了一种比较深的奇怪的颜色");</script>
+        <script>console.log("这个页面只是博客内容的索引，所以它被设计成没有任何滚动条，假如你打开博客内容，发现横竖滚动条，甚至页面错乱，这并不奇怪，因为我不是专业搞页面设计的");</script>
+      </div>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootrape.min.js"></script>
+  </body>
+</html>
