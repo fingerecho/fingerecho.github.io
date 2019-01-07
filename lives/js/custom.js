@@ -10,3 +10,4 @@ var fh = function(){
 function chage_background(){
 		window.setTimeout(fh,3000,false);
 }
+chage_background();
