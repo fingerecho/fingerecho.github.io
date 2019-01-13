@@ -49,7 +49,9 @@ python3 = [{"href":"../subcontent/gitpushall.py.html","title":"GIT傻瓜式封�
 			{"href":"../subcontent/scpupdate_code_toserver.py.html","title":"python3-模仿merical 签出代码","intro":"python3造轮子系列之 hg "},
 			{'href':'../subcontent/python3_closure_nonlocal.py.html','title':'python3-闭包-nonlocal关键字','intro':' '},
 			{'href':'../subcontent/python3_encode_type.html','title':'python3编码类型汇总','intro':''},
-			{'href':'../subcontent/shadowsock_in_python.html','title':'如何用Python番GREAT-FFFIIRE-EWLLL','intro':'更加人性化的技术'},			
+			{'href':'../subcontent/shadowsock_in_python.html','title':'如何用Python番GREAT-FFFIIRE-EWLLL','intro':'更加人性化的技术'},
+			{'href':'../subcontent/python3-with-stmt.html','title':'python3异步上下文管理器','intro':'改造python代码'},
+			{'href':'../subcontent/python3_hanshi.html','title':'python3需要时常看看的代码','intro':'python3深入学习与进阶'},			
 ]
 go = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑客使用的加密密码"}
 ]
@@ -68,8 +70,10 @@ linux = [{"href":"../subcontent/firewall_ctos7.html","title":"centos7防火墙�
 		{"href":"../subcontent/rpm_open_fail.html","title":"rpm出现的错误","intro":"rpm出现错误"},
 		{"href":"../subcontent/linux_software_cmd.html","title":"20款堪称神器的linux命令行软件","intro":"linux命令行神器"},
 		{"href":"../subcontent/vim_plugin_config_and_vimrc.html","title":"vim插件的配置和.vimrc的编写","intro":"vim神器的配置与使用"},
-		{"href":"../subcontent/fedora_software_package_install.html","title":"redhat的软件仓库","intro":"linux的便捷使用"}
-		
+		{"href":"../subcontent/fedora_software_package_install.html","title":"redhat的软件仓库","intro":"linux的便捷使用"},
+		{"href":"../subcontent/git-server-config.html","title":"linux上git-server的搭建","intro":"linux的便捷使用"},
+		{"href":"../subcontent/git-deny-current-branch.html","title":"git踩坑之 git-deny-current-branch","intro":"git踩坑之denyCurrentBranch配置"},
+		{"href":"../subcontent/linux_windows_using_skills.html","title":"linux windows 使用习惯","intro":"linux windows差异"}
 ]
 web_0 = [{"href":"../subcontent/pv_uv_visit.html","title":"网页的pageview","intro":"流量的统计方法"}
 ]

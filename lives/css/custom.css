@@ -1,3 +1,8 @@
 html,body{
-		background-color:#f40;
+	background-color:#f40;
+}
+body{
+    overflow:scroll;
+    overflow-y:hidden;
+    overflow-x:hidden;
 }
