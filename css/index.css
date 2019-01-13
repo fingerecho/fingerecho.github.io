@@ -1,0 +1,208 @@
+  html,body{
+    margin: 0px;
+    padding: 0px;
+  }
+  body {
+    overflow:scroll;
+    overflow-y:hidden;
+    overflow-x:hidden;
+  }
+  html,body{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  #right-main, #left-nav,#nav,#site-title-name,#main-content,table,tr,td,span,p{
+    margin: 0px;padding: 0px;
+  }
+  span,p,a{
+    font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+  }
+  a{
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+  }
+  a:hover{
+    text-decoration: none;
+    color:#fff;
+  }
+  /*移动页面 隐藏滚动条 */
+  .container::-webkit-scrollbar {
+    display: none;
+  }
+
+  #right-main, #left-nav{
+    height: 100%;
+  }
+  #right-main{
+    display: none;
+    background-color: #2e2256;
+    background-repeat: repeat-y;
+  }
+  #left-nav{
+    display: none;
+    background-color: #f40;
+    background-repeat: repeat-y;
+    padding-top: 3%;
+  }
+  #nav{
+    height: 80%;
+    width: 80%;
+    margin-top: 10%;
+    margin-left: 10%;
+    /*background-color: #FFF7FB;*/
+  }
+  #nav table{
+    width:80%;
+    height: 80%;
+    margin-left: 10%;
+  }
+  #site-title-name{
+    width: 90%;
+    height: 10%;
+    /*background-color: #fff;*/
+    top:10%;
+    margin-left: 5%;
+    font-size: 30px;
+    line-height: -30px;
+    color: #FFF;
+    font-weight: 700;
+
+  }
+  #site-title-name span p{
+    font-family: "Microsoft YaHei";
+  }
+  table tr{
+    font-size: 20px;
+    font-weight: 18px;
+    color: #FFF;
+  }
+  #main-content{
+    width: 68%;
+    margin-left: 15%; 
+    margin-top: 16%;
+
+  }
+  #main-content span{
+    font-size: 26px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 50px;
+    line-height: -30px;
+  }
+  #main-content p{
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    line-height: -15px;
+  }
+
+  .btn-slide-bar{
+    width: 44px;
+    height: 44px;
+    display: block;
+    float: right;
+    line-height: 2.8;
+    cursor: pointer;/*鼠标变手*/
+    margin-left: 10px;
+  }
+  .btn-slide-bar::after{/*面包屑导航*/
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: #999;
+    display: inline-block; /*文字属性*/
+    box-shadow:0 7px 0 #999,0 -7px 0 #999;
+  }
+  .slide-bar{
+    display: none;
+    width: 100%;
+    background: #f40;
+    top:44px;
+    margin-top: 44px;
+  }
+  .slide-bar li{
+    list-style: none;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    color: white;
+    border-bottom: 2px solid #000000;
+  }
+
+  /* 超小设备（手机，小于 768px） */
+  /* Bootstrap 中默认情况下没有媒体查询 */
+  @media (min-width: 200px) {
+    #right-main{
+      width: 100%;
+      display: block;
+      float: left;
+    }
+    #left-nav{
+    }
+
+  }
+  /* 小型设备（平板电脑，768px 起） */
+  @media (min-width: 768px) {
+    #right-main{
+      width: 100%;
+      display: block;
+      float: left;
+    }
+    #left-nav{
+    }
+  }
+  /* 中型设备（台式电脑，992px 起） */
+  @media (min-width: 992px) { 
+    #right-main{
+      display: block;
+      float: right;
+      width: 70%;
+    }
+    #left-nav{
+      display: block;
+      float: left;
+      width: 30%;
+    }
+    .btn-slide-bar{
+      display: none;
+    } 
+  }
+  /* 大型设备（大台式电脑，1500px 起） */
+  @media (min-width: 1500px) {
+    #right-main{
+      display: block;
+      float: right;
+      width: 50%;
+      margin-right: 10%;
+    }
+    #left-nav{
+      display: block;
+      float: left;
+      width: 30%;
+      margin-left: 10%;
+    }
+    .btn-slide-bar{
+      display: none;
+    } 
+  }
+  /* 大型设备（大台式电脑，1800px 起） */
+  @media (min-width: 1800px) {
+    #right-main{
+      display: block;
+      float: right;
+      width: 38%;
+      margin-right: 20%;
+    }
+    #left-nav{
+      display: block;
+      float: left;
+      width: 22%;
+      margin-left: 20%;
+    }
+    .btn-slide-bar{
+      display: none;
+    } 
+  }
+
