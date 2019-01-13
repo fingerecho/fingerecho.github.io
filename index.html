@@ -40,6 +40,12 @@
       .container::-webkit-scrollbar {
         display: none;
       }
+      .element {
+        -ms-overflow-style: none;
+      }
+      .element { /*firefox 隐藏滚动条 */
+        overflow: -moz-scrollbars-none;
+      }
 
       #right-main, #left-nav{
         height: 100%;
