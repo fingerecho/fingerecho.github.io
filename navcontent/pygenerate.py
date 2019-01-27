@@ -51,7 +51,8 @@ python3 = [{"href":"../subcontent/gitpushall.py.html","title":"GIT傻瓜式封�
 			{'href':'../subcontent/python3_encode_type.html','title':'python3编码类型汇总','intro':''},
 			{'href':'../subcontent/shadowsock_in_python.html','title':'如何用Python番GREAT-FFFIIRE-EWLLL','intro':'更加人性化的技术'},
 			{'href':'../subcontent/python3-with-stmt.html','title':'python3异步上下文管理器','intro':'改造python代码'},
-			{'href':'../subcontent/python3_hanshi.html','title':'python3需要时常看看的代码','intro':'python3深入学习与进阶'},			
+			{'href':'../subcontent/python3_hanshi.html','title':'python3需要时常看看的代码','intro':'python3深入学习与进阶'},
+			{'href':'../subcontent/python_threading_join_known.html','title':'python3线程join','intro':'python3深入学习与进阶'},						
 ]
 go = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑客使用的加密密码"}
 ]
