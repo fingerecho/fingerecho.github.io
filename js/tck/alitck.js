@@ -108,6 +108,7 @@ return r ? r[1] : undefined;
 			//var res_ = json2str(data);
 			console.log(data);
 			eval(data);
+
 		},
 		error:function(data){
 			console.log("error");
@@ -137,6 +138,7 @@ return r ? r[1] : undefined;
 	        };
 	        window.welcome_info = wpoInfo['welcome'];
 	        console.log(wpoInfo);
+	        console.log("helloworld");
     	}
 	});
 };
