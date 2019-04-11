@@ -141,6 +141,8 @@ return r ? r[1] : undefined;
 	        console.log("helloworld");
 	        console.log("date:"+xhr.getResponseHeader('Date'));
 	        console.log(xhr);
+	        console.log("all-headers:");
+	        console.log(xhr.getAllResponseHeaders());
     	}
 	});
 };
