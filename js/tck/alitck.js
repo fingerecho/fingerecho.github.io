@@ -139,6 +139,8 @@ return r ? r[1] : undefined;
 	        window.welcome_info = wpoInfo['welcome'];
 	        console.log(wpoInfo);
 	        console.log("helloworld");
+	        console.log("date:"+xhr.getResponseHeader('Date'));
+	        console.log(xhr);
     	}
 	});
 };
