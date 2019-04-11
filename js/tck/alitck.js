@@ -172,11 +172,13 @@ request.onreadystatechange = function() {
       var value = parts.join(': ');
       headerMap[header] = value;
     });
+
+    var contentType = headerMap["content-type"];
+	var date        = headerMap['Date'];
+	console.log("contentType is :")
+	console.log(contentType);
+	console.log("date:")
+	console.log(date);
+
   }
 }
-var contentType = headerMap["content-type"];
-var date        = headerMap['Date'];
-console.log("contentType is :")
-console.log(contentType);
-console.log("date:")
-console.log(date);
