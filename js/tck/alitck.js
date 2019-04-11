@@ -111,7 +111,7 @@ return r ? r[1] : undefined;
 		},
 		error:function(data){
 			console.log("error");
-		}/*,
+		},
 		 complete: function( xhr,data ){
 	        // 获取相关Http Response header
 	        var wpoInfo = {
@@ -136,7 +136,8 @@ return r ? r[1] : undefined;
 	            //"welcome" : xhr.getResponseHeader('Welcome')
 	        };
 	        window.welcome_info = wpoInfo['welcome'];
-    	}*/
+	        console.log(wpoInfo);
+    	}
 	});
 };
 
