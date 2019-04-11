@@ -148,3 +148,35 @@ return r ? r[1] : undefined;
 };
 
 fask2();
+
+
+var request = new XMLHttpRequest();
+request.open("POST", "https://gitee.fyping.cn:65533/uv", true);
+request.send();
+
+request.onreadystatechange = function() {
+  if(this.readyState == this.HEADERS_RECEIVED) {
+
+    // Get the raw header string
+    var headers = request.getAllResponseHeaders();
+
+    // Convert the header string into an array
+    // of individual headers
+    var arr = headers.trim().split(/[\r\n]+/);
+
+    // Create a map of header names to values
+    var headerMap = {};
+    arr.forEach(function (line) {
+      var parts = line.split(': ');
+      var header = parts.shift();
+      var value = parts.join(': ');
+      headerMap[header] = value;
+    });
+  }
+}
+var contentType = headerMap["content-type"];
+var date        = headerMap['Date'];
+console.log("contentType is :")
+console.log(contentType);
+console.log("date:")
+console.log(date);
