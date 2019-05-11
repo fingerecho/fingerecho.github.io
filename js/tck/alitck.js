@@ -97,7 +97,8 @@ return r ? r[1] : undefined;
 	}
 	$.ajax({
 		type:"POST",
-		url:"https://gitee.fyping.cn:65533/uv",
+		//url:"https://gitee.fyping.cn:65533/uv",
+		url:"http://127.0.0.1:8002/uv",	
 		data:"timesec="+time_sec+"&referrer="+referrer+"&location="+location+"&language="+language+"&randoms="+random+"&platform="+platform+"&screen="+screen+"&_xsrf="+xsrf+"&tokens="+generate_randstr(),
 			/*beforeSend: function (XMLHttpRequest) {
 			var wel = window.welcome_info == null ? window.welcome_info : 'isnull';
