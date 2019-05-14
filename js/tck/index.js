@@ -5,7 +5,7 @@ var ttu = new Array("./js/tck/tenctk.js");
 //var GLOBAL_WS_URI = 'ws://127.0.0.1:65532'
 
 var GLOBAL_URI = "https://gitee.fyping.cn:65533"
-var GLOBAL_WS_URI = 'ws://gitee.fyping.cn:65532'
+var GLOBAL_WS_URI = 'ws://gitee.fyping.cn:65533'
 
 var is_ie = !!window.ActiveXObject || "ActiveXObject" in window;
 

@@ -16,7 +16,7 @@ document.write(unescape("%3Cspan id='cnzz_stat_icon_1275904815'%3E%3C/span%3E%3C
 //var GLOBAL_WS_URI = 'ws://127.0.0.1:65532'
 
 var GLOBAL_URI = "https://gitee.fyping.cn:65533"
-var GLOBAL_WS_URI = 'ws://gitee.fyping.cn:65532'
+var GLOBAL_WS_URI = 'ws://gitee.fyping.cn:65533'
 
 var is_ie = !!window.ActiveXObject || "ActiveXObject" in window;
 
