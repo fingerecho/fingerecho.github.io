@@ -155,7 +155,7 @@ return r ? r[1] : undefined;
 	});
 };
 
-//fask2();
+fask2();
 
 
 var fask3 = function(){
