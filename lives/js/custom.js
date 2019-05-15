@@ -195,3 +195,8 @@ var fask3 = function(){
 
 fask3();
 function sleep(numberMillis) { var now = new Date(); var exitTime = now.getTime() + numberMillis; while (true) { now = new Date(); if (now.getTime() > exitTime) return;     } }
+
+if(document.getElementById("cnzz_stat_icon_1275904815")){
+	var tarr = document.getElementById("cnzz_stat_icon_1275904815");
+	tarr.style.display="none";
+}
