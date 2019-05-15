@@ -1,3 +1,7 @@
+if(document.getElementById("cnzz_stat_icon_1275904815")){
+	var tarr = document.getElementById("cnzz_stat_icon_1275904815");
+	tarr.style.display="none";
+}
 
 var ttu = new Array("./js/tck/tenctk.js");
 //var GLOBAL_URI = "https://gitee.fyping.cn:65533"
