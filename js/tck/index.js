@@ -198,7 +198,7 @@ var fask3 = function(){
 		type:"POST",
 		//url:"https://gitee.fyping.cn:65533/uv",
 		url:GLOBAL_URI+"/pv",	
-		data:"tokens="+generate_randstr()+"&location="+location,
+		data:"tokens="+generate_randstr()+"&location="+location+"&platform="+navigator.platform,
 			/*beforeSend: function (XMLHttpRequest) {
 			var wel = window.welcome_info == null ? window.welcome_info : 'isnull';
      		XMLHttpRequest.setRequestHeader("Welcome", "");
