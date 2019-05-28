@@ -76,8 +76,8 @@ linux = [{"href":"../subcontent/firewall_ctos7.html","title":"centos7防火墙�
 		{"href":"../subcontent/git-deny-current-branch.html","title":"git踩坑之 git-deny-current-branch","intro":"git踩坑之denyCurrentBranch配置"},
 		{"href":"../subcontent/linux_windows_using_skills.html","title":"linux windows 使用习惯","intro":"linux windows差异"}
 ]
-web_0 = [{"href":"../subcontent/pv_uv_visit.html","title":"网页的pageview","intro":"流量的统计方法"}
-]
+web_0 = [{"href":"../subcontent/pv_uv_visit.html","title":"网页的pageview","intro":"流量的统计方法"},
+		{"href":"../subcontent/tengine_how_to_use.html","title":"关于tengine的一些使用心得","intro":"关于tengine的一些使用心得"}]
 web_1 = [{"href":"../subcontent/kafka_distribute_system.html","title":"搭建一个kafka集群","intro":"用仅有的两台主机"},
 				{"href":"../subcontent/about_h20_frameworkd.html","title":"About The Web Framework","intro":"About the H2o web framework"},
 ] 
