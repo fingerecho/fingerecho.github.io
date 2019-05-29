@@ -1,0 +1,23 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>关于tengine的一些使用心得</title>
+<style>
+html,body,table,tr,td{margin:0;padding:0}
+td,th{padding-left:30px;}
+
+</style>
+<link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+</head>
+<body>
+	<h1>关于tengine的一些使用心得</h1>
+	<p>据说 tengine的性能是原版nginx的1.5倍 或者说tengine提高了nginx的30%的性能，趁着最近稍微有点时间，把nginx上所有跑的配置全部迁移到了tengine上，效果相当不错(自我感觉)，兼容的也相当好。 原先跑的uwsig_proxy 的东西在tengine上没有任何问题。 所以干脆nginx -s stop </p>
+	<p>官方地址：http://tengine.taobao.org/documentation.html</p>
+	<p>按照一般的操作 configure --prefix=/the path you want to install/ ...</p>
+	<p> make && make install </p>
+	<p>另外根据自己的nginx 使用习惯 ，/tengine目录下也一样是有一个 nginx.conf 与nginx的是一样的 在 /config 下创建一个 conf.d 然后在 nginx.conf 中 include 即可。</p>
+	<p>最后贴出自己的配置供将来参考</p>
+	<a href="download/nginx.conf">https://fangself.com.cn/subcontent/download/nginx.conf</a>
+</body>
+</html>
+
