@@ -79,7 +79,8 @@ linux = [{"href":"../subcontent/firewall_ctos7.html","title":"centos7防火墙�
 web_0 = [{"href":"../subcontent/pv_uv_visit.html","title":"网页的pageview","intro":"流量的统计方法"},
 		{"href":"../subcontent/tengine_how_to_use.html","title":"关于tengine的一些使用心得","intro":"关于tengine的一些使用心得"}]
 web_1 = [{"href":"../subcontent/kafka_distribute_system.html","title":"搭建一个kafka集群","intro":"用仅有的两台主机"},
-				{"href":"../subcontent/about_h20_frameworkd.html","title":"About The Web Framework","intro":"About the H2o web framework"},
+		{"href":"../subcontent/about_h20_frameworkd.html","title":"About The Web Framework","intro":"About the H2o web framework"},
+		{"href":"../subcontent/http_req_res_info.html","title":"About http request and response","intro":"about http request and response"},
 ] 
 
 websecure = [{'href':'../subcontent/1337leet.html','title':'1337加密','intro':'黑客使用的加密方法'},

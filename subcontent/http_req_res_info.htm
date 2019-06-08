@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>recover the http stuffs that I learned from university</title>
+</head>
+<body>
+	<h1>Learn from Http using socket</h1>
+	<p>the server end's code like:</p> 
+	<pre>
+import os
+import socket
+
+host = '127.0.0.1'
+port = 7000
+buffer_size = 1024
+listen_number = 5
+
+http_socket = socket.socket()
+http_socket.bind((host,port))
+http_socket.listen(listen_number)
+
+while True:
+    sock,address = http_socket.accept()
+    print("get accept from address:",address)
+    req = sock.recv(buffer_size)
+    print("get requests:");print("=========================")
+    print(req.decode('utf-8'))
+    print("=========================")
+    with open(os.path.join(os.path.dirname(__file__),"t_res.txt"),"rb") as fh:
+        res = fh.read()
+    sock.send(res)
+    print("send response finished")
+    sock.close()
+
+http_socket.close()
+</pre>
+<p>The client end's code like:</p>
+<pre>
+import os
+import socket
+
+host = '127.0.0.1'
+port = 7000
+buffer_size = 1024
+
+http_socket = socket.socket()
+http_socket.connect_ex((host,port))
+
+with open(os.path.join(os.path.dirname(__file__),"t_req.txt"),"rb") as fh:
+    http_socket.send(fh.read())
+    data = http_socket.recv(buffer_size)
+    print("get data:");print("------------------------")
+    print(data.decode('utf-8'));print("------------------------")
+</pre>
+<p>the baidu's response like:</p>
+<pre>
+HTTP/1.1 302 Found
+Cache-Control: max-age=86400
+Connection: Keep-Alive
+Content-Length: 222
+Content-Type: text/html; charset=iso-8859-1
+Date: Sat, 08 Jun 2019 10:19:34 GMT
+Expires: Sun, 09 Jun 2019 10:19:34 GMT
+Location: https://www.baidu.com/search/error.html
+Server: Apache
+
+<xmp><!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html><head>
+<title>302 Found</title>
+</head><body>
+<h1>Found</h1>
+<p>The document has moved <a href="http://www.baidu.com/search/error.html">here</a>.</p>
+</body></html>
+</xmp>
+</pre>
+<p> the mozilla request header like:</p>
+<pre>
+GET / HTTP/1.1
+Host: 127.0.0.1:7000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:52.0) Gecko/20100101 Firefox/52.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+
+</pre>
+<p>the chrome mini request header like:</p>
+<pre>
+GET / HTTP/1.1
+Host: 127.0.0.1:7000
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate, br
+Accept-Language: zh-CN,zh;q=0.9
+
+</pre>
+</body>
+</html>
