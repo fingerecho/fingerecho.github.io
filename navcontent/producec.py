@@ -59,13 +59,13 @@ def handle_dict(config:dict,unique=False) -> None:
 					lis  = nlvs[item],
 					filename=files[item])
 			else:
-
+				... #generate_one()
 	except Exception as e:
 		print(item)
 		print("exits error of ",e)
 
-# if __name__ == '__main__':
-# 	file_nav_h = open(os.path.join(os.path.dirname(__file__),'config','nav.ini'),encoding='utf-8')
-# 	config     = yaml.safe_load(file_nav_h);print(len(config))
-# 	handle_dict(config)
+if __name__ == '__main__':
+	file_nav_h = open(os.path.join(os.path.dirname(__file__),'config','nav.ini'),encoding='utf-8')
+	config     = yaml.safe_load(file_nav_h);print(len(config))
+	handle_dict(config)
 	
