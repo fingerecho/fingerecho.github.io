@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">    
+    <meta name="description" content="{{navtitle}}">
+    <meta name="author" content="{{author}}">    
     <link rel="icon" href="../jpg/icon/favicon.gif">
     <title>Fingerecho-{{navtitle}}</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
@@ -23,7 +23,7 @@
           {% for nav in navs %}
           <div class="nav-box">
             <p>
-              <A HREF="{{nav.href}}" TITLE="{{nav.title}}"><p>{{nav.title}}-{{nav.intro}}</p></A>  
+              <A HREF="{{nav.href}}" TITLE="{{nav.title}}"><span>{{nav.title}}</span></A><span>{{nav.date}}</span>  
             </p>
           </div>
           {% endfor %}
@@ -52,9 +52,9 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript" src="../js/tck/alitck.js" async="True" id="alitck">
+<!--     <script type="text/javascript" src="../js/tck/alitck.js" async="True" id="alitck">
     </script>
     <script type="text/javascript" src="../js/tck/tenctk.js" async="True" id="tenctk">
-    </script>
+    </script> -->
 	</body>
 </html>

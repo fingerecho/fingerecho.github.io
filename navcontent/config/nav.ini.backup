@@ -1,0 +1,155 @@
+web_0:
+  navtitle: web相关
+  href:
+    - ../subcontent/http_req_res_info.html
+    - ../subcontent/about_h2o_frameworkd.html
+    - ../subcontent/tengine_how_to_use.html
+    - ../subcontent/pv_uv_visit.html
+  title:
+    - About http request and response
+    - About The Web Framework
+    - 关于tengine的一些使用心得
+    - 网页的pageview:流量的统计方法
+  date:
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+web_secure:
+  navtitle: web安全
+  href:
+    - ../subcontent/xxtea_code.html
+    - ../subcontent/basic_websecure_http_headers.html
+    - ../subcontent/firefox_extentions.html
+    - ../subcontent/1337leet.html
+    - ../subcontent/basic_websecure_defend_sql_xss.html  
+  title:
+    - html的XXTEA加密技术
+    - 基本的web安全http首部
+    - 火狐渗透插件
+    - 1337密码:黑客使用的加密密码
+    - 防止sql注 入和xss攻击的基本方法
+  date:
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+sql:
+  navtitle: sql相关
+  href:
+    - ../subcontent/django_mysql_datatype.html
+    - ../subcontent/django_many_to_many_insert_error.html
+    - ../subcontent/postgresql_installconfigoncentos7.html
+    - ../subcontent/mysql_cmd_all.html
+  title:
+    - mysql postgresql 在 django中的数据类型
+    - django 多对多使用心得
+    - Postgresql 在centos7上的安装
+    - mysql命令大全
+  date:
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+go:
+  navtitle: go相关
+  href:
+  title:
+  date:
+htmlcssjs:
+  navtitle: html相关
+  href:
+    - ../subcontent/data-src.html
+  title:
+    - the attribute about data-src on html
+  date:
+    - before 2019-06-10
+python3:
+  navtitle: python3相关
+  href:
+    - ../subcontent/python3_hanshi.html
+    - ../subcontent/ip_long_2_ver.html
+    - ../subcontent/python3_closure_nonlocal.py.html
+    - ../subcontent/shadowsock_in_python.html
+    - ../subcontent/python_threading_join_known.html
+    - ../subcontent/scpupdate_code_toserver.py.html
+    - ../subcontent/python3_encode_type.html
+    - ../subcontent/python3-with-stmt.html
+    - ../subcontent/handle_file.py.html
+    - ../subcontent/refresh.py.html
+    - ../subcontent/adding_log.py.html
+    - ../subcontent/file_mdf_check_same.py.html
+  title:
+    - python3需要时常看看的代码
+    - IP长整形转换:使用长整形的IP
+    - python3-闭包-nonlocal关键字
+    - 如何用Python番GREAT-FFFIIRE-EWLLL
+    - python3线程join
+    - python3-模仿merical 签出代码
+    - python3编码类型汇总 
+    - python3异步上下文管理器
+    - python3遍历某目录下所有文件
+    - python3-封装的GIT
+    - python3-给所有代码打上log
+    - python3重写的 diff 命令
+  date:
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+linux:
+  navtitle: linux相关
+  href:
+    - ../subcontent/w3m_how_to_use.html
+    - ../subcontent/linux_windows_using_skills.html
+    - ../subcontent/selinux_learning.html
+    - ../subcontent/zabbix_install_on_centos_7.html
+    - ../subcontent/vim_plugin_config_and_vimrc.html
+    - ../subcontent/fedora_software_package_install.html
+    - ../subcontent/git-server-config.html
+    - ../subcontent/git-deny-current-branch.html
+    - ../subcontent/rpm_open_fail.html
+    - ../subcontent/kafka_distribute_system.html
+    - ../subcontent/linux_software_cmd.html
+    - ../subcontent/linux_commd_basic.html
+    - ../subcontent/firewall_ctos7.html
+  title:
+    - 如何使用w3m
+    - linux windows 使用习惯
+    - Selinux配置
+    - Zabbix在centos7上的安装配置
+    - vim插件的配置和.vimrc的编写
+    - ret的软件仓库
+    - linux上git-server的搭建
+    - git踩坑之 git-deny-current-branch
+    - rpm出现的错误
+    - 搭建一个kafka集群
+    - 20款堪称神器的linux命令行软件
+    - Linux Basic Commands
+    - centos7 防火墙配置
+  date:
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+    - before 2019-06-10
+
+

@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> centos7 firewall </title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+</head>
+<body>
+ <h1>centos 7 firewall configure </h1>
+ <h3>关闭SELinux </h3>
+ <p>关于Selinux  见<a href="./selinux_123.htm" title="selinux" >selinux</a></p>
+ <pre>sudo sed -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config</pre>
+ <h3>Firewalld 防火墙的关闭</h3>
+ <pre>sudo systemctl stop firewalld.service && systemctl disable firewalld.service</pre>
+ <h3>切换成UFW 防火墙</h3>
+ <pre> yum install ufw </pre>
+ <h4>UFW 的开启 与 关闭</h4>
+ <pre>ufw enable </pre>
+ <pre>ufw disable</pre>
+ <h4>或者这样的指令:</h4>
+ <pre> systemctl enable ufw </pre>
+ <p>这条指令 在 /lib/systemd/system/目录下产生一个链接,并且允许开机启动，</p>
+ <p>真正开启ufw需要采用这个指令，使之成为后台任务</p>
+ <pre>systemctl start ufw</pre>
+ <pre>systemctl disable ufw</pre>
+ <p>这个指令使之不受systemd管理，开机不再自启动</p>
+ <p>同样的，有类似</p>
+ <pre>systemctl stop ufw
+systemctl status ufw
+systemctl stop ufw.service
+</body>
+</html>
+
+ 

@@ -1,0 +1,81 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+    </head>
+    <body>
+    	<h1>python threading join 实验</h1>
+    	<p>join 官方的解释 https://docs.python.org/3/library/threading.html#module-threading</p>
+    	<p>原文解释是这样的：</p>
+    	<pre>
+Wait until the thread terminates. This blocks the calling thread until the thread whose join() method is called terminates – either normally or through an unhandled exception – or until the optional timeout occurs.
+		</pre>
+		<p>官方的解释太官方了</p>
+		<p>实际使用的时候需要注意 join 跟 start 的使用顺序</p>
+		<p>我写了两份代码，实现一个简单的逻辑（ 定义两个线程，一个全局变量 target , 第一个线程每隔两秒修改一次 target ,第二个线程每秒展示一次 target )</p>
+		<p>这是我的第一份代码，它是没法达到目标的</p>
+		<pre>
+import threading
+import time
+
+target = -1024
+
+class OK(threading.Thread):
+    def __init__(self):
+        threading.Thread.__init__(self)
+    def run(self):
+        global target
+        while True:
+            time.sleep(2)
+            target = target + 1
+class SayHello(threading.Thread):
+    def __init__(self):
+        threading.Thread.__init__(self)
+    def run(self):
+        global target
+        while True:
+            time.sleep(1)
+            print("%s:target==%d"%(time.ctime(),target))
+B = OK()
+B.start()
+B.join()
+a = SayHello()
+a.start()
+a.join()
+</pre>
+		<p>第二份代码改为如下</p>
+<pre>
+...
+...
+
+B = OK()
+B.start()
+a = SayHello()
+a.start()
+a.join()
+B.join()
+</pre>
+		<p>它跑得很好</p>
+		<p>关于线程，我有次去一家互联网公司面试，其中被问到得一个问题，线程是否共用 栈里面的变量，现在瞬板试了试</p>
+		<p>实施过程： 在 两个 run 函数中分别增加了一行 ，print(id(target))</p>
+		<pre>
+Sun Jan 13 21:38:58 2019:target==-1017 id(target)==2243799581392
+Sun Jan 13 21:38:59 2019:target==-1017 id(target)==2243799581392
+2243799581392
+Sun Jan 13 21:39:00 2019:target==-1016 id(target)==2243799581424
+Sun Jan 13 21:39:01 2019:target==-1016 id(target)==2243799581424
+2243799581424
+Sun Jan 13 21:39:02 2019:target==-1015 id(target)==2243799581392
+Sun Jan 13 21:39:03 2019:target==-1015 id(target)==2243799581392
+2243799581392
+Sun Jan 13 21:39:04 2019:target==-1014 id(target)==2243799581424
+Sun Jan 13 21:39:05 2019:target==-1014 id(target)==2243799581424
+</pre>
+		<p>结果变成了上面这样的</p>
+		<p>答案很显然</p>
+		<hr>
+		<hr>
+		<hr>
+    </body>
+</html>

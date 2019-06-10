@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>vim插件的安装跟.vimrc的配置</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+    </head>
+    <body>
+      <h1>vim插件的安装和.vimrc的配置</h1>
+      <p>文章参考:</p>
+      <h5>https://segmentfault.com/a/1190000003962806</h5>
+      <p>之前看其他朋友的vim配置教程，基本上没有成功过，要么是版本问题，要么是各种坑</p>
+      <p>今天把整体梳理一遍，并把某些坑贴出来，最重要的的是.vimrc一起贴出来</p>
+      <h2>安装(解决版本问题)</h2>
+      <p>我只运行了两条指令, yum update , git clone  ......vim </p>
+      <p>接下来直接进入vim ，：PluginInstall 看是否有报错，</p>
+      <p>vim界面最底下有一行提示，跟sublime text 是一样的</p>
+      <h2>.vimrc踩过的坑</h2>
+      <p>注释必须使用双引号，其它最好按照格式使用单引号，否则包语法错误</p>
+      <p>使用python自动提示的插件时报错：YouCompleteMe unavailable: requires Vim 7.4.1578+.</p>
+      <h3>.vimrc</h3>
+      <p>可以使用这个url直接下载<a target="_blank" href="https://fangself.com.cn/subcontent/download/.vimrc">https://fangself.com.cn/subcontent/download/.vimrc</a></p>
+      <hr width="80%">
+      <pre>
+set tabstop=4
+set encoding=utf-8
+colorscheme desert
+set splitbelow
+set splitright
+"split navitions 不用鼠标就能切换分割布局
+nnoremap &lt;C-J&gt; &lt;C-W&gt;&lt;C-J&gt;
+nnoremap &lt;C-K&gt; &lt;C-W&gt;&lt;C-K&gt;
+nnoremap &lt;C-L&gt; &lt;C-W&gt;&lt;C-L&gt;
+nnoremap &lt;C-H&gt; &lt;C-W&gt;&lt;C-H&gt;
+" Enbale folding 手动折叠
+set foldmethod=indent
+set foldlevel=99
+nnoremap &lt;space&gt; za
+
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+ set rtp+=~/.vim/bundle/Vundle.vim
+ call vundle#begin()
+"
+" " alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin('~/some/path/here')
+"
+" " let Vundle manage Vundle, required
+ Plugin 'gmarik/Vundle.vim'
+ Plugin 'vim-scripts/indentpython.vim'
+" 符合pep8 标准的自动缩进
+ Plugin 'Valloric/YouCompleteMe'
+"
+" " Add all your plugins here (note older versions of Vundle used Bundle
+" instead of Plugin)
+" " All of your Plugins must be added before the following line
+ call vundle#end()            " required
+ filetype plugin indent on    " required
+
+" 是vim 支持python3 的 pep8 标准
+au BufNewFile, BufRead *.py
+\ set tabstop=4
+\ set softtabstop=4
+\ set shiftwidth=4
+\ set textwidth=4
+\ set expandtab
+\ set autoindent
+\ set fileformat=unix
+
+"设置 vim 打开html,css ,js
+
+au BufNewFile, BufRead *.js, *.html,*.htm,*.json,*.css,*.jsx,*.xml
+\ set tabstop=2
+\ set softtabstop=2
+\ set shiftwidth=2
+
+au BufNewFile, BufRead *.py, *.pyw, *.c, *.cpp match BadWhitespace /\s\+$/
+"使用pep8标准将多余的空白字符标识出来
+</pre>
+<hr width="80%">
+    <p>完成文件的编写之后，:PluginInstall 之后会提示 Processing .....正在安装你配置好的插件</p>
+    <p>成果，自动完成代码的插件没有安装成功，其他的插件均安装完成</p>
+
+    </body>
+</html>

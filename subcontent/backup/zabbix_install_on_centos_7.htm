@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> zabbix install on centos 7 </title>
+<link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+</head>
+<body>
+<h1>zabbix install on centos 7 </h1>
+<h2><a href="https://www.zabbix.com/documentation/3.4/zh/manual" title="zabbix 中文官方文档" > 基于官方文档</a></h2>
+<p> 首先安装 yum源 </p>
+<code>rpm -ivh http://repo.zabbix.com/zabbix/3.4/rhel/7/x86_64/zabbix-release-3.4-2.el7.noarch.rpm</code>
+<p>yum 直接安装</p>
+<code> yum -y install zabbix-server-mysql zabbix-web-mysql zabbix-java-gateway zabbix-web</code>
+<p> 安装Mysql </p>
+<p> 安装 PHP <a href="./php_nginx_install.htm">安装PHP 配置 nginx </a></p>
+<p> 导入 Zabbix 所需要的信息</p>
+<code>cd /usr/share/doc/zabbix-server-mysql-3.4.3</code><br>
+<code>zcat create.sql.gz | mysql -uroot zabbix -p</code><br>
+<p>Mysql 中创建必要的数据库</p>
+<code>
+mysql>create database zabbix character set utf8; #创建数据库<br>
+mysql>create user zabbix@'%' identified by 'Qingdao@2017'; #创建用户和密码<br>
+mysql>grant all privileges on zabbix.* to zabbix@'%'; #赋权<br>
+mysql>flush privileges;<br>
+mysql>exit;<br>
+</code>
+
+<p> 配置zabbix的参数</p>
+<code>vim /etc/zabbix/zabbix_server.conf</code>
+<img src="https://www.centos.bz/wp-content/uploads/2017/11/9.png"/><br>
+<code>
+CacheSize=512M<br>
+HistoryCacheSize=128M<br>
+HistoryIndexCacheSize=128M<br>
+TrendCacheSize=128M<br>
+ValueCacheSize=256M<br>
+Timeout=30<br>
+</code>
+<p>启动 Zabbix </p>
+<code>
+systemctl start zabbix-server
+</code>
+<p> 使用ss -lnp 可以看到 zabbix-server 在10051端口监听 </p>
+<p> 安装 zabbix-web </p>
+<p> zabbix-web 可以单独安装在另一台主机上， 只要能连接到zabbix database 即可</p>
+<code>
+yum install php php-mysql php-mbstring php-gd php-bcmath php-ldap php-xml
+</code>
+<p> 安装完成php 之后再安装zabbix-web所需要的两个包</p>
+<code>yum install zabbix-web zabbix-web-mysql</code>
+<code> rpm -ql zabbix-web </code>
+<p>可以看到zabbix-web在/usr/share/zabbix/下</p>
+
+
+
+
+</body>
+</html>

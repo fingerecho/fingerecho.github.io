@@ -1,0 +1,96 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>搭建一个kafka集群</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+    </head>
+    <body>
+        <h1>用我现有的两台主机搭建一个kafka集群</h1>
+        <p>首先下载并安装好 两个必要的环境 java 、 scala </p>
+        <p>参考 https://www.scala-sbt.org/1.x/docs/Installing-sbt-on-Linux.html </p>
+        <p>假如链接失效 查看官网并下载安装好 https://www.scala-lang.org/</p>
+        <p>再配置好一个重要的协调程序 zookeeper </p>
+        <p>参考 http://zookeeper.apache.org/doc/r3.4.13/zookeeperStarted.html </p>
+        <p> 官方: http://zookeeper.apache.org/ </p>
+        <p>最后再下载安装 kafka </p>
+        <p>http://kafka.apache.org/quickstart</p>
+        <p>整体流程就是这些</p>
+        <p>zookeeper的启动配置</p>
+        <p>按照官网在 /conf 下有一个 zoo_sample.cfg文件</p>
+        <p>我们需要把它稍作修改并命名为 zoo.cfg 文件</p>
+        <pre>
+# The number of ticks that the initial
+# synchronization phase can take
+initLimit=10
+# The number of ticks that can pass between
+# sending a request and getting an acknowledgement
+syncLimit=5
+# the directory where the snapshot is stored.
+# do not use /tmp for storage, /tmp here is just
+# example sakes.
+dataDir=/tmp/zookeeper
+# the port at which the clients will connect
+clientPort=2181
+# the maximum number of client connections.
+# increase this if you need to handle more clients
+#maxClientCnxns=60
+#
+# Be sure to read the maintenance section of the
+# administrator guide before turning on autopurge.
+#
+# http://zookeeper.apache.org/doc/current/zookeeperAdmin.html#sc_maintenance
+#
+# The number of snapshots to retain in dataDir
+#autopurge.snapRetainCount=3
+# Purge task interval in hours
+# Set to "0" to disable auto purge feature
+#autopurge.purgeInterval=1
+server.1=134.175.204.88:3344:5566
+#server.2=47.106.234.86:3344:5566
+        </pre>
+        <p>需要修改的信息很少，首先需要注意的是默认的客户端端口是 2181 </p>
+        <p>dataDir 这个目录要确保有访问权限 ，其中存放的是一个 pid 文件 ，内容是每次运行zookeeper的进程id </p>
+        <p>server.1=192.168.1.1:1111:2222  1代表服务器编号， 192.168.1.1代表集群下的主机地址，1111代表这个主机与集群中leader服务器交换信息的端口，2222代表备用端口，假如1111出现问题，则使用2222端口通信</p>
+        <p>在/bin/下使用 sh zkCli.sh -server 192.168.1.1:2181 测试是否启动成功</p>
+        <p>注意：server.1 不要把本机加进去，否则后面会出现错误</p>
+        <p>若成功则回显如下信息 ,当然也可以 ps -aux | grep zookeeper 查看是否有进程</p>
+        <pre>
+.....
+.....
+Welcome to ZooKeeper!
+JLine support is enabled
+</pre>
+        <p>或者直接试试 sh zkCli.sh -server 192.168.1.1  稍后退出即可</p>
+        <p>kafka 的配置<p>
+        <p>修改 config/server.properties</p>
+        <p>其中 log.dir , zookeeper.connect 需要配置</p>
+        <pre>
+.......
+broker.id=0 # 这个id 即代表本机，拷贝到其它机器上时，相应的增加这个id 值即可
+.......
+log.dirs=/tmp/kafka-logs # 每台主机确定一个可访问的日志目录
+.......
+zookeep.connect=本机ip或者主机名:2181 #2181是指zookeeper的监听端口
+......
+#其它没发现需要更多配置的，默认的监听端口是9092 ，程序中需要访问到,如果没有修改的话就是默认的端口9092
+</pre>
+        <p>启动kafka</p>
+        <p>定位到相对根目录</p>
+        <pre>JMX_PORT=10000 bin/kafka-server-start.sh config/server.properties & </pre>
+        <p>回显会显示：INFO KafkaConfig values 的一系列配置的值</p>
+        <p>最后显示：INFO [KafkaServer id=0] started (kafka.server.KafkaServer) 说明启动成功</p>
+        <p>netstat -lntup 查看可以看到 设置的JMX_PORT 的端口有在监听,名称是 java</p>
+        <p>另外还有其它一些名称是java的端口在监听,其中有zookeeper 的2181 , 名称也是java</p>
+        <p>最后运行 bin下的 kafka-server-stop.sh 停止 kafka集群</p>        
+        <p>然后在另外一台主机上测试整个流程(首先安装 java scala ,安装配置 zookeeper kafka ,启动zookeeper kafka) , 这个 kafka 集群搭建完毕</p>
+        <p> centos7 安装scala 参考https://www.scala-sbt.org/1.x/docs/Installing-sbt-on-Linux.html<p>
+        <pre>
+curl https://bintray.com/sbt/rpm/rpm | sudo tee /etc/yum.repos.d/bintray-sbt-rpm.repo
+sudo yum install sbt
+</pre>
+    <p>参考</p>
+    <p>https://blog.csdn.net/weixin_40596016/article/details/79562023</p>
+
+
+    </body>
+</html>

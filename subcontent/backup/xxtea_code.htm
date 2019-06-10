@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>XXTEA_CODE</title>
+  <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+</head>
+<body>
+  <div id="cnblogs_post_body" ><h2><a>介绍XXTEA加密算法及其C实现</a></h2>
+<p><span style="color: #005eac;"><a href="http://en.wikipedia.org/wiki/XXTEA">http://en.wikipedia.org/wiki/XXTEA</a></span></p>
+<p>&nbsp;</p>
+<p>“微型加密算法（TEA）及其相关变种（XTEA，Block TEA，XXTEA）都是分组加密算法，它们很容易被描述，实现也很简单（典型的几行代码）。</p>
+<p>TEA 算法最初是由剑桥计算机实验室的 David Wheeler 和 Roger Needham 在 1994 年设计的。该算法使用 128 位的密钥为 64 位的信息块进行加密，它需要进行 64 轮迭代。该算法使用了一个神秘常数δ作为倍数，它来源于黄金比率，以保证每一轮加密都不相同。但δ的精确值似乎并不重要，这里 TEA 把它定义为 δ=「(√5 - 1)231」（也就是程序中的 0×9E3779B9 ）。”</p>
+<p>&nbsp;</p>
+<p>其实，TEA跟我们的关系非常密切，因为QQ就是使用16轮迭代的TEA算法。</p>
+<p>&nbsp;</p>
+<p>XXTEA是其最新的变种，于1998年提出。目前还没有人找到对其进行攻击的方法，是对前面一些变种的改进。XXTEA 算法很安全，而且非常快速，非常适合应用于 Web 开发中。</p>
+<p>&nbsp;</p>
+<p>下面是作者给出的该算法的C实现：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"></div>
+<pre>  <span style="color: #0000ff;">#define</span> MX (z&gt;&gt;5^y&lt;&lt;2) + (y&gt;&gt;3^z&lt;&lt;4)^(sum^y) + (k[p&amp;3^e]^z);
+ 
+  <span style="color: #0000ff;">long</span> btea(<span style="color: #0000ff;">long</span>* v, <span style="color: #0000ff;">long</span> n, <span style="color: #0000ff;">long</span>*<span style="color: #000000;"> k) {
+    unsigned </span><span style="color: #0000ff;">long</span> z=v[n-<span style="color: #800080;">1</span>], y=v[<span style="color: #800080;">0</span>], sum=<span style="color: #800080;">0</span>, e, DELTA=<span style="color: #800080;">0x9e3779b9</span><span style="color: #000000;">;
+    </span><span style="color: #0000ff;">long</span><span style="color: #000000;"> p, q ;
+    </span><span style="color: #0000ff;">if</span> (n &gt; <span style="color: #800080;">1</span><span style="color: #000000;">) {         
+      q </span>= <span style="color: #800080;">6</span> + <span style="color: #800080;">52</span>/<span style="color: #000000;">n;
+      </span><span style="color: #0000ff;">while</span> (q-- &gt; <span style="color: #800080;">0</span><span style="color: #000000;">) {
+        sum </span>+=<span style="color: #000000;"> DELTA;
+        e </span>= (sum &gt;&gt; <span style="color: #800080;">2</span>) &amp; <span style="color: #800080;">3</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (p=<span style="color: #800080;">0</span>; p&lt;n-<span style="color: #800080;">1</span>; p++) y = v[p+<span style="color: #800080;">1</span>], z = v[p] +=<span style="color: #000000;"> MX;
+        y </span>= v[<span style="color: #800080;">0</span><span style="color: #000000;">];
+        z </span>= v[n-<span style="color: #800080;">1</span>] +=<span style="color: #000000;"> MX;
+      }
+      </span><span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;"> ;
+    } </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span> (n &lt; -<span style="color: #800080;">1</span><span style="color: #000000;">) { 
+      n </span>= -<span style="color: #000000;">n;
+      q </span>= <span style="color: #800080;">6</span> + <span style="color: #800080;">52</span>/<span style="color: #000000;">n;
+      sum </span>= q*<span style="color: #000000;">DELTA ;
+      </span><span style="color: #0000ff;">while</span> (sum != <span style="color: #800080;">0</span><span style="color: #000000;">) {
+        e </span>= (sum &gt;&gt; <span style="color: #800080;">2</span>) &amp; <span style="color: #800080;">3</span><span style="color: #000000;">;
+        </span><span style="color: #0000ff;">for</span> (p=n-<span style="color: #800080;">1</span>; p&gt;<span style="color: #800080;">0</span>; p--) z = v[p-<span style="color: #800080;">1</span>], y = v[p] -=<span style="color: #000000;"> MX;
+        z </span>= v[n-<span style="color: #800080;">1</span><span style="color: #000000;">];
+        y </span>= v[<span style="color: #800080;">0</span>] -=<span style="color: #000000;"> MX;
+        sum </span>-=<span style="color: #000000;"> DELTA;
+      }
+      </span><span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;
+    }
+    </span><span style="color: #0000ff;">return</span> <span style="color: #800080;">1</span><span style="color: #000000;">;
+  }</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="//common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>瞧，短的惊人吧！</p>
+<p>&nbsp;</p>
+<p>咱也搞不明白数学上的东西，有兴趣的话就去上面那个wikipedia里看吧。我这里就讲讲怎么用。</p>
+<p>&nbsp;</p>
+<p>teab will encode or decode n words as a single block where <em>n</em> &gt; 1</p>
+<ul>
+<li>v is the n word data vector</li>
+<li>k is the 4 word key</li>
+<li>n is negative for decoding</li>
+<li>if n is zero result is 1 and no coding or decoding takes place, otherwise the result is zero</li>
+<li>assumes 32 bit ‘long’ and same endian coding and decoding</li>
+</ul>
+<p>&nbsp;</p>
+<p>这是wikipedia里的说明，讲得比较明白了。</p>
+<p>最核心的是要明白：XXTEA算法使用128bit的密钥对以32bit为单位的信息块进行加密。</p>
+<p>&nbsp;</p>
+<p>这段介绍里的'word’这个词让我很费了一番周折。我开始以为是“字”，也就是2byte，16bit。但是在我耗费了不少时间进行测试和实验后，可以确定，word在这里不是一个单位，大概是要翻译成“组元”之类的词，其实就是后面说的一个32bit的long类型。</p>
+<p>&nbsp;</p>
+<p>搞清楚这个，别的就没什么了。刚才那段代码：</p>
+<p>&nbsp;long btea(long* v, long n, long* k)</p>
+<p>v是要加密的组元的起始地址，以32bit为单位，这里用long来实现。</p>
+<p>n是要加密的组元个数，正数是加密，负数是解密。</p>
+<p>k是密钥的起始地址，长度为4个组元，4*32=128bit。</p>
+<p>返回值为0或1（对应n=0，没有计算）。</p>
+<p>加密的结果会直接写回到v中。</p>
+<p>&nbsp;</p>
+<p>经过试验，我还有一点要补充的，XXTEA的计算是空间相关的，也就是说，在一个组元中，4个字节是不能断章取义的，即密文的一部分，并不能还原成明文的一部分。所以，当数据不能被4个字节整除时，要做好字节的填充和对其等辅助工作。</p></div>
+
+</body>
+</html>

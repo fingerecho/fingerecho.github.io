@@ -1,0 +1,213 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>需要经常看看的python3代码</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+    </head>
+    <body>
+      <h1>需要经常看看的python3代码</h1>
+      <p>文中代码来自 https://wiki.python.org/moin/CategoryDocumentation</p>
+      <p>或者参考 https://github.com/fingerecho/interview_python<a href="https://github.com/fingerecho/interview_python">转到</a></p>
+      <hr>
+      <h2>“可更改”（mutable）与“不可更改”（immutable）</h2>
+      <pre>
+#!/usr/bin/python3
+
+a=1&lt;&lt;32;print(id(a))
+print(id(1&lt;&lt;32))
+def ch_(a:int):
+    a=1&lt;&lt;32+1;print(id(a))
+    print(id(1&lt;&lt;32+1))
+    return a
+ch_(a)
+print(id(a))
+print(a==1&lt;&lt;32)
+a=ch_(a)
+print(a==1&lt;&lt;32)
+
+b=();print(id(b))
+print(id(()))
+def ch_t(b:tuple):
+    b=('hello','world');print(id(b))
+    return b
+ch_t(b)
+print(id(b))
+print(b==())
+b=ch_t(b)
+print(b==())
+
+c=[];print(id(c))
+print(id([]))
+def ch_l(c:list):
+    c=['hello','world'];print(id(c))
+    print(id(['hello','world']))
+    return c
+ch_l(c)
+print(id(c))
+print(c==[])
+c=ch_l(c)
+print(c==[])
+
+d={};print(id(d))
+print(id({}))
+def ch_d(d:dict):
+    d={"hello":"world"};print(id(d))
+    print(id({"hello":"world"}))
+    return d
+ch_d(d)
+print(id(d))
+print(d=={})
+d=ch_d(d)
+print(d=={})
+</pre>
+  <p>结论:strings, tuples, 和numbers是不可更改的对象，而 list, dict, set等则是可以修改的对象</p>
+  <p>当一个引用传递给函数的时候,函数自动复制一份引用,这个函数里的引用和外边的引用没有关系，但是引用指向的内存却没有变化</p>
+  <p>另外需要注意的是 tuple 只有两个函数 index 和 count  ，正是因为它是imutable的</p>
+  <hr>
+  <p>官方提供的unittest 和 doctest 代码</p>
+  <pre>
+########################################
+import unittest
+def median(pool):
+    copy = sorted(pool)
+    size = len(copy)
+    if size % 2 == 1:
+        return copy[(size - 1) / 2]
+    else:
+        return (copy[size/2 - 1] + copy[size/2]) / 2
+class TestMedian(unittest.TestCase):
+    def testMedian(self):
+        self.failUnlessEqual(median([2, 9, 9, 7, 9, 2, 4, 5, 8]), 7)
+if __name__ == '__main__':
+    unittest.main()
+########################################
+def median(pool):
+    '''Statistical median to demonstrate doctest.
+    >>> median([2, 9, 9, 7, 9, 2, 4, 5, 8])
+    7
+    '''
+    copy = sorted(pool)
+    size = len(copy)
+    if size % 2 == 1:
+        return copy[(size - 1) / 2]
+    else:
+        return (copy[size/2 - 1] + copy[size/2]) / 2
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
+#########################################  
+</pre>
+  <hr>
+  <p>python 中的 group_by ，位于 itertools </p>
+  <pre>
+from itertools import groupby
+lines = '''
+This is the
+first paragraph.
+
+This is the second.
+'''.splitlines()
+# Use itertools.groupby and bool to return groups of
+# consecutive lines that either have content or don't.
+for has_chars, frags in groupby(lines, bool):
+    if has_chars:
+        print ' '.join(frags)
+# PRINTS:
+# This is the first paragraph.
+# This is the second.
+###########################################
+</pre>
+  <hr>
+  <p>python 中 csv 文件的操作</p>
+  <pre>
+import csv
+
+# write stocks data as comma-separated values
+writer = csv.writer(open('stocks.csv', 'wb', buffering=0))
+writer.writerows([
+    ('GOOG', 'Google, Inc.', 505.24, 0.47, 0.09),
+    ('YHOO', 'Yahoo! Inc.', 27.38, 0.33, 1.22),
+    ('CNET', 'CNET Networks, Inc.', 8.62, -0.13, -1.49)
+])
+
+# read stocks data, print status messages
+stocks = csv.reader(open('stocks.csv', 'rb'))
+status_labels = {-1: 'down', 0: 'unchanged', 1: 'up'}
+for ticker, name, price, change, pct in stocks:
+    status = status_labels[cmp(float(change), 0.0)]
+    print '%s is %s (%s%%)' % (name, status, pct)
+#################################################
+</pre>
+  <hr>
+  <p><strong>装饰器</strong>装饰器是一个很著名的设计模式，经常被用于有切面需求的场景，较为经典的有插入日志、性能测试、事务处理等。装饰器是解决这类问题的绝佳设计，有了装饰器，我们就可以抽离出大量函数中与函数功能本身无关的雷同代码并继续重用。概括的讲，装饰器的作用就是<strong>为已经存在的对象添加额外的功能</strong>。</p>
+  <pre>
+######################################
+def makebold(fn):
+    def wrapped():
+        return "&lt;b&gt;" + fn() + "&lt;/b&gt;"
+    return wrapped
+
+def makeitalic(fn):
+    def wrapped():
+        return "&lt;i&gt;" + fn() + "&lt;/i&gt;"
+    return wrapped
+
+@makebold
+@makeitalic
+def hello():
+    return "hello world"
+
+print hello() 
+## returns "&lt;b&gt;&lt;i&gt;hello world&lt;/i&gt;&lt;/b&gt;"
+#######################################
+</pre>
+  <p>参考： https://stackoverflow.com/questions/739654/how-to-make-a-chain-of-function-decorators</p>
+  <p><a href="https://stackoverflow.com/questions/739654/how-to-make-a-chain-of-function-decorators" >传送门</a></p>
+  <p>官方定义：https://docs.python.org/3/glossary.html#term-decorator</p>
+  <p><a href="https://docs.python.org/3/glossary.html#term-decorator">传送门</a></p>
+  <hr>  
+  <p>python函数式编程</p>
+  <pre>
+############
+>>>a = [1,2,3,4,5,6,7]
+>>>b = filter(lambda x: x > 5, a)
+>>>print b
+>>>[6,7]
+#######################
+>>> a = map(lambda x:x*2,[1,2,3])
+>>> list(a)
+[2, 4, 6]
+#######################
+>>> reduce(lambda x,y:x*y,range(1,4))
+6
+############
+  </pre>
+  <hr>
+  <p>python中的深浅拷贝</p>
+  <p>很早之前的一篇文章：https://blog.csdn.net/fyping_1/article/details/53548136</p>
+  <p><a href="https://blog.csdn.net/fyping_1/article/details/53548136" >传送门</a></p>
+  <pre>
+import copy
+a = [1, 2, 3, 4, ['a', 'b']]  #原始对象
+
+b = a  #赋值，传对象的引用
+c = copy.copy(a)  #对象拷贝，浅拷贝
+d = copy.deepcopy(a)  #对象拷贝，深拷贝
+
+a.append(5)  #修改对象a
+a[4].append('c')  #修改对象a中的['a', 'b']数组对象
+
+print 'a = ', a
+print 'b = ', b
+print 'c = ', c
+print 'd = ', d
+
+输出结果：
+a =  [1, 2, 3, 4, ['a', 'b', 'c'], 5]
+b =  [1, 2, 3, 4, ['a', 'b', 'c'], 5]
+c =  [1, 2, 3, 4, ['a', 'b', 'c']]
+d =  [1, 2, 3, 4, ['a', 'b']]
+</pre>
+  <hr><hr>
+    </body>
+</html>

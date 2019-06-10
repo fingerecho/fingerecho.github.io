@@ -1,0 +1,40 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>fedora软件仓库的安装</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+    </head>
+    <body>
+    	<h1>fedora软件仓库的安装</h1>
+    	<h4>参考：https://fedoraproject.org/wiki/EPEL</h4>
+    	<p>之前也时一直遇到类似这样的问题，比如说 yum install python3 </p>
+    	<p>直接给出了类似下面这样的提示，当时也没多想，直接从官网下载安装了,还踩过各种坑</p>
+    	<p>直到今天，终于找到原来是缺少这样的rpm仓库的原因</p>
+ 		<p>错误提示如下:</p>
+ 		<pre>
+[root@localhost ssh]# yum install ufw
+Loaded plugins: fastestmirror
+Loading mirror speeds from cached hostfile
+ * base: centos.uhost.hk
+ * extras: centos.uhost.hk
+ * updates: centos.uhost.hk
+No package ufw available.
+Error: Nothing to do
+</pre>
+		<p>epel是redhat及其衍生物centos 和其它Linux的的高质量软件包</p>
+		<P>官方是这样描述它们：</P>
+		<p>Enterprise Linux（或EPEL）的额外软件包是一个Fedora特别兴趣小组，它为Enterprise Linux创建，维护和管理一系列高质量的附加软件包，包括但不限于Red Hat Enterprise Linux（RHEL），CentOS和Scientific Linux（SL），Oracle Linux（OL）。
+		</p>
+		<p>
+		EPEL包通常基于它们的Fedora对应物，并且永远不会与基本Enterprise Linux发行版中的包冲突或替换它们。EPEL使用与Fedora相同的基础设施，包括构建系统，bugzilla实例，更新管理器，镜像管理器等。
+		</p>
+		<p>EPEL的启动是因为许多Fedora贡献者希望使用他们在Red Hat Enterprise Linux（RHEL）及其兼容衍生产品上维护的Fedora软件包。</p>
+		<p>有镜像列表:https://admin.fedoraproject.org/mirrormanager/mirrors/EPEL</p>
+		<p><strong>解决以上问题，使用官网上的一个指令就ok了</strong></p>
+		<pre><strong>yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</strong></pre>
+		<p>顺便查了一下 ubuntu的老祖 大名鼎鼎的Debian</p>
+		<p>他们的软件仓库在这里：https://packages.debian.org/stable/</p>
+		<p>文档:https://www.debian.org/doc/manuals/debian-reference/ch02.zh-cn.html</p>
+		
+    </body>
+</html>

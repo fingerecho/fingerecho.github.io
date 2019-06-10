@@ -1,0 +1,39 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+    </head>
+    <body>
+    <h1>git-踩坑之 denyCurrentBranch</h1>
+    <p>从一个报错：</p>
+    <pre>
+remote: error: refusing to update checked out branch: refs/heads/master
+remote: error: By default, updating the current branch in a non-bare repository
+remote: error: is denied, because it will make the index and work tree inconsistent
+remote: error: with what you pushed, and will require 'git reset --hard' to match
+remote: error: the work tree to HEAD.
+remote: error:
+remote: error: You can set 'receive.denyCurrentBranch' configuration variable to
+remote: error: 'ignore' or 'warn' in the remote repository to allow pushing into
+remote: error: its current branch; however, this is not recommended unless you
+remote: error: arranged to update its work tree to match what you pushed in some
+remote: error: other way.
+remote: error:
+remote: error: To squelch this message and still keep the default behaviour, set
+remote: error: 'receive.denyCurrentBranch' configuration variable to 'refuse'.
+ ! [remote rejected] master -> master (branch is currently checked out)
+error: failed to push some refs to 'git@hostname:/home/git/proms.git'
+</pre>
+	<p>解决方案：</p>
+	<p>在 gitserver中的 .git/config中增加如下代码</p>
+	<pre>
+[receive]
+	denyCurrentBranch = ignore
+</pre>
+	<p>再次在客户端中git push则不会产生任何问题</p>
+	<br>
+	<br>
+	<br>
+    </body>
+</html>

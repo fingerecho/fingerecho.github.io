@@ -1,0 +1,24 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>git-server搭建</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+    </head>
+    <body>
+      <h1>git-server-config</h1>
+      <p>参考：<a target="_blank" href="https://git-scm.com/book/zh/v1/%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84-Git-%E6%9E%B6%E8%AE%BE%E6%9C%8D%E5%8A%A1%E5%99%A8" title="服务器上的-Git-架设服务器">服务器上的-Git-架设服务器</a></p>
+      <p>参考:<a target="_blank" href="https://www.cnblogs.com/dee0912/p/5815267.html" title="cnblogs 在 Linux 下搭建 Git 服务器">在 Linux 下搭建 Git 服务器</a></p>
+      <p>以上资料都比较详细了，本文只总结其中较为关键的部分</p>
+      <p>1.useradd git</p>
+      <p>2.改变目标目录的属主: chown git:git ....</p>
+      <p>使git用户无法操作其他的目录</p>
+      <p>3.编辑 /etc/passwd 和 /etc/shadow </p>
+      <p>其中git:x:504:505::/home/git:/bin/git-shell  原来的是/bin/bash这行改为/bin/git-shell使给了公钥的用户登陆之后只能用git-shell操作这个目录</p>
+      <p>当然不一定每个系统的git-shell都是在/bin/下，需要先找到这个git-shell，再修改</p>
+      <p>4.然后就是 git init  git add git commit 类似这些操作了</p>
+      <p>5.最后就是再客户端 git clone git pull git push </p>
+      <p>关于调试：ssh -T git@hostname -v 或者 ssh -T git@hostname -vv  或者-vvv v增加的越多调试的信息越详细，适用于 git客户端权限不够时的调试</p>
+      <p>关于这个权限，最重要的就是 就是这个目录的属主和.ssh/authorized_keys，属主是哪个用户，在客户端使用 ssh -T username@hostname 时就不会出现权限不够的情况,authorizek_keys必须增加该用户的公钥</p>
+      <p>修改目录的权限 ，chown -R dir 加了-R 代表该目录及其子目录 或者直接编辑 /etc/shadow</p>
+    </body>
+</html>

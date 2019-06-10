@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Shad0ws0ck 在python下的使用</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+    </head>
+    <body>
+    <h1>Shad0w-s0ck 在python下的使用</h1>
+    <h4>具体看python的第三方库 在 <a target="_blank" href="https://pypi.org/project/shadowsocks/" title="https://pypi.org/project/shadowsocks/">https://pypi.org/project/shadowsocks/</a></h4>
+    <p>之前看见其他的朋友配置shad0ws0ck用了一大堆的shell指令，真替他遗憾，python明明有这样的第三方库，直接一键搞定(两个命令就搞定了)，非要整这样那样的配置，服务器不稳定换了还得文件拷贝来拷贝去，内容改来改去，真是既麻烦又浪费时间，写这篇文章主要是最近目标比较明确了，思路更清晰了些，所以有时间折腾一些看似不太重要的，看似容易实现的，以后也会经常有这样的</p>
+    <p>也是为了这篇文章更充实些,复制粘贴了一下</p>
+    <pre>
+Usage:
+ssserver -p 443 -k password -m rc4-md5
+To run in the background:
+sudo ssserver -p 443 -k password -m rc4-md5 --user nobody -d start
+To stop:
+sudo ssserver -d stop
+To check the log:
+sudo less /var/log/shadowsocks.log
+</pre>
+	<p>这里还列出了这些平台，真是够人性化，跨平台也做得很好</p>
+	<pre>
+Windows / OS X
+Android / iOS
+OpenWRT
+</pre>
+	<p>还有人告诉我在win上不会翻，看到这里估计要笑掉大牙,只要是有连外网的设备，哪怕是路由器都是一样的呀</p>
+	<p>文档也相当齐全，在Github上的，安卓的都有</p>
+		<h6>https://github.com/shadowsocks/shadowsocks/wiki</h6>
+		<a target="_blank" href="https://github.com/shadowsocks/shadowsocks/wiki" >https://github.com/shadowsocks/shadowsocks/wiki</a>
+    <br><br><br><hr width="60%">
+    <center><iframe src="https://fingerecho.gitee.io/bmk/html/shadows_info.htm" frameborder="0" width="461px" height="692px" scrolling="no"></iframe></center>
+    <br><hr width="60%">
+    </body>
+</html>

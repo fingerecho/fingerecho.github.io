@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>linux监控系统的命令</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+    </head>
+    <body>
+      <h1>linux监控系统的命令</h1>
+      <p>熟悉的就不列出了</p>
+      <p>1.uptime</p>
+      <pre> 13:18:27 up 79 days,  1:34,  1 user,  load average: 1.26, 1.77, 2.08</pre>
+      <p>13:18:27 指当前时间 up 79 days指开机运行了79天了，一般这个值越大，说明这个服务器性能越稳定, 1:34 说明运行了79天1小时34分钟</p>
+      <p>1 user 指当前连接服务器的只有1个用户</p>
+      <p>最重要的时这个 load average:</p>
+      <p>man uptime的描述如下</p>
+      <pre>
+DESCRIPTION
+       uptime gives a one line display of the following information.  The current time, how long the system has been running, how many
+       users are currently logged on, and the system load averages for the past 1, 5, and 15 minutes.
+
+       This is the same information contained in the header line displayed by w(1).
+
+       System load averages is the average number of processes that are either in a runnable or uninterruptable state.  A process in a
+       runnable  state  is either using the CPU or waiting to use the CPU.  A process in uninterruptable state is waiting for some I/O
+       access, eg waiting for disk.  The averages are taken over the three time intervals.  Load averages are not normalized  for  the
+       number  of CPUs in a system, so a load average of 1 means a single CPU system is loaded all the time while on a 4 CPU system it
+       means it was idle 75% of the time.
+</pre>
+      <p>以下时google翻译</p>
+      
+
+    </body>
+</html>

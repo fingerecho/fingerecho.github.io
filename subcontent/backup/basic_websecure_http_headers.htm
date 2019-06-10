@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>基本的web安全http头部</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+</head>
+<body>
+	<h1>基本的http 关于web安全的头部</h1>
+	<p> 刚刚用<a href="https://cirt.net/Nikto2">Nikto2</a>这个web安全测试工具测试了一下</p>
+	<p>得到下列结果</p>
+	<pre>
++ The anti-clickjacking X-Frame-Options header is not present.
++ The X-XSS-Protection header is not defined. This header can hint to the user agent to protect against some forms of XSS
++ The site uses SSL and the Strict-Transport-Security HTTP header is not defined.
++ The site uses SSL and Expect-CT header is not present.
++ The X-Content-Type-Options header is not set. This could allow the user agent to render the content of the site in a different fashion to the MIME type
++ No CGI Directories found (use '-C all' to force check all possible dirs)
++ Hostname 'gitee.fyping.cn' does not match certificate's names:
+</pre>
+	<br><hr width="80%">
+	<p> X-Frame-Options 避免点击劫持攻击</p>
+	<pre>
+	X-Frame-Options: deny
+	X-Frame-Options: sameorigin
+	X-Frame-Options: allow-from https://example.com/
+	</pre>
+	<br><hr width="80%">
+	<p>X-XSS-Protection 跨站点脚本（XSS）攻击时阻止页面加载</p>
+	<p> 跟 Content-Security-Policy 功能是一样的 ， 但是Content-Security-Policy 不支持某些旧版本的浏览器</p>
+	<br><hr width="80%">
+	<p> Strict-Transport-Security 告诉浏览器必须使用https来传输内容</p>
+	<pre>
+Strict-Transport-Security: max-age=<expire-time>
+Strict-Transport-Security: max-age=<expire-time>; includeSubDomains
+Strict-Transport-Security: max-age=<expire-time>; preload
+</pre>
+	<br><hr width="80%">
+	<p>Except-CT 确保证书出现在 https://www.certificate-transparency.org/known-logs </p>
+	<br><hr width="80%">
+	<p>X-Content-Type-Options 指示该标记MIME类型的广告Content-Type标题不应该被改变</p>
+	<pre>X-Content-Type-Options：nosniff</pre>
+	<br><hr width="80%">
+
+</body>
+</html>

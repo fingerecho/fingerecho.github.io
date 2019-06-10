@@ -1,0 +1,128 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>django和数据库的数据类型映射</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+</head>
+<body>
+	<h1>django和数据库的数据类型映射</h1>
+	<h2>一下数据取自python源文件，权威可参考</h2>
+	<p>django2.0和mysql</p>
+	<p>取自/python3.6/site-packages/django/db/backends/mysql/base.py</p>
+	<pre>
+        'AutoField': 'integer AUTO_INCREMENT',
+        'BigAutoField': 'bigint AUTO_INCREMENT',
+        'BinaryField': 'longblob',
+        'BooleanField': 'bool',
+        'CharField': 'varchar(%(max_length)s)',
+        'DateField': 'date',
+        'DateTimeField': 'datetime',
+        'DecimalField': 'numeric(%(max_digits)s, %(decimal_places)s)',
+        'DurationField': 'bigint',
+        'FileField': 'varchar(%(max_length)s)',
+        'FilePathField': 'varchar(%(max_length)s)',
+        'FloatField': 'double precision',
+        'IntegerField': 'integer',
+        'BigIntegerField': 'bigint',
+        'IPAddressField': 'char(15)',
+        'GenericIPAddressField': 'char(39)',
+        'NullBooleanField': 'bool',
+        'OneToOneField': 'integer',
+        'PositiveIntegerField': 'integer UNSIGNED',
+        'PositiveSmallIntegerField': 'smallint UNSIGNED',
+        'SlugField': 'varchar(%(max_length)s)',
+        'SmallIntegerField': 'smallint',
+        'TextField': 'longtext',
+        'TimeField': 'time',
+        'UUIDField': 'char(32)'
+     </pre>
+     <p>django2.0 和 postgresql</p>
+     <p>python3.6/site-packages/django/db/backends/postgresql/base.py</p>
+     <pre>
+        'AutoField': 'serial',
+        'BigAutoField': 'bigserial',
+        'BinaryField': 'bytea',
+        'BooleanField': 'boolean',
+        'CharField': 'varchar(%(max_length)s)',
+        'DateField': 'date',
+        'DateTimeField': 'timestamp with time zone',
+        'DecimalField': 'numeric(%(max_digits)s, %(decimal_places)s)',
+        'DurationField': 'interval',
+        'FileField': 'varchar(%(max_length)s)',
+        'FilePathField': 'varchar(%(max_length)s)',
+        'FloatField': 'double precision',
+        'IntegerField': 'integer',
+        'BigIntegerField': 'bigint',
+        'IPAddressField': 'inet',
+        'GenericIPAddressField': 'inet',
+        'NullBooleanField': 'boolean',
+        'OneToOneField': 'integer',
+        'PositiveIntegerField': 'integer',
+        'PositiveSmallIntegerField': 'smallint',
+        'SlugField': 'varchar(%(max_length)s)',
+        'SmallIntegerField': 'smallint',
+        'TextField': 'text',
+        'TimeField': 'time',
+        'UUIDField': 'uuid',
+    </pre>
+    <hr>
+    <p>django1.11.3 和 mysql</p>
+    <pre>
+        'AutoField': 'integer AUTO_INCREMENT',
+        'BigAutoField': 'bigint AUTO_INCREMENT',
+        'BinaryField': 'longblob',
+        'BooleanField': 'bool',
+        'CharField': 'varchar(%(max_length)s)',
+        'CommaSeparatedIntegerField': 'varchar(%(max_length)s)',
+        'DateField': 'date',
+        'DateTimeField': 'datetime',
+        'DecimalField': 'numeric(%(max_digits)s, %(decimal_places)s)',
+        'DurationField': 'bigint',
+        'FileField': 'varchar(%(max_length)s)',
+        'FilePathField': 'varchar(%(max_length)s)',
+        'FloatField': 'double precision',
+        'IntegerField': 'integer',
+        'BigIntegerField': 'bigint',
+        'IPAddressField': 'char(15)',
+        'GenericIPAddressField': 'char(39)',
+        'NullBooleanField': 'bool',
+        'OneToOneField': 'integer',
+        'PositiveIntegerField': 'integer UNSIGNED',
+        'PositiveSmallIntegerField': 'smallint UNSIGNED',
+        'SlugField': 'varchar(%(max_length)s)',
+        'SmallIntegerField': 'smallint',
+        'TextField': 'longtext',
+        'TimeField': 'time',
+        'UUIDField': 'char(32)',
+    </pre>
+    <p>django1.11.3 和 postgresql</p>
+    <pre>
+    	'AutoField': 'serial',
+        'BigAutoField': 'bigserial',
+        'BinaryField': 'bytea',
+        'BooleanField': 'boolean',
+        'CharField': 'varchar(%(max_length)s)',
+        'CommaSeparatedIntegerField': 'varchar(%(max_length)s)',
+        'DateField': 'date',
+        'DateTimeField': 'timestamp with time zone',
+        'DecimalField': 'numeric(%(max_digits)s, %(decimal_places)s)',
+        'DurationField': 'interval',
+        'FileField': 'varchar(%(max_length)s)',
+        'FilePathField': 'varchar(%(max_length)s)',
+        'FloatField': 'double precision',
+        'IntegerField': 'integer',
+        'BigIntegerField': 'bigint',
+        'IPAddressField': 'inet',
+        'GenericIPAddressField': 'inet',
+        'NullBooleanField': 'boolean',
+        'OneToOneField': 'integer',
+        'PositiveIntegerField': 'integer',
+        'PositiveSmallIntegerField': 'smallint',
+        'SlugField': 'varchar(%(max_length)s)',
+        'SmallIntegerField': 'smallint',
+        'TextField': 'text',
+        'TimeField': 'time',
+        'UUIDField': 'uuid',
+    </pre>
+</body>
+</html>

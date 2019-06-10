@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>rpm open failed</title>
+  <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+</head>
+<body>
+	<h1>rpm open failed 解决方案</h1>
+	<p>运行 yum install 时报错如下</p>
+	<pre>
+		l-7-x86_64/pgdg-centos11-11-2.noarch.rpm
+error: rpmdb: BDB0113 Thread/process 25459/140163873253184 failed: BDB1507 Thread died in Berkeley DB library
+error: db5 error(-30973) from dbenv->failchk: BDB0087 DB_RUNRECOVERY: Fatal error, run database recovery
+error: cannot open Packages index using db5 -  (-30973)
+error: cannot open Packages database in /var/lib/rpm
+CRITICAL:yum.main:
+
+Error: rpmdb open failed
+</pre>
+	<p>解决方案如下</p>
+	<p>删除 /var/lib/rpm/下的所有 __db.* 文件 </p>
+	<p>执行 rpm --rebuilddb</p>
+	<p>执行 yum clean all </p>
+	<p>解决</p>
+</body>
+</html>

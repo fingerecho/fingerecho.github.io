@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>堪称神奇的Linux命令行软件</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+    </head>
+    <body>
+    	<h1>堪称神器的Linux命令行软件</h1>
+    	<quote><p>来自<a href="https://m.aliyun.com/yunqi/articles/674899?from=singlemessageage" title="云栖社区-20个堪称神器的Linux命令行软件">云栖社区-20个堪称神器的Linux命令行软件</a></p></quote>
+    	<hr>
+    	<ul>
+    		<li>1.ag：比grep、ack更快的递归搜索文件内容。</li>
+    		<li>2.tig：字符模式下交互查看git项目，可以替代git命令。</li>
+    		<li>3.mycli：mysql客户端，支持语法高亮和命令补全，效果类似ipython，可以替代mysql命令。</li>
+    		<li>4.jq: json文件处理以及格式化显示，支持高亮，可以替换python -m json.tool。</li>
+    		<li>5.shellcheck：shell脚本静态检查工具，能够识别语法错误以及不规范的写法。</li>
+    		<li>6.yapf：Google开发的python代码格式规范化工具，支持pep8以及Google代码风格。</li>
+    		<li>7.mosh：基于UDP的终端连接，可以替代ssh，连接更稳定，即使IP变了，也能自动重连。</li>
+    		<li>8.fzf：命令行下模糊搜索工具，能够交互式智能搜索并选取文件或者内容，配合终端ctrl-r历史命令搜索简直完美。</li>
+    		<li>9.PathPicker(fpp):在命令行输出中自动识别目录和文件，支持交互式，配合git非常有用。</li>
+    		<li><pre>git diff HEAD~8 --stat | fpp</pre></li>
+    		<li>10.htop: 提供更美观、更方便的进程监控工具，替代top命令。</li>
+    		<li>11.axel：多线程下载工具，下载文件时可以替代curl、wget。</li>
+    		<li><pre>axel -n 20 http://centos.ustc.edu.cn/centos/7/isos/x86_64/CentOS-7-x86_64-Minimal-1511.iso</pre></li>
+    		<li>12.sz/rz：交互式文件传输，在多重跳板机下传输文件非常好用，不用一级一级传输。</li>
+    		<li>13.cloc：代码统计工具，能够统计代码的空行数、注释行、编程语言。</li>
+    		<li>14.ccache：高速C/C++编译缓存工具，反复编译内核非常有用。</li>
+    		<li><pre>gcc foo.c</pre><pre>ccache gcc foo.c</pre></li>
+    		<li>15.tmux：终端复用工具，替代screen、nohup。</li>
+    		<li>16.neovim: 替代vim。</li>
+    		<li>17.script/scriptreplay: 终端会话录制。</li>
+    		<li><pre>script -t 2>time.txt session.typescript # 录制开始# your commandsexit # 录制结束</pre></li>
+    		<li><pre>scriptreplay -t time.txt session.typescript</pre></li>
+    		<li>18.you-get: 非常强大的媒体下载工具，支持youtube、google+、优酷、芒果TV、腾讯视频、秒拍等视频下载。
+    		还有mac专有的pbcopy/pbpaste：把命令行输出拷贝到系统粘贴板</li>
+    		<li><p>把命令行输出拷贝到系统粘贴板：</p><pre>cat test.sh| pbcopy</pre></li>
+    		<li><p>把系统粘贴板内容拷到终端:</p><pre>pbpaste</pre></li>
+    		<li>19.thefuck：用途是每次命令行打错了以后，打一句fuck就会自动更正命令。比如apt-get打成了aptget。fuck以后自动变成apt-get。但还是没加sudo。再fuck，成功！</li>
+    		<li>又比如git branch打成了git brnch。fuck！更正成git branch。</li>
+    		<li>又比如python打成了puthon。fuck！一秒变python。</li>
+    		<li>而且关键是每次打命令和内心os完全一致，有种人机合一的快感。fuck！</li>
+    		<li>20.tldr: 如果你经常不想详读man文档，那么你应该试试这个小工具。</li>
+    		<hr>
+    </body>
+</html>

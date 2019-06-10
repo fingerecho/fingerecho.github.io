@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>fingerecho</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+</head>
+<body>
+<h1>IP地址到长整形的转换</h1>
+<h3>与IP地址的对应关系是:&nbsp;&nbsp;
+ip=((a*256+b)*256+c)*256+d<h3>
+<h3>ip str 可直接在浏览器访问</h3>
+<p>js code</p>
+<p>
+<code>
+var ip2long = function(ip){ip = ip.split(".");return (((ip[0] << 24) | (ip[1] << 16) | (ip[2] << 8) | ip[3]) >>> 0)}<br>
+var long2ip = function(ip){return [(ip >> 24) & 0xff,(ip >> 16) & 0xff,(ip >> 8) & 0xff,ip & 0xff].join(".")}
+/*用于防止运营商修改地址*/
+</code>
+</p>
+<p>Python socket module</p>
+<p>
+<code>
+# 导入相关模块包<br>
+import socket<br>
+import struct<br>
+# 将IP从字符串转为整型<br>
+>>> int(socket.inet_aton('127.0.0.1').encode('hex'),16)<br>
+2130706433<br>
+# 将IP从整型转为字符串<br>
+>>> socket.inet_ntoa(struct.pack("!I",2130706433))<br>
+'127.0.0.1'<br>
+</code>
+</p>
+<p>python lambda 形式</p>
+<code>
+long2ip = lambda x: '.'.join([str(x/(256**i)%256) for i in range(3,-1,-1)])<br>
+ip2long = lambda x:sum([256**j*int(i) for j,i in enumerate(x.split('.')[::-1])])<br>
+</code>
+<p>MySql 函数</p>
+<p>MySQL中存在INET_ATON() 、INET_NTOA()函数进行IP整型和字符串之间的转换</p>
+</body>
+</html>

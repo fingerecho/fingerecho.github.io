@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>python3编码类型</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+    </head>
+    <body>
+      <h1>python3编码</h1>
+      <h3>未知文件编码检测</h3>
+      <p>python3内置库 chardet</p>
+      <pre>
+#!/usr/bin/python3
+import chardet
+
+fh = open("file","rb")
+dat = fh.read()
+fh.close()
+print(chardet.detect(dat))
+#{'encoding': 'GB2312', 'confidence': 0.99, 'language': 'Chinese'}
+</pre>
+      <h3>python的执行环境编码</h3>
+      <pre>
+#!/usr/bin/python3
+import sys
+print(sys.getdefaultencoding())
+#window 默认 gbk
+#linux utf-8
+</pre>
+      <h3>bytes编码str,str解码bytes</h3>
+      <pre>
+#!/usr/bin/python
+a=bytes('hello',encoding="ascii")
+# b'hello'    多了一个b ,代表是字节
+a=bytes("hello中文",encoding='ascii')  
+#UnicodeEncodeError: 'ascii' codec can't encode characters in position 5-6: ordinal not in range(128)
+a=bytes("hello中文",encoding="utf-8")
+#b'hello\xe4\xb8\xad\xe6\x96\x87'
+<strong>等价于'hello中文'.encode(encoding='utf-8')</strong>
+>>> 'hello中文'.encode(encoding='utf-8')==a
+True
+b=bytes("hello中文",encoding="gbk")
+#b'hello\xd6\xd0\xce\xc4'
+<strong>c=bytes("hello中文",encoding="unicode-escape")</strong>
+<strong>b'hello\\u4e2d\\u6587'</strong>
+a==b #   False
+a.decode(encoding="utf-8")
+#'hello中文'
+b.decode(encoding="utf-8")
+#UnicodeDecodeError: 'utf-8' codec can't decode byte 0xd6 in position 5: invalid continuation byte
+b.decode(encoding="gbk")
+#'hello中文'
+a.decode(encoding="utf-8")==b.decode(encoding="gbk")  # True
+#当然中文编码还有
+<strong>c = bytes("hello中文",encoding="gb18030") #中文 日文 朝鲜语都兼容</strong>
+d = bytes("hello中文",encoding="gb2312")
+e = bytes("hello中文",encoding="big5") #台湾地区在用的繁体
+</pre>
+    </body>
+</html>

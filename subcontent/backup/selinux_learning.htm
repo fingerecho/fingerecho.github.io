@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>selinux-摘抄自互联网</title>
+<link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+</head>
+<body>
+
+
+<div><div class="article_title">&nbsp;
+<h1>linux-SElinux</h1>
+<quote>selinux-摘抄自互联网</quote>
+</div>
+<div id="article_content" class="article_content tracking-ad" data-mod="popu_307" data-dsm="post">
+<p>&nbsp; &nbsp; &nbsp; &nbsp; SElinux是强制访问控制(MAC)安全系统，是linux历史上最杰出的新安全系统。对于linux安全模块来说，SElinux的功能是最全面的，测试也是最充分的，这是一种基于内核的安全系统。</p>
+<p>&nbsp;1、SElinux的状态</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;命令"getenforce"可以查看SElinux的状态，SElinux的状态分为以下三种：</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Enforcing &nbsp;&nbsp;&nbsp;（1） &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;强制模式</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Permissive &nbsp;&nbsp;（0） &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;警告模式</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Disabled &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关闭模式</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;"setenforce"可以设置SElinux的状态，但是只能设置0和1两种，即警告模式或者强制模式。如果需要关闭，则在配置文件"/etc/sysconfig/selinux"下将"SELINUX=enforcing"改为"SELINUX=disabled"，因为SElinux是基于内核的安全系统，所以在设置完成之后需要重启内核，即需要重启电脑才可以生效。</p>
+<p><img src="http://img.blog.csdn.net/20170809192913312?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><img src="http://img.blog.csdn.net/20170809192932015?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>&nbsp;2、SElinux对服务的影响</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; SElinux是最全面的安全系统，所以会对文件和服务有一定的限制，以下服务以ftp为例。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; SElinux会在文件上做出上下文标识，例如下图所示，在"/mnt"和"/var/ftp/pub"下分别建立文件"file"，输入"ls -Z"可以查看文件标识。可以看出，"/mnt/file"为"mnt_t"，而"/var/ftp/pub/file"标识为"public_content_t"，这样会导致将"/mnt/file"移入"/var/ftp/pub"目录下，连接lftp无法看到这个文件。</p>
+<p><img src="http://img.blog.csdn.net/20170809193239227?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; SElinux为了系统的安全，会禁止服务一些危险功能的使用，可以输入"getsebool -a | grep ftp"来查看禁止了ftp服务的哪些功能，如下图所示，输入"setsebool -P 功能 on|off"可以控制这些功能的开关。</p>
+<p><img src="http://img.blog.csdn.net/20170809193321692?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>&nbsp;3、SElinux的上下文管理</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;之前提到SElinux会在目录和文件上留下上下文标识，输入"ls -Z"可以查看。命令"chcon -t 上下文 文件"可以更改文件和目录的上下文标识，就可以解决上述中lftp无法看到其他上下文标识文件的问题。例如下图所示，现有两个不同上下文标识的文件"txt"和"file"连接lftp后可以看到"file"，输入"chcon -t public_content_t /var/ftp/pub/txt"后，重新连接lftp，就可以看到"file"和"txt"两个文件了。</p>
+<p><img src="http://img.blog.csdn.net/20170809193451549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;如下图所示，将匿名用户登陆的家目录改为"/westos"，并将标识改为"public_content_t"，连接lftp可以看到这个家目录。但是将SElinux的状态改为"disabled"重启后再改回"enforcing"，重启后重新连接lftp，发现无法看见家目录了。</p>
+<p><img src="http://img.blog.csdn.net/20170809193514058?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><img src="http://img.blog.csdn.net/20170809193542264?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><img src="http://img.blog.csdn.net/20170809193554726?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;上述情况说明使用"chcon"命令改变目录的上下文标识只是临时的。永久改变目录的上下文标识，需要做如下步骤：</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; a、使用命令"semanage fcontext -l | grep /westos"查看该目录是否有上下文规则。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; b、输入"semanage fcontext -a -t public_content_t '/westos(/.*)?'"为"/westos"添加上下文规则，并通过a步骤命令查看。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; c、查看到上下文规则后，输入命令"restorecon -RvvF /westos"将规则同步至目录及其子目录。</p>
+<p><img src="http://img.blog.csdn.net/20170809193617449?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><img src="http://img.blog.csdn.net/20170809193638041?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><img src="http://img.blog.csdn.net/20170809193711271?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;上述步骤完成后就可以永久改变"/westos"目录的上下文标识了，重新连接lftp就可以看到目录了。</p>
+<p><img src="http://img.blog.csdn.net/20170809193744242?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>&nbsp;4、SElinux的日志</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;在SElinux的使用当中，会出现一些错误，例如连接lftp后无法看到里面的文件，或者在进行配置时某一步出现错误。这些错误出现后是可以查出来并且解决的，这就是SElinux日志的使用。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp; SElinux的日志会记录在"/var/log/audit/audit.log"和文件"/var/log/messages"中，前者只会说明错误，但是不会提供解决办法，且阅读复杂。"/var/log/messages"文件可以详细的记录错误，并且提供解决方法，SElinux的记录软件是"setroubleshoot-server.x86_64"。下面将以lftp连接后无法看到里面的文件来具体介绍。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;前面已做叙述，如果不改变下图中的"file1"文件的上下文标识，是无法看到这个文件的。</p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;在没有"setroubleshoot-server.x86_64"这个软件的情况下，清空日志后，发现日志中并不会记录这个错误。</p>
+<p><img src="http://img.blog.csdn.net/20170809193933185?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+<p>&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;然后安装这个软件后，重新连接，再查看日志，其中就会出现这个错误的具体日志。并且会提供解决方法，根据解决方法就可以解决这个问题了。</p>
+<p><img src="http://img.blog.csdn.net/20170809194019705?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><img src="http://img.blog.csdn.net/20170809194050941?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><img src="http://img.blog.csdn.net/20170809194110182?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""><img src="http://img.blog.csdn.net/20170809194118462?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYXNzX2Fzc2luYXRvcg==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
+</div></div>
+
+
+</body>
+</html>

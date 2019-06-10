@@ -1,7 +1,7 @@
 import os
 import copy
-
 from jinja2 import Environment, PackageLoader
+
 class Navs(object):
 	"""docstring for Navs"""
 	def __init__(self, href,title,intro):

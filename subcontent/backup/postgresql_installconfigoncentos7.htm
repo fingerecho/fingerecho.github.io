@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Postgresql 在 centos7 上的安装配置运行</title>
+	<link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+</head>
+<body>
+	<h1>Postgresql 在 centos7 上的安装配置运行</h1>
+	<h3>下载安装</h3>
+	<p> 从 https://www.postgresql.org/download/ 下载合适的版本</p>
+	<p> ./configure</p>
+	<p> make && make install </p>
+	<p> 即可</p>
+
+	<h3>利用Centos7 的镜像安装</h3>
+	<p>参考: https://www.postgresql.org/download/linux/redhat/</p>
+	<p>根据提示选择平台</p>
+	<p> 安装RPM 库</p>
+	<p> yum install https://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/pgdg-centos11-11-2.noarch.rpm</p>
+	<p>这是客户端</p>
+	<p> yum install postgresql11</p>
+	<p>服务端</p>
+	<p> yum install postgresql11-server</p>
+	<p>初始化数据库 并且开启自启动</p>
+	<p><pre>/usr/pgsql-11/bin/postgresql-11-setup initdb</pre></p>
+	<p><pre>systemctl enable postgresql-11</pre></p>
+	<p><pre>systemctl start postgresql-11</pre></p>
+	<p>即可</p>
+	<h3>Postgresql.conf 的配置文件</h3>
+	<p><code>
+		#listen_addresses = 'localhost'         
+		# what IP address(es) to listen on;</p>
+                                        # comma-separated list of addresses;  
+                                        # defaults to 'localhost'; use '*' for all
+                                        # (change requires restart)<br>
+#port = 5432                            # (change requires restart)<br>
+max_connections = 100                   # (change requires restart)<br>
+#superuser_reserved_connections = 3     # (change requires restart) 为管理员保留的专用连接数，普通用户无法使用这些连接<br>
+shared_buffers = 128MB                  # min 128kB 共享缓存 非常重要的参数<br>
+</code>
+</p>
+    <p>在centos6下 initdb </p>
+    <p>必须使用 postgres用户，因此先把 /var/lib 这个默认的PGDATA目录属主设置为 postgres:postgres </p>
+    <p>之后切换到postgres </p>
+    <p> initdb -D /var/lib/....(your PGDATA)</p>
+    <p>开启数据库</p>
+    <pre>bin/pg_ctl -D /var/lib/postgres/data -l logfile start</pre>
+    
+</body>
+</html>
