@@ -53,10 +53,13 @@ hr{
 .nav-box{
 /*  border: 1px red solid;
 */  height: 50px;
-width: 100%;
-line-height: 50px;
-padding-left: 10%;
-border-bottom: 1px solid #eee;
+	width: 100%;
+	line-height: 50px;
+	padding-left: 10%;
+	border-bottom: 1px solid #eee;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
 #top{
 font-size: 30px;
