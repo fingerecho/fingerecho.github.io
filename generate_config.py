@@ -12,8 +12,12 @@ except ImportError :
 
 
 def get_html_information(ymlf,stream,old) -> None:
+	"""
+	在 navcontent/config/nav.ini中写入yaml 信息
+	"""
 	info = {'contents':[]}
-	info['contents'].extend(old['contents'])
+	if old:
+		info['contents'].extend(old['contents'])
 	for f in os.listdir(os.path.join(os.path.dirname(__file__),'subcontent')):
 		if os.path.isdir(f):
 			continue
