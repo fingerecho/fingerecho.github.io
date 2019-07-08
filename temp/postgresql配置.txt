@@ -1,0 +1,12 @@
+
+postgresql使用
+
+bin/initdb -d /data_dir   # 数据目录
+
+数据目录下有所有的配置文件等，
+其中包含 postgresql.conf   pg_hba.conf 等 
+后者是配置反问权限的，如IP等 
+前者配置中有一项：
+unix_socket_directories = '/tmp,/var/run/postgresql' # 逗号隔开
+解决网上出现的 /tmp/.s.PGSQL.port   /var/run/.s.PGSQL.port 的问题
+
