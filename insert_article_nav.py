@@ -107,6 +107,14 @@ def print_help() -> None:
 	print("--check-nav   ")
 	print("				--unique-article       #default the unique_article")
 	print("====================================================================")
+	print("sub module contains:")
+	print("-go")
+	print("-htmlcssjs")
+	print("-web_secure")
+	print("-sql")
+	print("-linux")
+	print("-python3")
+	print("-web_0") 
 	print("\n")
 if __name__ == '__main__':
 	if len(sys.argv) < 2:
