@@ -81,7 +81,7 @@ def check_nav() -> None:
 	if glob.glob(os.path.join('subcontent',lod['html_file_name'])) and glob.glob(os.path.join('subcontent',lod['html_file_name']+"l")):
 		print("the %s is exists, the %s is exists too."%(lod['html_file_name'],lod['html_file_name']+'l'))
 	else:
-		pritn("error exixted on the %s or the %s"%(lod['html_file_name'],lod['html_file_name']+'l'))
+		print("error exixted on the %s or the %s"%(lod['html_file_name'],lod['html_file_name']+'l'))
 	f = open(os.path.join('navcontent','config','nav.ini'),encoding='utf-8')
 	config = yaml.load(f)
 	f.close()
