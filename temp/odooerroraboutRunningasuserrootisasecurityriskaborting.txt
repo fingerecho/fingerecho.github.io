@@ -1,0 +1,16 @@
+Odoo
+Pycharm 配置好configurations之后
+运行python
+报错： Running as user 'root' is a security risk, aborting.
+
+
+解决方案：
+https://stackoverflow.com/questions/31382549/running-as-user-root-is-a-security-risk-aborting
+
+
+useradd openerp
+passwd openerp
+....
+....
+
+没有更好的解决办法
