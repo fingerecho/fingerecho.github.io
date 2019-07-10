@@ -43,7 +43,11 @@ mpc:
 		 --with-gmp-lib=/usr/local/gmp/lib64
 
 3.三个lib 加入到LD_LIBRARY_PATH变量中
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/mpc/lib64:/usr/local/gmp/lib64:/usr/local/mpfr/lib64
+export LD_LIBRARY_PATH=
+$LD_LIBRARY_PATH:
+/usr/local/mpc/lib64:
+/usr/local/gmp/lib64:
+/usr/local/mpfr/lib64
 
 
 4.正式安装gcc
