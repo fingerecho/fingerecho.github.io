@@ -1,0 +1,58 @@
+Linux下的gcc编译安装
+
+引言：使用的是闭源的Linux发行版，软件安装包不像其他的Linux发行版，
+没有 apt-get yum rpm zypper 等等，甚至连一个dpkg 安装还需要各种。。，
+因为系统使用的是 Flatpak  ，大部分软件包均在 flathub 网站里
+同样 gcc 也在 flatpak 下 ， 作为一个开发者 没法手动在环境里编译任何源代码
+需要在 flatpak下的沙盒里 才能使用 gcc, 但这个操作编译出来的程序仍然只能在沙盒里跑
+所以，当我需要编译其他程序时，我一般现在阿里云上 configure/make/make install 等等
+拷贝到本地再运行看缺了哪些 .so 文件 ，然后在云端找到那些文件拷贝到本地文件夹
+所以 /etc/profile 中有一个特殊的变量，
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/root/lib
+之前也尝试过编译gcc , 但都是因为种种原因导致中途失败
+
+1.download gmp mpfr mpc
+gmp: ftp://ftp.gnu.org/gnu/gmp/gmp-5.0.1.tar.bz2
+mpfr: http://ftp.gnu.org/gnu/mpfr
+mpc: http://www.multiprecision.org/mpc
+
+
+2.安装 gmp mpfr
+gmp:
+./configure --prefix=/usr/local/gmp
+make &make install
+
+mpfr:
+./configure  --prefix=/usr/local/mpfr \
+		 --with-gmp-include=/usr/local/gmp/include \
+		 --with-gmp-lib=/usr/local/gmp/lib64
+mpc:
+./configure  --prefix=/usr/local/mpc \
+		 --with-mpfr-include=/usr/local/mpfr/include \
+		 --with-mpfr-lib=/usr/local/mpfr/lib64 \
+		--with-gmp-include=/usr/local/gmp/include \ 
+		 --with-gmp-lib=/usr/local/gmp/lib64
+
+3.三个lib 加入到LD_LIBRARY_PATH变量中
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/mpc/lib64:/usr/local/gmp/lib64:/usr/local/mpfr/lib64
+
+
+4.正式安装gcc
+./configure  --prefix=/opt/gcc/build_1  --enable-threads=posix \
+	 --disable-checking --disable-multilib --enable-languages=c,c++ \
+	 --with-mpc-include=/usr/local/mpc/include \
+	  --with-mpc-lib=/usr/local/mpc/lib64 \
+	 --with-mpfr-include=/usr/local/mpfr/include  \
+	  --with-mpfr-lib=/usr/local/mpfr/lib64 \
+	  --with-gmp-include=/usr/local/gmp/include \
+	  --with-gmp-lib=/usr/local/gmp/lib64
+
+中间跳出一个错误： error: uint64_t or int64_t not found 
+zypper install gcc-c++ 解决
+继续 make && make install 即可
+
+
+接下来可能需要比较长的时间，毕竟过程是 g++ 编译 gcc g++等，自己编译自己
+
+over
+
