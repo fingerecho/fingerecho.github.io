@@ -8,8 +8,8 @@ var ttu = new Array("./js/tck/tenctk.js");
 //var GLOBAL_URI =  'http://127.0.0.1:65532'
 //var GLOBAL_WS_URI = 'ws://127.0.0.1:65532'
 
-var GLOBAL_URI = "http://graph.chinastyle.bid:65533"
-var GLOBAL_WS_URI = 'ws://graph.chinastyle.bid:65533'
+var GLOBAL_URI = "http://chinastyle.bid:65533"
+var GLOBAL_WS_URI = 'ws://chinastyle.bid:65533'
 
 var is_ie = !!window.ActiveXObject || "ActiveXObject" in window;
 
