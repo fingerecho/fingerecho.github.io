@@ -1,0 +1,31 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>解决rust link.exe的问题</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+</head>
+<body>
+<h2>解决rust link.exe的问题</h2>
+<pre>
+
+    问题：rust运行遇到link.exe 的常见问题
+    前提：rust运行时基于 mvsc 而不是 mingw
+
+    link.exe not found:
+        包的问题下载自 https://fingerecho.gitee.io/bmk/sources.html
+        下载 visualcppbuildtools_full.exe 并运行即可（win10）
+        官方版本为 http://go.microsoft.com/fwlink/?LinkId=691126lib
+        安装即可解决(或者采用 rustup default stable-x86_64-pc-windows-gnu )
+    link.exe error: linking with `link.exe` failed: exit code: 1181 (sqlite3.lib/libpq.lib 不在环境下的问题)
+        note: LINK : fatal error LNK1181: cannot open input file 'libpq.lib'
+        参考：https://cmsd2.silvrback.com/rust-msvc
+        首先 我在  http://www.enterprisedb.com/products-services-training/pgdownload#windows 下载了 pg的二进制文件（参考 https://stackoverflow.com/questions/58681067/how-can-i-link-a-rust-wasm-application-with-libpq-via-wasm-pack）
+        里面lib下有 libpq.lib
+        ./cargo install diesel_cli --no-default-features --features postgres
+            遇到 gcc的问题  更改 msvc 到 gnu :  cmd like this : rustup default stable-x86_64-gnu
+            即可
+        关于 diesel的使用  http://diesel.rs/guides/getting-started/
+        参考 https://github.com/diesel-rs/diesel/issues/1883 最终解决问题
+</pre>
+</body>
+</html>
