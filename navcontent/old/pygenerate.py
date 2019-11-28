@@ -32,8 +32,7 @@ def generate(navtitle,navs:Navs,lis:Lisnav,filename:str):
 
 ORIGIN = [{"href":"../subcontent/1337leet.html","title":"1337密码","intro":"黑客使用的加密密码"},
 		{"href":"../subcontent/data-src.html","title":"图片懒加载","intro":"html图片加载的技术"}]
-LLIS = [{"href":"python3.html","title":"python3"},
-		{"href":"go.html","title":"go语言"},
+LLIS = [{"href":"program-language.html","title":"python3"},
 		{"href":"htmlcssjs.html","title":"HTML/CSS/JS"},
 		{"href":"sql.html","title":"数据库"},
 		{"href":"linux.html","title":"Linux"},

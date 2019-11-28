@@ -13,110 +13,163 @@
   <meta name="baidu_ssp_verify" content="5c4710fe5772e40638d709c25d86e7fe">
   <meta name="baidu-site-verification" content="6UKNbbIR2L">
   <script src="https://fingerecho.gitee.io/bmk/html/js/fingerprint.js"></script>
+
+  <style type="text/css">
+    html,body{
+      margin: 0px;
+      padding: 0px;
+    }
+    body {
+      overflow:scroll;
+      overflow-y:hidden;
+      overflow-x:hidden;
+    }
+    html,body{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #ff4400;
+    }
+    #main-nav,table,tr,td,span,p{
+      margin: 0px;padding: 0px;
+    }
+    tr{
+      height: 35px;
+    }
+    span,p,a{
+      font-family: "Playfair Display", Georgia, "Times New Roman", serif;
+    }
+    a{
+      text-decoration: none;
+      font-size: 16px;
+      color: #fff;
+    }
+    a:hover{
+      text-decoration: none;
+      color:#fff;
+    }
+    #main-nav{
+      width: 100%;
+      height: 100%;
+    }
+    #nav{
+      width: 100%;
+      height: 100%;
+    }
+    #main-con-self{
+      width: 63%;
+      height: 100%;
+      margin-left: 18%;
+      margin-top:3%;
+      border-radius: 10px;
+    }
+  </style>
 </head>
 <body>
-
-<div class="panel-group" id="accordion">
-  <!-- 1 -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" 
-           href="#collapseOne">
-          我了解的web框架和底层原理的部分剖析
-        </a>
-      </h4>
+<div id="main-con-self">
+  <div class="panel-group bg-info text-dark" id="accordion">
+    <!-- 1 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion"
+             href="#collapseOne">
+            阅读源码系列
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse">
+        <div class="panel-body bg-info text-primary">
+            <a href="navcontent/web_0.html" alt="比如apache tengine nginx redis mongo kafka等 如 h2o http协议 的理解,均为原创,就是水平不够高" >阅读框架源码</a>
+        </div>
+      </div>
     </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
-      <div class="panel-body">
-          <a href="navcontent/web_0.html" alt="" >比如apache tengine nginx redis mongo kafka等 如 h2o http协议 的理解,均为原创,就是水平不够高</a>
+    <!-- 2 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion"
+             href="#collapseTwo">
+            secure knowledge
+          </a>
+        </h4>
+      </div>
+      <div id="collapseTwo" class="panel-collapse collapse">
+        <div class="panel-body bg-info text-primary">
+            <a href="navcontent/web_secure.html" alt=" 一些关于sql注入  xss攻击的内容" > Secure Skills</a>
+         </div>
+      </div>
+    </div>
+    <!-- 3 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion"
+             href="#collapseThree">
+            linux使用心得或习惯
+          </a>
+        </h4>
+      </div>
+      <div id="collapseThree" class="panel-collapse collapse">
+        <div class="panel-body bg-info text-primary">
+            <a href="navcontent/linux.html" alt="作为一个linus torvards的粉丝 也作为一个平常笔记本系统为linux发行版（endless os ）的技术悾 我写下了这些东西 转载已说明出处" > About Linux</a>
+         </div>
+      </div>
+    </div>
+  <!-- 4 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion"
+             href="#collapseFour">
+            program language
+          </a>
+        </h4>
+      </div>
+      <div id="collapseFour" class="panel-collapse collapse">
+        <div class="panel-body bg-info text-primary">
+            <a href="navcontent/program-language.html" alt="root@endless:/home/fingerecho/github/fingerecho.github.io# 之所以觉得python3好，一开始是觉得她简单优雅，没有任何冗余的东西，后来随着代码量的增加，这种感觉慢慢消失，我再一次考虑使用 lua/go 等作为主语言开发，后来还是选择了python 因为相比于这些完美的语言（尤其使go unix的发明者发明的），python3的缺点貌似有点多（全局 GIL 等），python3自带的这个缺陷让我有一种想要解决它的冲动, 相反假如我使用go ,我将完全陷入 go 的完美的对 系统接口的封装中，然后跟随着开发者的思路写代码， python的趣味在于你可以自由的更改 底层 的 c/c++ 代码 ，再把python编译跑起来 看看是什么效果（看看是否可能解决 GIL 的问题），进而更加的了解操作系统..." >program language</a>
+         </div>
+      </div>
+    </div>
+  <!-- 5 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion"
+             href="#collapseFive">
+            sql的使用心得
+          </a>
+        </h4>
+      </div>
+      <div id="collapseFive" class="panel-collapse collapse">
+        <div class="panel-body bg-info text-primary">
+            <a href="navcontent/sql.html" alt="            曾有一段时间，我是及其抵触sql的，我接触到sparql，我发现这个rdf的sql似乎比sql更好一些，但当我认识到DBMS的性能之强悍时，我才发现sql之美（提供了N多种权限在之前的我看来是冗余的） 但是当一个数据库有多个系统参与的架构出现时，我觉得数据库的各种权限各种锁使之更加完整，更加具有鲁棒性
+  -bash: 曾有一段时间，我是及其抵触sql的，我接触到sparql，我发现这个rdf的sql似乎比sql更好一些，但当我认识到DBMS的性能之强悍时，我才发现sql之美（提供了N多种权限在之前的我看来是冗余的）" >
+            sql使用心得
+            </a>
+         </div>
+      </div>
+    </div>
+  <!-- 6 -->
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion"
+             href="#collapseSix">
+            htmlcssjs
+          </a>
+        </h4>
+      </div>
+      <div id="collapseSix" class="panel-collapse collapse ">
+        <div class="panel-body bg-info">
+            <a href="navcontent/htmlcssjs.html" alt="用一句花来形容：紫霞秘集 入门初基" >
+            basic
+            </a>
+         </div>
       </div>
     </div>
   </div>
-  <!-- 2 -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" 
-           href="#collapseTwo">
-          我接触过的web secure
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse in">
-      <div class="panel-body">
-          <a href="navcontent/web_secure.html" alt="" > 一些关于sql注入  xss攻击的内容</a>
-       </div>
-    </div>
-  </div>
-  <!-- 3 -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" 
-           href="#collapseThree">
-          linux使用心得或习惯
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse in">
-      <div class="panel-body">
-          <a href="navcontent/linux.html" alt="" > 作为一个linus torvards的粉丝 也作为一个平常笔记本系统为linux发行版（endless os ）的技术悾 我写下了这些东西 转载已说明出处</a>
-       </div>
-    </div>
-  </div>
-<!-- 4 -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" 
-           href="#collapseFour">
-          python3
-        </a>
-      </h4>
-    </div>
-    <div id="collapseFour" class="panel-collapse collapse in">
-      <div class="panel-body">
-          <a href="navcontent/python3.html" alt="" >(python36) root@endless:/home/fingerecho/github/fingerecho.github.io# 之所以觉得python3好，一开始是觉得她简单优雅，没有任何冗余的东西，后来随着代码量的增加，这种感觉慢慢消失，我再一次考虑使用 lua/go 等作为主语言开发，后来还是选择了python 因为相比于这些完美的语言（尤其使go unix的发明者发明的），python3的缺点貌似有点多（全局 GIL 等），python3自带的这个缺陷让我有一种想要解决它的冲动, 相反假如我使用go ,我将完全陷入 go 的完美的对 系统接口的封装中，然后跟随着开发者的思路写代码， python的趣味在于你可以自由的更改 底层 的 c/c++ 代码 ，再把python编译跑起来 看看是什么效果（看看是否可能解决 GIL 的问题），进而更加的了解操作系统...</a>
-       </div>
-    </div>
-  </div>
-<!-- 5 -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" 
-           href="#collapseFive">
-          sql的使用心得
-        </a>
-      </h4>
-    </div>
-    <div id="collapseFive" class="panel-collapse collapse in">
-      <div class="panel-body">
-          <a href="navcontent/sql.html" alt="" >
-            曾有一段时间，我是及其抵触sql的，我接触到sparql，我发现这个rdf的sql似乎比sql更好一些，但当我认识到DBMS的性能之强悍时，我才发现sql之美（提供了N多种权限在之前的我看来是冗余的） 但是当一个数据库有多个系统参与的架构出现时，我觉得数据库的各种权限各种锁使之更加完整，更加具有鲁棒性
--bash: 曾有一段时间，我是及其抵触sql的，我接触到sparql，我发现这个rdf的sql似乎比sql更好一些，但当我认识到DBMS的性能之强悍时，我才发现sql之美（提供了N多种权限在之前的我看来是冗余的）
-          </a>
-       </div>
-    </div>
-  </div>
-<!-- 6 -->
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" 
-           href="#collapseSix">
-          htmlcssjs
-        </a>
-      </h4>
-    </div>
-    <div id="collapseSix" class="panel-collapse collapse in">
-      <div class="panel-body">
-          <a href="navcontent/htmlcssjs.html" alt="" >
-            用一句花来形容：紫霞秘集 入门初基
-          </a>
-       </div>
-    </div>
 </div>
 </body>
 </html>
