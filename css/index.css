@@ -46,6 +46,11 @@
     background-color: #f40;
     background-repeat: repeat-y;
     padding-top: 3%;
+    -webkit-filter: blur(60/@rem);
+    -moz-filter: blur(60/@rem);
+    -o-filter: blur(60/@rem);
+    -ms-filter: blur(60/@rem);
+    filter: blur(60/@rem);
   }
   #nav{
     height: 80%;
@@ -54,6 +59,10 @@
     margin-left: 10%;
     /*background-color: #FFF7FB;*/
   }
+  .search{
+    width:90%;
+  }
+  #input-search
   #nav table{
     width:80%;
     height: 80%;
@@ -66,7 +75,7 @@
     top:10%;
     margin-left: 5%;
     font-size: 30px;
-    line-height: -30px;
+    line-height: 30px;
     color: #FFF;
     font-weight: 700;
 
@@ -75,9 +84,13 @@
     font-family: "Microsoft YaHei";
   }
   table tr{
-    font-size: 20px;
-    font-weight: 18px;
+    font-size: 5px;
+    font-weight: lighter;
     color: #FFF;
+    height: 20px;
+  }
+  table td{
+    height: 20px;
   }
   #main-content{
     width: 68%;
@@ -90,13 +103,13 @@
     font-weight: 600;
     color: #fff;
     margin-bottom: 50px;
-    line-height: -30px;
+    line-height: 30px;
   }
   #main-content p{
     font-size: 15px;
     font-weight: 500;
     color: #fff;
-    line-height: -15px;
+    line-height: 15px;
   }
 
   .btn-slide-bar{
