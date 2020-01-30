@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>cplusplus void* usage and c void* usage</title>
+      <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+      </head>
+          <body>
+<pre>
+#include<iostream>
+//#include<string>
+//#include<stdio.h>
+
+//using namespace std;
+
+void* 
+test_i(){
+	int a = 1&lt;&lt;10;
+	//int* pa = NULL;   //Using the sign 'NULL' , it need to include iostream or stdio.h header files.
+	//int* pa = &a;
+	void* pa = &a;
+	return pa;
+}
+
+int 
+main(int argc, char* argv[]){
+	int count = 0;
+	//int* ppa = test_i();
+	void* ppa = test_i();
+	int* pppa = (int*) ppa;
+
+	std::cout&lt;&lt;ppa&lt;&lt;"  "&lt;pppa&lt;std::endl;
+	//std::cout&lt;&lt;"*ppa:"&lt;&lt;*ppa&lt;&lt;"  *pppa:"&lt;&lt;*pppa&lt;&lt;std::endl; // this statement compiled error   
+	// 'void*' is not a pointer-to-object type
+	std::cout&lt;"  *pppa:"&lt;&lt;*pppa&lt;&lt;std::endl;  
+	// outputs:  *pppa:0
+
+	//printf("ppa = %p pppa=%p  *ppa=%d  *pppa=%d",ppa,pppa,0,*pppa);
+	// error: 'void*' is not a pointer-to-object type    so reverse the *ppa to zero
+	// otherwise outputs are:  
+	// ppa = 000000000061FDB4 pppa=000000000061FDB4  *ppa=0  *pppa=1024
+
+	return 0;
+}
+
+</pre>
+</body>
+</html>
