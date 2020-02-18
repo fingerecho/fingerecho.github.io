@@ -53,6 +53,17 @@ disp n  打印变量 n
 
 检查内存： 参考 https://blog.csdn.net/yasi_xi/article/details/7322278
 
+###############################################
+
+c语言返回局部变量的几种形式
+参考： https://www.cnblogs.com/iriczhao/p/11949910.html   (ps:该博客内容不保证可靠，不保证在任意平台正确执行)
+返回指向int类型的执政变量 报警告： 
+ warning: function returns address of local variable [-Wreturn-local-addr]
+给 gcc 加上 -Wreturn-local-addr 执行后同样报段错误
+20200218电话面试的丢丢思考：对于2020/02/18的我而言，函数内的局部变量在函数消亡后在内存中的存在形式任然是一个谜？
+如果c编译器在函数消亡后把该块内存置为零，某些黑客是怎么在按下键盘后读取键盘按键的编码呢？
+于是激发了我对于  内存检查的思考[https://blog.csdn.net/yasi_xi/article/details/7322278] 
+https://www.cnblogs.com/iriczhao/p/11949910.html
 
 </pre>
 </body>
