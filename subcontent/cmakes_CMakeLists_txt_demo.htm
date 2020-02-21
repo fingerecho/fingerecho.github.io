@@ -66,6 +66,24 @@ c语言返回局部变量的几种形式
 https://www.cnblogs.com/iriczhao/p/11949910.html
 
 ###############################################
+makefile 基本使用：
+code:
+
+make:
+    gcc -o hello hello.c 
+clean:
+    rm hello 
+
+运行 make 即执行 gcc -o hello hello.c  
+运行 make clean 即执行 clean 内容 
+
+gcc -E 生成预处理的 .i 文件  处理 '#' 号后面的内容
+gcc -S 生成（其实是编译的最核心过程,也叫编译） 成 .s 文件，也就是翻译成汇编文件
+gcc -c 生成 .o 文件 也叫作 .obj 文件 ，就是汇编的过程
+gcc  经过 .o文件可完成最后的link（连接过程,visual studio 中经常报 link.exe 找不到文件的错误，就是这一步骤） 生成可执行文件
+参考: https://blog.csdn.net/gt1025814447/article/details/80442673
+下面是 clang (Target: x86_64-pc-windows-msvc  Thread model: posix InstalledDir: C:\Program Files\LLVM\bin)的同一过程
+
 
 </pre>
 </body>
