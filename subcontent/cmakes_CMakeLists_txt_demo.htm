@@ -83,7 +83,12 @@ gcc -c 生成 .o 文件 也叫作 .obj 文件 ，就是汇编的过程
 gcc  经过 .o文件可完成最后的link（连接过程,visual studio 中经常报 link.exe 找不到文件的错误，就是这一步骤） 生成可执行文件
 参考: https://blog.csdn.net/gt1025814447/article/details/80442673
 下面是 clang (Target: x86_64-pc-windows-msvc  Thread model: posix InstalledDir: C:\Program Files\LLVM\bin)的同一过程
-
+clang -E -o hello_c.i hello.c 
+clang -S -o hello_c.s hello_c.i
+clang -c -o hello_c.o hello_c.s
+clang -o hello_c hello_c.o 
+经简单测试来看 clang产生的可执行文件是gcc产生的文件大小的将近两倍左右
+#######################################################################
 
 </pre>
 </body>
