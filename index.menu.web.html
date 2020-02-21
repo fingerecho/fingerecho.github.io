@@ -57,37 +57,38 @@
       height: 100%;
     }
     #main-con-self{
-      width: 63%;
+      width: 90%;
       height: 100%;
-      margin-left: 18%;
-      margin-top:3%;
+      margin-left: 5%;
+      margin-top:1%;
       border-radius: 10px;
+	  
     }
   </style>
 </head>
 <body>
 <div id="site-title-name" style="margin-top:0.5rem"><a href="./index.html"><-Back</a></div>
 <div id="main-con-self">
-  <div class="panel-group bg-info text-dark" id="accordion">
+  <div class="panel-group bg-info text-dark" id="accordion" style="background:#ff4400;">
     <!-- 1 -->
     <div class="panel panel-default">
-      <div class="panel-heading">
-        <h4 class="panel-title">
+      <div class="panel-heading" style="background:#ff4400;">
+        <h4 class="panel-title" >
           <a data-toggle="collapse" data-parent="#accordion"
              href="#collapseOne">
             阅读源码系列
           </a>
         </h4>
       </div>
-      <div id="collapseOne" class="panel-collapse collapse">
-        <div class="panel-body bg-info text-primary">
+      <div id="collapseOne" class="panel-collapse collapse" style="background:#ff4400;">
+        <div class="panel-body bg-info text-primary" style="background:#ff4400;">
             <a href="navcontent/web_0.html" alt="比如apache tengine nginx redis mongo kafka等 如 h2o http协议 的理解,均为原创,就是水平不够高" >阅读框架源码</a>
         </div>
       </div>
     </div>
     <!-- 2 -->
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading" style="background:#ff4400;">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion"
              href="#collapseTwo">
@@ -95,15 +96,15 @@
           </a>
         </h4>
       </div>
-      <div id="collapseTwo" class="panel-collapse collapse">
-        <div class="panel-body bg-info text-primary">
+      <div id="collapseTwo" class="panel-collapse collapse" style="background:#ff4400;">
+        <div class="panel-body bg-info text-primary" style="background:#ff4400;">
             <a href="navcontent/web_secure.html" alt=" 一些关于sql注入  xss攻击的内容" > Secure Skills</a>
          </div>
       </div>
     </div>
     <!-- 3 -->
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading" style="background:#ff4400;">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion"
              href="#collapseThree">
@@ -111,15 +112,15 @@
           </a>
         </h4>
       </div>
-      <div id="collapseThree" class="panel-collapse collapse">
-        <div class="panel-body bg-info text-primary">
+      <div id="collapseThree" class="panel-collapse collapse" style="background:#ff4400;">
+        <div class="panel-body bg-info text-primary" style="background:#ff4400;">
             <a href="navcontent/linux.html" alt="作为一个linus torvards的粉丝 也作为一个平常笔记本系统为linux发行版（endless os ）的技术悾 我写下了这些东西 转载已说明出处" > About Linux</a>
          </div>
       </div>
     </div>
   <!-- 4 -->
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading" style="background:#ff4400;">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion"
              href="#collapseFour">
@@ -127,15 +128,15 @@
           </a>
         </h4>
       </div>
-      <div id="collapseFour" class="panel-collapse collapse">
-        <div class="panel-body bg-info text-primary">
+      <div id="collapseFour" class="panel-collapse collapse" style="background:#ff4400;">
+        <div class="panel-body bg-info text-primary" style="background:#ff4400;">
             <a href="navcontent/program-language.html" alt="root@endless:/home/fingerecho/github/fingerecho.github.io# 之所以觉得python3好，一开始是觉得她简单优雅，没有任何冗余的东西，后来随着代码量的增加，这种感觉慢慢消失，我再一次考虑使用 lua/go 等作为主语言开发，后来还是选择了python 因为相比于这些完美的语言（尤其使go unix的发明者发明的），python3的缺点貌似有点多（全局 GIL 等），python3自带的这个缺陷让我有一种想要解决它的冲动, 相反假如我使用go ,我将完全陷入 go 的完美的对 系统接口的封装中，然后跟随着开发者的思路写代码， python的趣味在于你可以自由的更改 底层 的 c/c++ 代码 ，再把python编译跑起来 看看是什么效果（看看是否可能解决 GIL 的问题），进而更加的了解操作系统..." >program language</a>
          </div>
       </div>
     </div>
   <!-- 5 -->
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading" style="background:#ff4400;">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion"
              href="#collapseFive">
@@ -143,8 +144,8 @@
           </a>
         </h4>
       </div>
-      <div id="collapseFive" class="panel-collapse collapse">
-        <div class="panel-body bg-info text-primary">
+      <div id="collapseFive" class="panel-collapse collapse" style="background:#ff4400;">
+        <div class="panel-body bg-info text-primary" style="background:#ff4400;">
             <a href="navcontent/sql.html" alt="            曾有一段时间，我是及其抵触sql的，我接触到sparql，我发现这个rdf的sql似乎比sql更好一些，但当我认识到DBMS的性能之强悍时，我才发现sql之美（提供了N多种权限在之前的我看来是冗余的） 但是当一个数据库有多个系统参与的架构出现时，我觉得数据库的各种权限各种锁使之更加完整，更加具有鲁棒性
   -bash: 曾有一段时间，我是及其抵触sql的，我接触到sparql，我发现这个rdf的sql似乎比sql更好一些，但当我认识到DBMS的性能之强悍时，我才发现sql之美（提供了N多种权限在之前的我看来是冗余的）" >
             sql使用心得
@@ -154,7 +155,7 @@
     </div>
   <!-- 6 -->
     <div class="panel panel-default">
-      <div class="panel-heading">
+      <div class="panel-heading" style="background:#ff4400;">
         <h4 class="panel-title">
           <a data-toggle="collapse" data-parent="#accordion"
              href="#collapseSix">
@@ -162,8 +163,8 @@
           </a>
         </h4>
       </div>
-      <div id="collapseSix" class="panel-collapse collapse ">
-        <div class="panel-body bg-info">
+      <div id="collapseSix" class="panel-collapse collapse " style="background:#ff4400;">
+        <div class="panel-body bg-info" style="background:#ff4400;">
             <a href="navcontent/htmlcssjs.html" alt="用一句花来形容：紫霞秘集 入门初基" >
             basic
             </a>
