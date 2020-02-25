@@ -89,7 +89,21 @@ clang -c -o hello_c.o hello_c.s
 clang -o hello_c hello_c.o 
 经简单测试来看 clang产生的可执行文件是gcc产生的文件大小的将近两倍左右
 #######################################################################
-
+生成coredump的方法:
+ulimit -c unlimited
+cat "/data/coredump/core-%e-%p-%t" proc/sys/kernel/core_pattern   
+线程内存泄漏：https://www.cnblogs.com/jkred369/p/6744103.html
+#######################################################################
+及其危险的代码(排查bug查了半天)
+code：错误示例
+    char zero[MAX_ZERO_NUM];
+    int icntz = 0;       // icntz == 0 时， icntz++ 其实执行了 MAX_ZERO_NUM+1 次， 这导致我的相临内存的数值被更改了，查bug半天
+    while(icntz++&lt;MAX_ZERO_NUM)strcat(zero,"0");
+code:正确示例
+    char zero[MAX_ZERO_NUM];
+    int icntz = 1;           // 这是经验  
+    while(icntz++&lt;MAX_ZERO_NUM)strcat(zero,"0");
+########################################################################
 </pre>
 </body>
 </html>
