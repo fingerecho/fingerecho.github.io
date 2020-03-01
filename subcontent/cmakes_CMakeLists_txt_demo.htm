@@ -94,7 +94,7 @@ ulimit -c unlimited
 cat "/data/coredump/core-%e-%p-%t" proc/sys/kernel/core_pattern   
 线程内存泄漏：https://www.cnblogs.com/jkred369/p/6744103.html
 #######################################################################
-及其危险的代码(排查bug查了半天)
+<s>及其危险的代码(排查bug查了半天)
 code：错误示例
     char zero[MAX_ZERO_NUM];
     int icntz = 0;       // icntz == 0 时， icntz++ 其实执行了 MAX_ZERO_NUM+1 次， 这导致我的相临内存的数值被更改了，查bug半天
@@ -103,7 +103,10 @@ code:正确示例
     char zero[MAX_ZERO_NUM];
     int icntz = 1;           // 这是经验  
     while(icntz++&lt;MAX_ZERO_NUM)strcat(zero,"0");
+</s>
+此处代码bug不在于i++和++i的问题
 ########################################################################
+
 </pre>
 </body>
 </html>
