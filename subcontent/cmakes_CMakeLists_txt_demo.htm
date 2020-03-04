@@ -104,8 +104,21 @@ code:正确示例
     while(icntz++&lt;MAX_ZERO_NUM)strcat(zero,"0");
 </s>
 此处代码bug不在于i++和++i的问题
+#######################################################################
+c++定义一个class,其中申明一个 static 成员变量（可以是const,可以在private）
+两种正确的处理姿势：
+1. 声明为常量（加上const），此时必须在头文件初始化 const .... = ...; 常量不可变，此时可在private或public
+2. 在public ,在cpp文件中 再次声明并定义(且不加static)类似于 int StaticMethodOfclass::static_value = -1;
+ps:
+ 注意在.h中声明的static变量，假如有多个不同的.cpp实现这个.h的类，在每一个.cpp中均要 有 类似于  int StaticMethodOfclass::static_value = -1;
+ 这样的代码，实际使用中不可同时 引入 两个或多个实现 这个 .h的.cpp文件
+* class中 static成员变量的意义在于 class实例化的不同的多个对象能够共享static成员变量
+已经在g++8.1 和 msvc (Visual Studio 2019)中实验过，参考csdn某博客
 ########################################################################
+ 
 
+
+#######################################################################
 </pre>
 </body>
 </html>
