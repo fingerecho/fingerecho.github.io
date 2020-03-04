@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>c/c++纠错</title>
+    <link rel="stylesheet" type="text/css" href="../css/subcontent.html.min.css">
+</head>
+<body>
+<h2>c/c++纠错</h2>
+<pre>
+###########################################
+c语言关于函数传指针的问题
+下面是编译通过执行正确无内存泄漏的程序
+int * k(int **s){ // 假如 传参 *s 一级指针， 后面用 s=x;给s赋值，s打印出的地址不一致
+	int *x = malloc(8*sizeof(int));
+	for(int i=0;i<8;i++){
+			x[i] = i;
+	}
+	*s = x;
+	for(int i=0;i<8;i++){printf("%d -> %p\t ",x[i],x+i);}
+	printf("\n");
+	return x;// 但是 采用 *s 一级指针传参，直接返回 x指针的值，调用的函数用 *s接受，这是没有问题的
+}
+int main(int argc,char *argv[]){
+	int *s;
+	s = k(&s);
+	for(int i=0;i<8;i++)printf("%d -> %p\n",s[i],s+i);
+	free(s);
+	return 0;
+}
+###########################################
+</pre>
+</body>
+</html>
