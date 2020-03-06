@@ -28,6 +28,23 @@ int main(int argc,char *argv[]){
 	return 0;
 }
 ###########################################
+纠错：某些教程说 int const  或者 const int 修饰限定指针 代表指针指向的内存只读，
+实际情况是这两者方式都是一样限制不了指向的变量，指针定义只有 int * const ptr = &variable;才能限定指针不可指向其他变量
+但实际使用应该非常少，指针更多情况扮演变量的角色而不是常量的角色，常常需要将指针指向其它变量，常量指针存在意义不大,因此用得少
+		int  a = 10;
+		int b = 1&lt;&lt;10;
+		const int  *pa = &a;
+		//int const *pa=&a; // Compiler accepted it too.
+		a = 20;
+		pa = &b;
+		printf("a:%d *pa:%d pa:%p\n",a,*pa,*pa);
+		int * const pc = &b;
+		//pc = &a; //Caused error:   assignment of read-only variable 'pc'`
+		printf("b:%d *pc:%d pc:%p\n",b,*pc,*pc);
+		int const * const px = &b;
+		b = 1&lt;&lt;8;
+		printf("b:%d *px:%d px:%p\n",b,*px,*px);
+###########################################
 </pre>
 </body>
 </html>
