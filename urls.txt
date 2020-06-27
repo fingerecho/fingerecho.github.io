@@ -76,7 +76,6 @@ https://fangself.com.cn/subcontent/gitpushall.py.htm
 https://fangself.com.cn/subcontent/fedora_software_package_install.htm
 https://fangself.com.cn/subcontent/linux_commd_basic.htm
 https://fangself.com.cn/subcontent/selinux_learning.htm
-https://fangself.com.cn/subcontent/pv_uv_visit.htm
 https://fangself.com.cn/subcontent/w3m_how_to_use.htm
 https://fangself.com.cn/subcontent/kafka_distribute_system.html
 https://fangself.com.cn/subcontent/file_mdf_check_same.py.html
@@ -84,7 +83,6 @@ https://fangself.com.cn/subcontent/linux_software_cmd.html
 https://fangself.com.cn/subcontent/linux_commd_basic.html
 https://fangself.com.cn/navcontent/linux.html
 https://fangself.com.cn/navcontent/web_0.html
-https://fangself.com.cn/navcontent/go.html
 https://fangself.com.cn/navcontent/sql.html
 https://fangself.com.cn/navcontent/python3.html
 https://fangself.com.cn/navcontent/htmlcssjs.html
