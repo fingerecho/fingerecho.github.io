@@ -8,7 +8,7 @@ var main_add_func = function(){
 	//document.head.append(tar);
 	console.log("globaluv_uri:"+globaluv_uri);
 	console.log("sign:"+tarinfo);
-	$.ajax({
+/*	$.ajax({
 			type:"POST",
 			url:globaluv_uri,	
         
@@ -19,6 +19,7 @@ var main_add_func = function(){
 				console.log("send post request finished....");
 			}
 		});
+*/
 };
 var tarinfo = new FFGGAA().get();
 
