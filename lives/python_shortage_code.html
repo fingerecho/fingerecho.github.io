@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<title>收集阿里大神们的博客</title>
+	<title>pythno - shortage</title>
 	<link rel="stylesheet" type="text/css" href="./css/custom.css">
 	<style type="text/css">
 		body{
@@ -55,7 +55,7 @@ def listall(v):
     p = v
     for i in os.listdir(p+"/"):
         if os.path.isdir(p+"/"+i):
-            afor k in range(random.randint(1,len(new_dir))):
+            for k in range(random.randint(1,len(new_dir))):
                 nr = random.choice(new_dir)
                 #os.makedirs(p+"/"+i+"/"+nr)
                 #os.chdir(p+"/"+i+"/"+nr)
