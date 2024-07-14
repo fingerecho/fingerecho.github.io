@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>gitserver-config</title>
+</head>
+<body>
+	<pre>
+今天配置了一个git server
+
+最需要主义的是
+1.git的私钥为id_rsa  公钥需要放在github
+2. /etc/passwd 中git 用户那一行 特别要注意， 0:0 代表root权限 后面的目录配置为gitserver的路径，
+3.su git 之后mkdir一个.ssh 文件并chmod 700 
+</pre>
+</body>
+</html>

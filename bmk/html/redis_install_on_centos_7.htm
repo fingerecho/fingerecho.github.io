@@ -1,0 +1,362 @@
+<html
+	  <head>
+		  <meta charset="utf-8"/>
+	  </head>
+	<body>
+		<div id="cnblogs_post_body" class="blogpost-body sh-gutter"><h1>1、安装redis</h1>
+			<p>第一步：下载redis安装包</p>
+			<p>wget http://download.redis.io/releases/redis-4.0.6.tar.gz</p>
+			<div class="cnblogs_Highlighter sh-gutter">
+				<div><div id="highlighter_533391" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class=line number4 index3 alt1">4</div><div class="line number5 index4 alt2"5</div><div class="line number6 ndex5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><codeclass="html plain">[root@wz991stxdwj560bfmadtZ local]#wget http://download.redis.io/releases/rdis-4.0.6.tar.gz</code></div><div class="line number2 index1 alt1"><code class="html plai">--2017-12-13 12:35:12--&nbsp; http://download.redis.io/releases/redis-4.0.6.tar.gz</code></div><div class="line number3 index2 alt2"><code class="html plain">Resolving download.redis.io (download.redis.io)... 109.74.203.151</code></div><div class="line number4 index3 alt1"><code class="html plain">Connecting to download.redis.io (downloadredis.io)|109.74.20.151|:80... connected.</code></div><div clss="line number5 index4 alt2"><code class="html plai">HTTP request sent, awaiting response... 200 OK</code></div><div class="line number6 index5 alt1"><code class="html plain">Length: 1723533 (1.6M) [application/x-gzip]</code></div><div class="line number7 index6 alt2"><code class="html plain">Saving to: ‘redis-4.0.6.tar.gz’</code></div><div clas="line number8index7 alt1">&nbsp;/div><div class="line number9 index8 alt2"><code class="html plain">100%[==========================================================================================================&gt;] 1,723,533&nbsp;&nbsp;&nbsp; 608KB/s&nbsp;&nbsp; in 2.8s&nbsp;&nbsp; </code></div><div class="line number10 index9 alt1">&nbsp;</div><div class="line number11 index10 alt2"><code class="html plain">2017-12-13 12:35:15 (608 KB/s) - ‘redis-4.0.6.tar.gz’ saved [1723533/1723533]</code></div></div></td></tr></tbody></table></div></div>
+				</div>
+				<p>&nbsp;</p>
+				<p>第二步：解压压缩包</p>
+				<p>tar -zxvf&nbsp;redis-4.0.6.tar.gz</p>
+				<div class="cnblogs_Highlighter sh-gutter">
+					<div><div id="highlighter_817421" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ local]# tar -zxvf redis-4.0.6.tar.gz</code></div></div></td></tr></tbody></table></div></div>
+				</div>
+				<p>　</p>
+				<p>第三步：yum安装gcc依赖</p>
+				<p>yum install gcc</p>
+				<div class="cnblogs_Highlighter sh-gutter">
+					<div><div id="highlighter_820679" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ local]# yum install gcc　　</code></div></div></td></tr></tbody></table></div></div>
+				</div>
+				<div><div id="highlighter_577400" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">遇到选择,输入y即可&lt;</code><code class="html keyword">br</code><code class="html plain">&gt;&lt;</code><code class="html keyword">br</code><code class="html plain">&gt;&lt;</code><code class="html keyword">br</code><code class="html plain">&gt;</code></div></div></td></tr></tbody></table></div></div>
+				<p>第四步：跳转到redis解压目录下</p>
+				<p>cd redis-4.0.6</p>
+				<div class="cnblogs_Highlighter sh-gutter">
+					<div><div id="highlighter_555541" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ local]# cd redis-4.0.6</code></div></div></td></tr></tbody></table></div></div>
+				</div>
+				<p>&nbsp;</p>
+				<p>第五步：编译安装</p>
+				<p>make MALLOC=libc　　</p>
+				<div class="cnblogs_Highlighter sh-gutter">
+					<div><div id="highlighter_331413" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ redis-4.0.6]# make MALLOC=libc</code></div></div></td></tr></tbody></table></div></div>
+				</div>
+				<p>　　</p>
+				<p>将/usr/local/redis-4.0.6/src目录下的文件加到/usr/local/bin目录</p>
+				<p>cd src &amp;&amp; make install</p>
+				<div class="cnblogs_Highlighter sh-gutter">
+					<div><div id="highlighter_341551" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div clane number10 index9 alt1">10</div></td><td class="code"><div clntainer"><div class="line number1 index0 alt2"><code class="htplain">[root@iZwz991stxdwj560bfmadtZ redis-4.0.6]# cd src &amp;p; make install</code></div><div class="line number2 index1 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">CC Makefile.dep</code></div><div class="line number3 index2 alt2">&nbsp;</div><div class="line number4 index3 alt1"><code class="html plain">Hint: It's a good idea to run 'make test' ;)</code></div><div class="line number5 index4 alt2">&nbsp;</div><div class="line number6 index5 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="n">INSTALL install</code></div><div class="line number7 index><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><codlass="html plain">INSTALL install</code></div><div class="line number8 index7 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">INSTALL install</code></div><div class="line number9 index8 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">INSTALL install</code></div><div class="line number10 index9 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">INSTALL install</code></div></div></tr></tbody></table></div></div>
+				</div>
+				<p>　　</p>
+				<p>第六步：测试是否安装成功&nbsp;</p>
+				<p>先切换到redis src目录下</p>
+				<div class="cnblogs_Highlighter sh-gutter">
+					<div><div id="highlighter_46753" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ redis-4.0.6]# cd src</code></div></div></td></tr></tbody></table></div></div>
+					div>
+					<p>&nbsp;</p>
+					<p>1、直接启动redis</p>
+					<p>./redis-serv>
+					<div class="cnblogs_Highlighter sh-gutter">
+						<div><div id="higer_368544" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="linber7 index6 alt2">7</div><div class="line number8 index7 alt1"><div class="line number9 index8 alt2">9</div><div class="liner10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div><div class="line number12 index11 alt1">12</div><div class="line number13 index12 alt2">13</div><div class="line number14 index13 alt1">14</div><div class="line number15 index14 alt2">15</div><div class="line number16 index15 alt1">16</div><div class="line number17 index16 alt2">17</div><div class="line number18 index17 alt1">18</div><div class="line number19 index18 alt2">19</div><div class="line number20 index19 alt1">20</div><div class="line number21 index20 alt2">21</div><div cla number22 index21 alt1">22</div><div class="line number23 in2 alt2">23</div><div class="line number24 index23 alt1">24</d<div class="line number25 index24 alt2">25</div><div class="linumber26 index25 alt1">26</div><div class="line number27 index26 alt2">27</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ src]# ./redis-server</code></div><div class="line number2 index1 alt1"><code class="html plain">18685:C 13 Dec 12:56:12.507 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</code></div><div class="line number3 index2 alt2"><code class="html plain">18685:C 13 Dec 12:56:12.507 # Redis version=4.0.6, bits=64, commit=00000000, modified=0, pid=18685, just started</code></div><div class="line number4 index3 alt1"><code class="html plain">18685:C 13 Dec 12:56:12.507 # Warning: no config file specified, using the default config. In order to specify a config file use ./redis-server /path/to/redis.conf</code></div><div class="line number5 index4 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">_._&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number6 index5 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">_.-``__ ''-._&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number7 index6 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">_.-``&nbsp;&nbsp;&nbsp; `.&nbsp; `_; ''-._&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nis 4.0.6 (00000000/0) 64 bit</code></div><div class="line nu index7 alt1"><code class="html spaces">&nbsp;&nbsp;</code><c class="html plain">.-`` .-```.&nbsp; ```\/&nbsp;&nbsp;&nbsp; _.,_ ''-._&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number9 index8 alt2"><code class="html spaces">&nbsp;</code><code class="html plain">(&nbsp;&nbsp;&nbsp; '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .-`&nbsp; | `,&nbsp )&nbsp;&nbsp;&nbsp;&nbsp; Running in standalone mode</code></class="line number10 index9 alt1"><code class="html spaces">&n;</code><code class="html plain">|`-._`-...-` __...-.``-._|'` _.-'|&nbsp;&nbsp;&nbsp;&nbsp; Port: 6379</code></div><div class="line number11 index10 alt2"><code class="html spaces">&nbsp;</code><code class="html plain">|&nbsp;&nbsp;&nbsp; `-._&nbsp;&nbsp; `._&nbsp;&nbsp;&nbsp; /&nbsp;&nbsp;&nbsp;&nbsp; _.-'&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp; PID: 18685</code></div><div class="line number12 index11 alt1"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">`-._&nbsp;&nbsp;&nbsp; `-._&nbsp; `-./&nbsp; _.-'&nbsp;&nbsp;&nbsp; _.-'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number13 index12 alt2"><code class="html spaces">&nbsp;</code><code class="html plain">|`-._`-._&nbsp;&nbsp;&nbsp; `-.__.-'&nbsp;&nbsp;&nbsp; _.-'_.-'|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number14 index13 alt1"><code class="html spaces">&nbsp;</code><code class="html plain">|&nbsp;&nbsp;&nbsp; `-._`-._&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _.-'_.-'&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; http://redis.io&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number15 index14 alt2"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">`-._&nbsp;&nbsp;&nbsp; `-._`-.__.-'_.-'&nbsp;&nbsp;&nbsp; _.-'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number16 index15 alt1"><code class="html spaces">&nbsp;</code><code class="html plain">|`-._`-._&nbsp;&nbsp;&nbsp; `-.__.-'&nbsp;&nbsp;&nbsp; _.-'_.-'|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number17 index16 alt2"><code class="html spaces">&nbsp;</code><code class="html plain">|&nbsp;&nbsp;&nbsp; `-._`-._&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _.-'_.-'&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number18 index17 alt1"><code class="html spaces">&nbsp;&nbsp;</code><code class="html plain">`-._&nbsp;&nbsp;&nbsp; `-._`-.__.-'_.-'&nbsp;&nbsp;&nbsp; _.-'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number19 index18 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">`-._&nbsp;&nbsp;&nbsp; `-.__.-'&nbsp;&nbsp;&nbsp; _.-'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number20 index19 alt1"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">`-._&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _.-'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number21 index20 alt2"><code class="html spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="html plain">`-.__.-'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code></div><div class="line number22 index21 alt1">&nbsp;</div><div class="line number23 index22 alt2"><code class="html plain">18685:M 13 Dec 12:56:12.508 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.</code></div><div class="line number24 index23 alt1"><code class="html plain">18685:M 13 Dec 12:56:12.508 # Server initialized</code></div><div class="line number25 index24 alt2"><code class="html plain">18685:M 13 Dec 12:56:12.508 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add 'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.</code></div><div class="line number26 index25 alt1"><code class="html plain">18685:M 13 Dec 12:56:12.508 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command 'echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.</code></div><div class="line number27 index26 alt2"><code class="html plain">18685:M 13 Dec 12:56:12.508 * Ready to accept connections　　</code></div></div></td></tr></tbody></table></div></div>
+							</div>
+							<p>&nbsp;</p>
+							<p>如上图：redis启动成功，但是这种启动方式需要一直打开窗口，不能进行其他操作，不太方便。</p>
+							<p>&nbsp;</p>
+							<p>按 ctrl + c可以关闭窗口。</p>
+							<p>　　</p>
+							<p>2、以后台进程方式启动redis</p>
+							<p>第一步：修改redis.conf文件</p>
+							<p>将</p>
+							<div class="cnblogs_Highlighter sh-gutter">
+								<div><div id="highlighter_541750" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">daemonize no　　</code></div></div></td></tr></tbody></table></div></div>
+							</div>
+							<p>修改为</p>
+							<div class="cnblogs_Highlighter sh-gutter">
+								<div><div id="highlighter_278018" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">daemonize yes</code></div></div></td></tr></tbody></table></div></div>
+							</div>
+							<p>　　</p>
+							<p>第二步：指定redis.conf文件启动</p>
+							<div><div id="highlighter_27110" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">./redis-server /usr/local/redis-4.0.6/redis.conf</code></div></div></td></tr></tbody></table></div></div>
+							<div class="cnblogs_Highlighter sh-gutter">
+								<div><div id="highlighter_676753" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ src]# ./redis-server /usr/local/redis-4.0.6/redis.conf </code></div><div class="line number2 index1 alt1"><code class="html plain">18713:C 13 Dec 13:07:41.109 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</code></div><div class="line number3 index2 alt2"><code class="html plain">18713:C 13 Dec 13:07:41.109 # Redis version=4.0.6, bits=64, commit=00000000, modified=0, pid=18713, just started</code></div><div class="line number4 index3 alt1"><code class="html plain">18713:C 13 Dec 13:07:41.109 # Configuration loaded</code></div></div></td></tr></tbody></table></div></div>
+							</div>
+							<p>&nbsp;</p>
+							<p>第三步：关闭redis进程</p>
+							<p>首先使用ps -aux | grep redis查看redis进程</p>
+							<div class="cnblogs_Highlighter sh-gutter">
+								<div><div id="highlighter_265186" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ src]# ps -aux | grep redis</code></div><div class="line number2 index1 alt1"><code class="html plain">root&nbsp;&nbsp;&nbsp;&nbsp; 18714&nbsp; 0.0&nbsp; 0.1 141752&nbsp; 2008 ?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ssl&nbsp; 13:07&nbsp;&nbsp; 0:00 ./redis-server 127.0.0.1:6379</code></div><div class="line number3 index2 alt2ass="html plain">root&nbsp;&nbsp;&nbsp;&nbsp; 18719&nbsp; 0.0&nbsp; 0.0 112644&nbsp;&nbsp; 968 pts/0&nbsp;&nbsp;&nbsp; R+&nbsp;&nbsp; 13:09&nbsp;&nbsp; 0:00 grep --color=auto redis<div></td></tr></tbody></table></div></div>
+														</div>
+														<p>&nbsp;<ill命令杀死进程</p>
+														<div class="cnblogs_Highlighter r">
+															<div><div id="highlighter_378058" class="syntaxhighligh  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ src]# kill -9 18714</code></div></div></td></tr></tbody></table></div></div>
+														</div>
+														<p>　　</p>
+														<p>　　　</p>
+														<p>&nbsp;</p：设置redis开机自启动</p>
+														<p>1、在/etc目录下新�dis目录</p>
+														<p>mkdir redis</p>
+														<div class="cnblogs_Highlighter sh-gutter">
+															<div><div id="highlighter_699588" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 inde"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ etc]# edis</code></div></div></td></tr></tbody></table></div></div
+														</div>
+														<p>&nbsp;</p>
+														<p>2、将/usr/local/redis-4.0.6/redis.f 文件复制一份到/etc/redis目录下，并命名为6379.　　</p>
+														<div class="cnblogs_Highlighter sh-gutter">
+															<div><dd="highlighter_293028" class="syntaxhighlighter  html"><div cl"toolbar"><span><a href="#" class="toolbar_item command_help he">?</a></span></div><table border="0" cellpadding="0" cellspacig="0"><tbody><tr><td class="gutter"><div class="line number1 in1</div></td><td class="code"><div class="container"><div class=ne number1 index0 alt2"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ redis]# cp /usr/local/redis-4.0.6/redis.conf /etc/redis/6379.conf</code></div></div></td></tr></tbody></table></div></div>
+									</div>
+									<p>　　</p>
+									<p>3、将redis的启动脚本复制一份放到/etc/init.d目录下</p>
+									<div class="cnblogs_Highlighter sh-gutter">
+										<div><div id="highlighter_385323" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ init.d]# cp /usr/local/redis-4.0.6/utils/redis_init_script /etc/init.d/redisd</code></div></div></td></tr></tbody></table></div></div>
+									</div>
+									<p>　　</p>
+									<p>4、设置redis开机自启动</p>
+									<p>先切换到/etc/init.d目录下</p>
+									<p>然后执行自启命令</p>
+									<div class="cnblogs_Highlighter sh-gutter">
+										<div><div id="highlighter_698897" class="syntaxhighlighter ><div class="toolbar"><span><a href="#" class="toolbar_item comhelp">?</a></span></div><table border="0" cellpadding="0" cellsing="0"><tbody><tr><td class="gutter"><div class="line number1 ex0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ init.d]# chkconfig redisd on</code></div><div class="line number2 index1 alt1"><code class="html plain">service redisd does not support chkconfig　</code></div></div></td></tr></tbody></table></div></div>
+									</div>
+									<p>看结果是redisd不支持chkconfig</p>
+									<p>解决方法：</p>
+									<p>使用vim编辑redisd文件，在第一行加入如下两行注释，保存退出</p>
+									<div class="cnblogs_Highlighter sh-gutter">
+										<div><div id="highlighter_383539" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain"># chkconfig:&nbsp; 90 10</code></div><div class="line number2 index1 alt1"><codeass="html plain"># description:&nbsp; Redis is a persistent key-value database</code></div></div></td></tr></tbody></table></div></div>
+									</div>
+									<p>注释的意思是，redis服务必须在运行级2，3，4，5下被启动或关闭，启动的优先级是90，关闭的优先级是10。</p>
+									<p><img src="https://images2017.cnblogs.com/blog/818973/201712/818973-20171213132912738-1132742812.png" alt=""></p>
+									<p>&nbsp;</p>
+									<p>再次执行开机自启命令，成功</p>
+									<div class="cnblogs_Highlighter sh-giv><div id="highlighter_949701" class="syntaxhighlighter class="toolbar"><span><a href="#" class="toolbar_item co help">?</a></span></div><table border="0" cellpadding="0" spacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ init.d]# chkconfig redisd on</code></div></div></td></tr></tbody></table></div></div>
+							</div>
+							<p>　　</p>
+							<p>现在可以直接已服务的形式启动和关闭redis了</p>
+							<p>启动：</p>
+							<p>service redisd start　　</p>
+							<div class="cnblogs_Highlighter sh-gutter">
+								<did="highlighter_152248" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" class="toolbar_item command_heelp">?</a></span></div><table border="0" cellpadding="0" ceacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@izwz991stxdwj560bfmadtz ~]# service redisd start</code></div><div class="line number2 index1 alt1"><code class="html pltarting Redis server...</code></div><div class="line number3 inlt2"><code class="html plain">2288:C 13 Dec 13:51:38.087 # 0OoO0Oo Redis is starting oO0OoO0OoO0Oo</code></div><div claine number4 index3 alt1"><code class="html plain">2288:C 13 Dec 13:51:38.087 # Redis version=4.0.6, bits=64, commit=00000000, modified=0, pid=2288, just started</code></div><div class="line number5 index4 alt2"><code class="html plain">2288:C 13 Dec 13:51:38.087 # Configuration loaded</code></div></div></td></tr></tbody></table></div></div>
+					</div>
+					<p>&nbsp;</p>
+					<p>关闭：</p>
+					<p>service redisd stop</p>
+					<div class="cnblogs_Highlighter sh-gutter">
+						<div><div id="highlighter_489678" class="syntaxhighlighter  html"><div class="toolbar"><span><a href="#" classem command_help help">?</a></span></div><table border="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="lindex0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@izwz991stxdwj560bfmadtz ~]# service redisd stop</code></div><div class="line number2 index1 alt1"><code class="html plain">Stopping ...</code></div><div class="line number3 index2 alt2"><code class="html plain">Redis stopped</code></div></div></td></tr></tbody></table></div></div>
+					</div>
+					<p>　　</p>
+					<p>　</p>
+					<p>参考资料：</p>
+					<p>1、http://blog.csdn.net/zc474235918/article/details/50974483</p>
+					<p>2、http://blog.csdn.net/gxw19874/article/details/51992p>
+					<p>&nbsp;</p>
+					<p>如果出现如下问题：</p>
+					<div classHighlighter sh-gutter">
+						<div><div id="highlighter_832075" class="syntaxhighlighter  html"><div class="toolbar"><span><a hress="toolbar_item command_help help">?</a></span></div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="html plain">[root@iZwz991stxdwj560bfmadtZ ~]# service redisd start</code></div><div class="line number2 index1 alt1"><code class="html plain">/var/run/redis_6379.pid exists, process is already running or crashed　　</code></div></div></td></tr></tbody></table></div></div>
+					</div>
+					<p>可参考资料：http://blog.csdn.net/luozhonghua2014/article/details/54649295</p><
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

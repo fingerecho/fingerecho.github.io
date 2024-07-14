@@ -1,0 +1,13 @@
+/test/*
+/videos/*
+*.cmake
+CMakeCaches/*
+CMakeFiles/*
+build/*
+*.swp
+*.exec
+*.bak
+hrmails/*
+*.sh
+.idea
+test

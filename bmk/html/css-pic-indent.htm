@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>图片按比例响应式缩放、并自动裁剪的css</title>
+</head>
+<body>
+<h5>Origin from https://blog.csdn.net/oulihong123/article/details/54601030<h5>
+	<h1>图片按比例响应式缩放、并自动裁剪的css</h1>
+	<p>响应式网站、移动端页面在DIV CSS布局中对于图片列表或图片排版时，如果想要图片按比例缩放，</p> 
+	<p>最简单的就是把img宽度设为100%，不设置高度，高度就会自动跟着高度缩放</p>
+	<p> 这篇文章解决的问题就是，让图片的宽高要按一定的比例显示，如1：1 、4：3 ，也就是高度也要自定义</p>
+	
+	<p>DIV:</p>
+	<code>
+		<pre><code>&lt;div class="zoomImage" style="background-image:url(images/test1.jpg)"&gt;</div></code></pre>
+	</code>
+	<p>css :</p>
+	<code>
+	.zoomImage{<br>
+    width:100%;<br>
+    height:0;<br>
+    padding-bottom: 100%;<br>
+    overflow:hidden;<br>
+    background-position: center center;<br>
+    background-repeat: no-repeat;<br>
+    -webkit-background-size:cover;<br>
+    -moz-background-size:cover;<br>
+    background-size:cover;<br>
+	}<br>
+	</code>
+	<p>height：0；高度为0，但是它的padding值为100% ,也就是1：1 缩放，若要4:3 或者其它比值 ， 修改百分比即可</p>
+</body>
+</html>

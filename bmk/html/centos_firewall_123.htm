@@ -1,0 +1,22 @@
+<html>
+<head>
+<meta charset="utf-8"/>
+<title> centos7 firewall </title>
+</head>
+<body>
+ <h1>centos 7 firewall configure </h1>
+ <h3>关闭SELinux </h3>
+ <p>关于Selinux  见<a href="./selinux_123.htm" title="selinux" >selinux</a></p>
+ <code>sudo sed -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config</code><br>
+ <h3>Firewalld 防火墙的关闭</h3>
+ <code>sudo systemctl stop firewalld.service && systemctl disable firewalld.service</code>
+ <h3>切换成UFW 防火墙</h3>
+ <code> yum install ufw </code>
+ <h4>UFW 的开启 与 关闭</h4>
+ <code>ufw enable </code><br>
+ <code>ufw disable</code>
+ 
+</body>
+</html>
+
+ 
