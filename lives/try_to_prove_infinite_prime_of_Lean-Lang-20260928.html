@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>证明素数存在无穷多个的Lean-Lang表示</title>
+
+</head>
+<body>
+	
+	<h2>证明素数存在无穷多个的Lean-Lang表示</h2>
+	<pre><code>
+import Mathlib
+
+-- 试证明素数有无穷多个
+theorem infinite_prime_official_version : ∀ N : Nat , ∃ p,  p ≥ N ∧  Nat.Prime p := by
+ exact Nat.exists_infinite_primes
+
+    </code></pre>
+</body>
+</html>
