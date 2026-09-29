@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Lean4:试图证明leanoj.org这个OJ的第36题(最简单)</title>
+
+</head>
+<body>
+	
+	<h2>Lean4:试图证明leanoj.org这个OJ的第36题(最简单)</h2>
+	<p> 最为一个资深的数学“民科”，爱好数学，必须掌握最前沿的数学证明方法，我尝试证明各大LEAN OJ的题目<br/>
+		以简单的题目为主。<br/>
+		最终我的证明通过了leanoj.org的pending. 现在是passed的状态。<br/>
+		其中，少不了deepseek这个AI的帮助。
+	</p>
+	<pre><code>
+import Mathlib.Tactic.Ring
+import Mathlib.Tactic.Linarith
+import Mathlib.Basic.Real.Basic
+
+-- 经过上一次的教训，我准备尝试解决一个简单一点的问题：
+-- https://leanoj.org/index.php?action=view_problem&id=36
+
+-- City Zhautykov 2024 Grade 8 Problem 1
+-- Reals a,b satisfy a+b=ab=19. Find the value of（a²-19a）(b+19/b)
+-- Replace sorry in the template below with your solution. See Answer Bank for acceptible answer declarations. Mathlib version used by the checker is v4.34.0.
+
+
+def answer : ℝ := -361
+
+theorem solution' (a b : ℝ) (h1 : a + b = 19) (h2 : a * b = 19) :
+    (a ^ 2 - 19 * a) * (b + 19 / b) = answer := sorry
+
+theorem solution (a b : ℝ) (h1 : a + b = 19) (h2 : a * b = 19) :
+    (a ^ 2 - 19 * a) * (b + 19 / b) = answer := by
+  have hb : b ≠ 0 := by
+    intro hb0
+    rw [hb0, mul_zero] at h2
+    norm_num at h2
+
+  have hA : a ^ 2 - 19 * a = -19 := by
+    have h19 : (19 : ℝ) = a + b := h1.symm
+    rw [h19]
+    have h_expand : (a + b) * a = a ^ 2 + a * b := by ring
+    rw [h_expand]
+    have h_simp : a ^ 2 - (a ^ 2 + a * b) = -a * b := by ring
+    rw [h_simp]
+    rw [neg_mul]
+    rw [h2, h1]
+
+  have hB : b + 19 / b = 19 := by
+    have h19 : (19 : ℝ) = a * b := h2.symm
+    rw [h19]
+    rw [mul_div_assoc, div_self hb, mul_one]
+    linarith [h1]
+
+  rw [hA, hB]
+  norm_num [answer]
+
+
+    </code></pre>
+</body>
+</html>
