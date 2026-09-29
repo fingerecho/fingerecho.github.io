@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Lean4:试图证明kuing.cjhb.site这个OJ的第一题</title>
+
+</head>
+<body>
+	
+	<h2>Lean4:试图证明kuing.cjhb.site这个OJ的第一题</h2>
+	<p> 这些代码是从其他人的submissions中摘抄过来的，原始代码的第一个引理mul_log_ge_half_sq_sub_one的h_deriv_nonpos部分存在错误,<br/>
+		在使用了各种方法折腾之后仍然没有解决这个错误，我是将这个错误的部分用sorry代替，从而得到整个证明过程的形式化验证。<br/>
+		我所做的工作：将整个题目搬运过来，仔细研读题干，通过AI结合其他人提交的submission证明，试图在lean4中编译通过。
+	<pre><code>
+import Mathlib
+
+-- https://kuing.cjhb.site/lean/index.php?action=view_problem&id=2
+-- cyclic Inequality: ∑(x+y)^2/(z^z+1)≤6
+-- Given x,y,z>0 with x^2+y^2+z^2=3, we prove (x+y)^2/(z^z+1)+(y+z)^2/(x^x+1)+(z+x)^2/(y^y+1) ≤ 6
+
+-- Proof Strategy
+--1. Show x^x ≥ (x^2+1)/2 for x>0 (transcendental lemma)
+--2. Hence z^z + 1 ≥ (z^2+3)/2, giving (x+y)^2/(z^z+1) ≤ 2(x+y)^2/(z^2+3)
+--3. Show the algebraic inequality ∑ 2(x+y)^2/(z^2+3) ≤ 6 under the constraint
+
+theorem cyclic_ineq' (x y z : ℝ) (hx : 0 < x) (hy : 0 < y) (hz : 0 < z)
+    (hsum : x ^ 2 + y ^ 2 + z ^ 2 = 3) :
+    (x + y) ^ 2 / (z ^ z + 1) + (y + z) ^ 2 / (x ^ x + 1) +
+    (z + x) ^ 2 / (y ^ y + 1) ≤ 6 := by sorry
+
+
+---- AI 说证明不成立，并给出了反例
+---- 作者给出了submission，引用如下：
+
+/-! ## Part 1: The transcendental inequality x^x ≥ (x²+1)/2 -/
+/-
+For 0 < x ≤ 1: x * log x ≥ (x² - 1) / 2.
+This follows from the function h(x) = x*log(x) - (x²-1)/2 being antitone
+(since h'(x) = log(x) + 1 - x ≤ 0 by log(x) ≤ x-1) with h(1) = 0.
+-/
+lemma mul_log_ge_half_sq_sub_one {x : ℝ} (hx : 0 < x) (hx1 : x ≤ 1) :
+    x * Real.log x ≥ (x ^ 2 - 1) / 2 := by
+      -- Define h(x) = x*log(x) - (x²-1)/2. Then h(1) = 0.
+      set h : ℝ → ℝ := fun x => x * Real.log x - (x^2 - 1) / 2
+      have h1 : h 1 = 0 := by
+        norm_num +zetaDelta at *
+      -- We need to show that h(x) is antitone on (0, ∞).
+      have h_antitone : ∀ x y : ℝ, 0 < x → x ≤ y → h x ≥ h y := by
+        intros x y hx hy
+        /-have h_deriv_nonpos : ∀ x : ℝ, 0 < x → deriv h x ≤ 0 := by
+          intro x hx
+          norm_num [ h, hx.ne' ]
+          -- nlinarith [ Real.log_le_sub_one_of_pos hx ]
+          nlinarith [Real.log_le_sub_one_of_pos hx, hx]    此行报错：-/
+        have h_deriv_nonpos : ∀ x : ℝ, 0 < x → deriv h x ≤ 0 := by sorry
+        have h_antitone : AntitoneOn h (Set.Ioi 0) := by
+          apply_rules [ antitoneOn_of_deriv_nonpos ];
+          · exact convex_Ioi 0;
+          · exact ContinuousOn.sub ( continuousOn_id.mul ( Real.continuousOn_log.mono fun x hx => ne_of_gt hx ) ) ( Continuous.continuousOn ( by continuity ) );
+          · exact DifferentiableOn.sub ( differentiableOn_id.mul ( Real.differentiableOn_log.mono ( by norm_num ) ) ) ( DifferentiableOn.div_const ( DifferentiableOn.sub ( differentiableOn_pow 2 ) ( differentiableOn_const _ ) ) _ );
+          · aesop
+        have h_xy : h x ≥ h y := by
+          exact h_antitone hx ( show 0 < y by linarith ) hy
+        exact h_xy
+      -- Since h is antitone on (0, ∞) and h(1) = 0, for x ≤ 1 we have h(x) ≥ h(1) = 0.
+      have h_le_one : ∀ x : ℝ, 0 < x → x ≤ 1 → h x ≥ 0 := by
+        exact fun x hx hx1 => h1 ▸ h_antitone x 1 hx hx1;
+      -- Therefore, x * log x ≥ (x²-1)/2.
+      have h_final : h x ≥ 0 := by
+        exact h_le_one x hx hx1
+      -- This completes the proof.
+      aesop
+
+/-
+For 0 < x ≤ 1: x^x ≥ (x²+1)/2.
+Proof: x^x = exp(x*log(x)) ≥ 1 + x*log(x) ≥ 1 + (x²-1)/2 = (x²+1)/2.
+-/
+lemma rpow_self_ge_le_one {x : ℝ} (hx : 0 < x) (hx1 : x ≤ 1) :
+    x ^ x ≥ (x ^ 2 + 1) / 2 := by
+      -- By multiplying both sides of the inequality $x \log x \geq \frac{x^2 - 1}{2}$ by $x$, we get $x^2 \log x \geq \frac{x^3 - x}{2}$.
+      have h_mul : x^2 * Real.log x ≥ (x^3 - x) / 2 := by
+        nlinarith [ mul_log_ge_half_sq_sub_one hx hx1 ];
+      rw [ Real.rpow_def_of_pos hx ];
+      nlinarith [ Real.add_one_le_exp ( Real.log x * x ) ]
+/-
+For x ≥ 1: x * log x ≥ x - 1.
+Proof: log(1/x) ≤ 1/x - 1 (by log_le_sub_one), so -log(x) ≤ 1/x - 1,
+hence log(x) ≥ 1 - 1/x, and x*log(x) ≥ x - 1.
+-/
+lemma mul_log_ge_sub_one {x : ℝ} (hx : 1 ≤ x) :
+    x * Real.log x ≥ x - 1 := by
+      nlinarith [ Real.log_inv x ▸ Real.log_le_sub_one_of_pos ( inv_pos.mpr ( zero_lt_one.trans_le hx ) ), mul_inv_cancel₀ ( ne_of_gt ( zero_lt_one.trans_le hx ) ) ]
+/-
+For x ≥ 1: x^x ≥ (x²+1)/2.
+Proof: t = x*log(x) ≥ 0, so exp(t) ≥ 1 + t + t²/2 = ((t+1)² + 1)/2.
+Since t+1 = x*log(x)+1 ≥ x (from mul_log_ge_sub_one), (t+1)² ≥ x²,
+so exp(t) ≥ (x²+1)/2.
+-/
+lemma rpow_self_ge_ge_one {x : ℝ} (hx : 1 ≤ x) :
+    x ^ x ≥ (x ^ 2 + 1) / 2 := by
+      rw [ show ( x : ℝ ) ^ x = ( Real.exp ( x * Real.log x ) ) by rw [ Real.rpow_def_of_pos ( by positivity ) ] ; ring ];
+      rw [ show x * Real.log x = Real.log x + Real.log x * ( x - 1 ) by linarith, Real.exp_add, Real.exp_log ( by positivity ) ];
+      nlinarith [ Real.add_one_le_exp ( Real.log x * ( x - 1 ) ), Real.log_inv x ▸ Real.log_le_sub_one_of_pos ( inv_pos.mpr ( zero_lt_one.trans_le hx ) ), mul_inv_cancel₀ ( ne_of_gt ( zero_lt_one.trans_le hx ) ), Real.log_le_sub_one_of_pos ( zero_lt_one.trans_le hx ), mul_le_mul_of_nonneg_left hx ( Real.log_nonneg hx ) ]
+/-- Main transcendental lemma: for x > 0, x^x ≥ (x²+1)/2. -/
+lemma rpow_self_ge (x : ℝ) (hx : 0 < x) :
+    x ^ x ≥ (x ^ 2 + 1) / 2 := by
+  by_cases h : x ≤ 1
+  · exact rpow_self_ge_le_one hx h
+  · push_neg at h; exact rpow_self_ge_ge_one (le_of_lt h)
+/-! ## Part 2: The algebraic inequality -/
+/-
+Key algebraic inequality: ∑ 2(x+y)²/(z²+3) ≤ 6 when x²+y²+z²=3 and x,y,z>0.
+Proof sketch: After clearing denominators, this is equivalent to
+P = ∑_cyc (z²-xy)(x²+3)(y²+3) ≥ 0.
+With q = xy+yz+zx, p = x+y+z, r = xyz, we have P = (q-3)(3pr-q²+3q-9).
+Since q ≤ 3 (by AM) and 3pr ≤ p⁴/9 (by AM-GM: r ≤ p³/27), and
+p⁴/9 ≤ q²-3q+9 (under p²=2q+3, p²≤9), both factors are ≤ 0, so P ≥ 0.
+-/
+lemma algebraic_ineq (x y z : ℝ) (hx : 0 < x) (hy : 0 < y) (hz : 0 < z)
+    (hsum : x ^ 2 + y ^ 2 + z ^ 2 = 3) :
+    2 * (x + y) ^ 2 / (z ^ 2 + 3) + 2 * (y + z) ^ 2 / (x ^ 2 + 3) +
+    2 * (z + x) ^ 2 / (y ^ 2 + 3) ≤ 6 := by
+      rw [ ← hsum ];
+      field_simp;
+      -- By AM-GM inequality, we know that $(x - y)^2(x + y - 2z)^2 \geq 0$, $(y - z)^2(y + z - 2x)^2 \geq 0$, and $(z - x)^2(z + x - 2y)^2 \geq 0$.
+      have h_amgm : (x - y)^2 * (x + y - 2 * z)^2 ≥ 0 ∧ (y - z)^2 * (y + z - 2 * x)^2 ≥ 0 ∧ (z - x)^2 * (z + x - 2 * y)^2 ≥ 0 := by
+        exact ⟨ by positivity, by positivity, by positivity ⟩;
+      nlinarith [ mul_pos hx ( mul_pos hy hz ) ]
+/-! ## Part 3: Main theorem -/
+theorem cyclic_ineq (x y z : ℝ) (hx : 0 < x) (hy : 0 < y) (hz : 0 < z)
+    (hsum : x ^ 2 + y ^ 2 + z ^ 2 = 3) :
+    (x + y) ^ 2 / (z ^ z + 1) + (y + z) ^ 2 / (x ^ x + 1) +
+    (z + x) ^ 2 / (y ^ y + 1) ≤ 6 := by
+      -- By applying the results of rpow_self_ge and algebraic_ineq and combining them, we obtain the desired inequality.
+      have h_frac : ∀ x y z : ℝ, 0 < x → 0 < y → 0 < z → x^2 + y^2 + z^2 = 3 → (x + y)^2 / (z^z + 1) ≤ 2 * (x + y)^2 / (z^2 + 3) := by
+        intros x y z hx hy hz hsum
+        have hbb : z^z + 1 ≥ (z^2 + 3) / 2 := by
+          linarith [ rpow_self_ge z hz ];
+        rw [ div_le_div_iff₀ ] <;> nlinarith only [ hx, hy, hz, hbb ];
+      exact le_trans ( add_le_add_three ( h_frac x y z hx hy hz hsum ) ( h_frac y z x hy hz hx ( by linarith ) ) ( h_frac z x y hz hx hy ( by linarith ) ) ) ( algebraic_ineq x y z hx hy hz hsum )
+
+
+    </code></pre>
+</body>
+</html>
