@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Lean4:加法交换律、蕴含式和归纳法的简单证明</title>
+
+</head>
+<body>
+	
+	<h2>Lean4:加法交换律、蕴含式和归纳法的简单证明</h2>
+	<pre><code>
+import Mathlib
+import Mathlib.Tactic
+
+--加法交换律
+theorem my_add_comm : 1 + 2 = 2 + 1 := by rfl
+
+--蕴含式的证明
+example (P Q : Prop) (hP : P) (hQ : Q) : P ∧ Q := by
+ constructor
+ · exact hP
+ · exact hQ
+--注意： . 不是英文半角点，而是 \.
+--解释： (P Q:Prop)表示P Q为命题，  hP:P 解释为假设 P成立，hQ同理
+--       P ∧ Q 为证明目标
+--       constuctor 将 P Q分成两个子目标，
+--       . exact hP 用假设 hP直接证明第一个子目标，hQ同理。
+
+example (P : Prop) : P → P := by
+ intro hP
+ exact hP
+--解释： intro 表示引入， exact 表示直接证明的意思
+
+--用归纳法证明自然数的交换律
+theorem my_nat_comm (m n : ℕ) : m + n = n + m := by
+ induction m with
+ | zero =>
+    simp
+ | succ m ih =>
+     rw [Nat.succ_add, Nat.add_succ, ih]
+--注意： => 不能写成 ⇒
+--解释： induction m with 这个语法是归纳法的语法
+--       zero 是当m=0的情况，直接用simp化简即可
+--       succ m ih 是归纳步骤，ih是归纳假设(m+n=n+m)
+--       rw 策略是用已知等式重写目标
+
+--这是不用归纳法直接用mathlib的 ring的性质证明
+example (m n : ℕ) : m + n = n + m := by
+ ring
+
+    </code></pre>
+</body>
+</html>
