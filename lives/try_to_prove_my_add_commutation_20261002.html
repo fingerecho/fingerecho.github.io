@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Lean4:试图证明自定义加法交换律，从Peano公理出发</title>
+
+</head>
+<body>
+
+	<h2>Lean4:试图证明自定义加法交换律，从Peano公理出发</h2>
+	<p>从Peano的公理出发，验证加法交换律。
+	</p>
+	<pre><code>
+    import Mathlib
+
+    /-!
+    # 加法交换律
+
+    本文档给出加法交换律 `a + b = b + a` 的一个简单证明。
+
+    * 第一个证明从皮亚诺公理出发，对 `a` 做归纳，只用到
+    `Nat.succ_add` 与 `Nat.add_succ` 这两条基本引理。
+    * 之后再用 mathlib 中现成的 `add_comm` 做对照。
+    -/
+
+    namespace MyAddComm
+
+    /-- 自然数加法交换律：对第一个变量做归纳。
+
+    `zero` 情形：`0 + b = b + 0`，两边都由 `simp` 化简为 `b`。
+    `succ` 情形：用 `Nat.succ_add` 把左边写成 `(a + b).succ`，
+    用 `Nat.add_succ` 把右边写成 `(b + a).succ`，
+    再代入归纳假设 `ih : a + b = b + a` 即可。 -/
+    /- `succ_add` 、`add_succ` :
+    succ 代表 successor , “后继”的意思；
+    succ 的反义词是 predecessor , 即 'pred' ， 表示“前驱”
+    -/
+    theorem add_comm_nat (a b : ℕ) : a + b = b + a := by
+    induction a with
+    | zero => simp
+    | succ a ih => rw [Nat.succ_add, Nat.add_succ, ih]
+
+    /-- 同样的命题，直接引用 mathlib 已有的定理。 -/
+    example (a b : ℕ) : a + b = b + a := Nat.add_comm a b
+
+    /-- 交换律对一般的交换加法幺半群都成立，例如实数。 -/
+    example (a b : ℝ) : a + b = b + a := add_comm a b
+
+    /-- 用自己证明的引理算一个具体例子。 -/
+    example : (3 : ℕ) + 5 = 5 + 3 := add_comm_nat 3 5
+
+    end MyAddComm
+
+
+
+    </code></pre>
+</body>
+</html>
