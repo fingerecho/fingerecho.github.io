@@ -1,3 +1,4 @@
+python3 gen_RSS_for_lives.py
 git add ./*
 git config --global user.email "283285356@qq.com"
 git config --global user.name "fingerecho"

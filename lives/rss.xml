@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0">
+  <channel>
+    <title>FingerEcho Lives</title>
+    <link>https://fingerecho.com/lives/</link>
+    <description>FingerEcho 生活随笔与技术分享</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 06 Oct 2026 11:49:49 </lastBuildDate>
+    <generator>gen_RSS_for_lives.py</generator>
+    <atom:link href="https://fingerecho.com/lives/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>尝试证明my_add_comm(自定义加法交换律)</title>
+      <link>https://fingerecho.com/lives/try_to_prove_my_add_commutation_20261002.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/try_to_prove_my_add_commutation_20261002.html</guid>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 </pubDate>
+      <description>尝试证明my_add_comm(自定义加法交换律)</description>
+    </item>
+    <item>
+      <title>尝试证明leanoj.org这个OJ的第36题(最简单)</title>
+      <link>https://fingerecho.com/lives/try_to_prove_leanoj.org_NO.36_items_20260929.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/try_to_prove_leanoj.org_NO.36_items_20260929.html</guid>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 </pubDate>
+      <description>尝试证明leanoj.org这个OJ的第36题(最简单)</description>
+    </item>
+    <item>
+      <title>尝试证明kuing.cjhb.site这个OJ的第一题</title>
+      <link>https://fingerecho.com/lives/try_to_prove_kuing.cjhb.site_OJ_first_item_20260929.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/try_to_prove_kuing.cjhb.site_OJ_first_item_20260929.html</guid>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 </pubDate>
+      <description>尝试证明kuing.cjhb.site这个OJ的第一题</description>
+    </item>
+    <item>
+      <title>Lean4:加法交换律、蕴含式和归纳法的简单证明</title>
+      <link>https://fingerecho.com/lives/using_basic_demo_to_learn_Lean4_syntax.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/using_basic_demo_to_learn_Lean4_syntax.html</guid>
+      <pubDate>Tue, 29 Sep 2026 00:00:00 </pubDate>
+      <description>Lean4:加法交换律、蕴含式和归纳法的简单证明</description>
+    </item>
+    <item>
+      <title>试证明素数有无穷多个</title>
+      <link>https://fingerecho.com/lives/try_to_prove_infinite_prime_of_Lean-Lang-20260928.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/try_to_prove_infinite_prime_of_Lean-Lang-20260928.html</guid>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 </pubDate>
+      <description>试证明素数有无穷多个</description>
+    </item>
+    <item>
+      <title>小试牛刀:我的第一个数学证明</title>
+      <link>https://fingerecho.com/lives/my_first_mathematic_example_of_Lean-Lang.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/my_first_mathematic_example_of_Lean-Lang.html</guid>
+      <pubDate>Sun, 27 Sep 2026 00:00:00 </pubDate>
+      <description>小试牛刀:我的第一个数学证明</description>
+    </item>
+    <item>
+      <title>开始我的Lean-Lang学习</title>
+      <link>https://fingerecho.com/lives/start_my_learning_of_Lean-lang.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/start_my_learning_of_Lean-lang.html</guid>
+      <pubDate>Sat, 26 Sep 2026 00:00:00 </pubDate>
+      <description>开始我的Lean-Lang学习</description>
+    </item>
+    <item>
+      <title>欧拉计划 No.580</title>
+      <link>https://fingerecho.com/lives/eular_project_No580.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/eular_project_No580.html</guid>
+      <pubDate>Sat, 01 Nov 2025 00:00:00 </pubDate>
+      <description>欧拉计划 No.580</description>
+    </item>
+    <item>
+      <title>面试笔试总结</title>
+      <link>https://fingerecho.com/lives/mianshibishi.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/mianshibishi.html</guid>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
+      <description>面试笔试总结</description>
+    </item>
+    <item>
+      <title>书籍分享</title>
+      <link>https://fingerecho.com/lives/ffpic.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/ffpic.html</guid>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
+      <description>书籍分享</description>
+    </item>
+    <item>
+      <title>阿里大牛的博客</title>
+      <link>https://fingerecho.com/lives/alibaba.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/alibaba.html</guid>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
+      <description>阿里大牛的博客</description>
+    </item>
+    <item>
+      <title>约翰家的后花园</title>
+      <link>https://raw.githubusercontent.com/fingerecho/Algorithm/Default/LintCode/yuehan_jia_de_hou_hua_yuan_.py</link>
+      <guid isPermaLink="true">https://raw.githubusercontent.com/fingerecho/Algorithm/Default/LintCode/yuehan_jia_de_hou_hua_yuan_.py</guid>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
+      <description>约翰家的后花园</description>
+    </item>
+    <item>
+      <title>程序员对联</title>
+      <link>https://fingerecho.com/lives/helloworld.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/helloworld.html</guid>
+      <pubDate>Tue, 06 Oct 2026 11:49:49 </pubDate>
+      <description>程序员对联</description>
+    </item>
+    <item>
+      <title>其他人的优秀博客</title>
+      <link>https://fingerecho.gitee.io/bmk/html/others_blogers_shares_2019_02_04.html</link>
+      <guid isPermaLink="true">https://fingerecho.gitee.io/bmk/html/others_blogers_shares_2019_02_04.html</guid>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
+      <description>其他人的优秀博客</description>
+    </item>
+    <item>
+      <title>机器学习资源</title>
+      <link>https://fingerecho.com/lives/learning_sutffs.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/learning_sutffs.html</guid>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
+      <description>机器学习资源</description>
+    </item>
+    <item>
+      <title>回想起大学老师的一句话</title>
+      <link>https://fingerecho.com/lives/reovery_of_univisity.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/reovery_of_univisity.html</guid>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
+      <description>回想起大学老师的一句话</description>
+    </item>
+    <item>
+      <title>离职缘由</title>
+      <link>https://fingerecho.com/lives/why_i_quit_from_lsutech.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/why_i_quit_from_lsutech.html</guid>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
+      <description>离职缘由</description>
+    </item>
+    <item>
+      <title>项目来由</title>
+      <link>https://fingerecho.com/lives/why_i_create_this_blog_site.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/why_i_create_this_blog_site.html</guid>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
+      <description>项目来由</description>
+    </item>
+    <item>
+      <title>项目方向</title>
+      <link>https://fingerecho.com/lives/fresh_content_about_this_site.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/fresh_content_about_this_site.html</guid>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
+      <description>项目方向</description>
+    </item>
+    <item>
+      <title>阮一峰关于大学退学的消极看法</title>
+      <link>http://www.ruanyifeng.com/survivor/collapse/university.html</link>
+      <guid isPermaLink="true">http://www.ruanyifeng.com/survivor/collapse/university.html</guid>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
+      <description>阮一峰关于大学退学的消极看法</description>
+    </item>
+    <item>
+      <title>IP 定位snapshot</title>
+      <link>https://fingerecho.com/lives/who_are_you_20190703.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/who_are_you_20190703.html</guid>
+      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
+      <description>IP 定位snapshot</description>
+    </item>
+    <item>
+      <title>1997~2019最具有价值的top10公司</title>
+      <link>https://fingerecho.com/lives/most_valuable_companies_in_the_world.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/most_valuable_companies_in_the_world.html</guid>
+      <pubDate>Wed, 25 Dec 2019 00:00:00 </pubDate>
+      <description>1997~2019最具有价值的top10公司</description>
+    </item>
+    <item>
+      <title>抗日时期局势变化过程</title>
+      <link>https://fingerecho.com/lives/anti_japan_area_process.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/anti_japan_area_process.html</guid>
+      <pubDate>Fri, 24 Jan 2020 00:00:00 </pubDate>
+      <description>抗日时期局势变化过程</description>
+    </item>
+    <item>
+      <title>转载分享:c/c++资源大全</title>
+      <link>https://fingerecho.com/lives/subcontent/cpp_value_items.htm</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/subcontent/cpp_value_items.htm</guid>
+      <pubDate>Wed, 18 Mar 2020 00:00:00 </pubDate>
+      <description>转载分享:c/c++资源大全</description>
+    </item>
+  </channel>
+</rss>
