@@ -20,8 +20,8 @@ def parse_index():
     tbody_match = re.search(r"<tbody>(.*?)</tbody>", content, re.DOTALL)
     if tbody_match:
         tbody = tbody_match.group(1)
-        rows = re.findall(r"<tr><td>[^<]*</td><td><a href=\"([^\"]+)\"[^>]*>([^<]+)</a></td><td>([^<]*)</td></tr>", tbody)
-        for href, title, date_str in rows:
+        rows = re.findall(r"<tr><td>[^<]*</td><td><a href=\"([^\"]+)\"[^>]*alt=\"([^\"]*)\"[^>]*>([^<]+)</a></td><td>([^<]*)</td></tr>", tbody)
+        for href, alt_text, title, date_str in rows:
             if href == "index.html":
                 continue
             if href.startswith("http"):
@@ -33,7 +33,8 @@ def parse_index():
                 "title": title.strip(),
                 "link": link,
                 "date_str": date_str.strip(),
-                "filename": href
+                "filename": href,
+                "description": alt_text.strip()
             })
     return entries
 
@@ -72,7 +73,7 @@ def generate_rss(entries):
         SubElement(item, "guid", isPermaLink="true").text = entry["link"]
         pub_date = parse_date(entry["date_str"])
         SubElement(item, "pubDate").text = pub_date.strftime("%a, %d %b %Y %H:%M:%S %z")
-        SubElement(item, "description").text = entry["title"]
+        SubElement(item, "description").text = entry.get("description", entry["title"])
 
     rough_string = tostring(rss, encoding="utf-8")
     reparsed = minidom.parseString(rough_string)
