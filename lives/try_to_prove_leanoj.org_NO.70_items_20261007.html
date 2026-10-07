@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Lean4:试图证明leanoj.org这个OJ的第70题</title>
+
+</head>
+<body>
+
+	<h2>试图证明leanoj.org这个OJ的第70题</h2>
+	<p> 最为一个资深的数学“民科”，爱好数学，必须掌握最前沿的数学证明方法，我尝试证明各大LEAN OJ的题目<br/>
+		以简单的题目为主。<br/>
+		我所做的是找出这个代数推导的答案。<br/>
+		其中，少不了deepseek这个AI的帮助。
+	</p>
+	<pre><code>
+	import Mathlib.Data.Real.Basic
+	import Mathlib.Tactic
+
+	-- Switzerland 2003
+	-- https://leanoj.org/index.php?action=view_problem&id=70
+
+
+	def answer : Set ℝ := {-2, -1, 0, 1, 2}
+
+	theorem solution (s : ℝ) :
+            (∃ x y, x + y = s ∧ x ^ 3 + y ^ 3 = s ∧ x ^ 5 + y ^ 5 = s) ↔ s ∈ answer := by
+        constructor
+        · -- ========== 从左到右 ==========
+            rintro ⟨x, y, h1, h3, h5⟩
+            -- 关键恒等式 1：x^3 + y^3 = (x+y)^3 - 3*x*y*(x+y)
+            have e3 : x ^ 3 + y ^ 3 = (x + y) ^ 3 - 3 * (x * y) * (x + y) := by ring
+            -- 关键恒等式 2：x^5 + y^5 = (x+y)^5 - 5*x*y*(x+y)^3 + 5*(x*y)^2*(x+y)
+            have e5 : x ^ 5 + y ^ 5 =
+                (x + y) ^ 5 - 5 * (x * y) * (x + y) ^ 3 + 5 * (x * y) ^ 2 * (x + y) := by ring
+            -- 由 h3 和 h1 得到 s * (s^2 - 3*(x*y) - 1) = 0
+            have h3' : s * (s ^ 2 - 3 * (x * y) - 1) = 0 := by
+            have h3'' : (x + y) ^ 3 - 3 * (x * y) * (x + y) = s := by
+                linarith
+            have h4 : s = x + y := by linarith
+            rw [h4] at h3'' ⊢
+            nlinarith [sq_nonneg (x - y), sq_nonneg (x + y)]
+            -- 由 h5 和 h1 得到 s * (s^4 - 5*(x*y)*s^2 + 5*(x*y)^2 - 1) = 0
+            have h5' : s * (s ^ 4 - 5 * (x * y) * s ^ 2 + 5 * (x * y) ^ 2 - 1) = 0 := by
+            have h5'' : (x + y) ^ 5 - 5 * (x * y) * (x + y) ^ 3 + 5 * (x * y) ^ 2 * (x + y) = s := by
+                linarith
+            have h6 : s = x + y := by linarith
+            rw [h6] at h5'' ⊢
+            nlinarith [sq_nonneg (x - y), sq_nonneg (x + y), sq_nonneg (x ^ 2 - y ^ 2),
+                sq_nonneg (x ^ 2 + y ^ 2), sq_nonneg (x ^ 2 - 2 * x * y + y ^ 2),
+                sq_nonneg (x ^ 2 + 2 * x * y + y ^ 2)]
+            -- 分情况：s = 0 或 s ≠ 0
+            by_cases hs : s = 0
+            · -- 情况 A：s = 0
+            rw [hs]
+            norm_num [answer]
+            · -- 情况 B：s ≠ 0
+            -- 从 h3' 和 h5' 中约去 s
+            have hq : s ^ 2 - 3 * (x * y) - 1 = 0 := by
+                have h7 : s * (s ^ 2 - 3 * (x * y) - 1) = 0 := h3'
+                have h8 : s ≠ 0 := hs
+                have h9 : s ^ 2 - 3 * (x * y) - 1 = 0 := by
+                apply mul_left_cancel₀ h8
+                linarith
+                exact h9
+            have hq5 : s ^ 4 - 5 * (x * y) * s ^ 2 + 5 * (x * y) ^ 2 - 1 = 0 := by
+                have h7 : s * (s ^ 4 - 5 * (x * y) * s ^ 2 + 5 * (x * y) ^ 2 - 1) = 0 := h5'
+                have h8 : s ≠ 0 := hs
+                have h9 : s ^ 4 - 5 * (x * y) * s ^ 2 + 5 * (x * y) ^ 2 - 1 = 0 := by
+                apply mul_left_cancel₀ h8
+                linarith
+                exact h9
+            -- 从 hq 解出 x * y = (s^2 - 1) / 3
+            have hxy : x * y = (s ^ 2 - 1) / 3 := by
+                have h10 : s ^ 2 - 3 * (x * y) - 1 = 0 := hq
+                have h11 : 3 * (x * y) = s ^ 2 - 1 := by linarith
+                have h12 : x * y = (s ^ 2 - 1) / 3 := by linarith
+                exact h12
+            -- 代入 hq5
+            have hkey : s ^ 4 - 5 * ((s ^ 2 - 1) / 3) * s ^ 2
+                        + 5 * ((s ^ 2 - 1) / 3) ^ 2 - 1 = 0 := by
+                have h13 : s ^ 4 - 5 * (x * y) * s ^ 2 + 5 * (x * y) ^ 2 - 1 = 0 := hq5
+                rw [hxy] at h13
+                ring_nf at h13 ⊢
+                nlinarith
+            -- 化简得到 (s^2 - 1) * (s^2 - 4) = 0
+            have hfactor : (s ^ 2 - 1) * (s ^ 2 - 4) = 0 := by
+                have h14 : s ^ 4 - 5 * ((s ^ 2 - 1) / 3) * s ^ 2 + 5 * ((s ^ 2 - 1) / 3) ^ 2 - 1 = 0 := hkey
+                have h15 : (s ^ 2 - 1) * (s ^ 2 - 4) = 0 := by
+                ring_nf at h14 ⊢
+                nlinarith [sq_nonneg (s ^ 2 - 1), sq_nonneg (s ^ 2 - 4)]
+                exact h15
+            -- 因此 s^2 = 1 或 s^2 = 4
+            have hs2 : s ^ 2 = 1 ∨ s ^ 2 = 4 := by
+                have h15 : (s ^ 2 - 1) * (s ^ 2 - 4) = 0 := hfactor
+                have h16 : s ^ 2 - 1 = 0 ∨ s ^ 2 - 4 = 0 := by
+                apply eq_zero_or_eq_zero_of_mul_eq_zero h15
+                cases h16 with
+                | inl h16 =>
+                have h17 : s ^ 2 = 1 := by linarith
+                exact Or.inl h17
+                | inr h16 =>
+                have h17 : s ^ 2 = 4 := by linarith
+                exact Or.inr h17
+            -- 从 s^2 = 1 或 4 推出 s ∈ {-2, -1, 0, 1, 2}
+            rcases hs2 with h | h
+            · -- s^2 = 1
+                have : s = 1 ∨ s = -1 := by
+                have h17 : s ^ 2 = 1 := h
+                have h18 : s = 1 ∨ s = -1 := by
+                    have h19 : s = 1 ∨ s = -1 := by
+                    apply or_iff_not_imp_left.mpr
+                    intro h20
+                    apply eq_of_sub_eq_zero
+                    apply mul_left_cancel₀ (sub_ne_zero.mpr h20)
+                    nlinarith
+                    exact h19
+                exact h18
+                rcases this with rfl | rfl <;> norm_num [answer]
+            · -- s^2 = 4
+                have : s = 2 ∨ s = -2 := by
+                have h17 : s ^ 2 = 4 := h
+                have h18 : s = 2 ∨ s = -2 := by
+                    have h19 : s = 2 ∨ s = -2 := by
+                    apply or_iff_not_imp_left.mpr
+                    intro h20
+                    apply eq_of_sub_eq_zero
+                    apply mul_left_cancel₀ (sub_ne_zero.mpr h20)
+                    nlinarith
+                    exact h19
+                exact h18
+                rcases this with rfl | rfl <;> norm_num [answer]
+        · -- ========== 从右到左 ==========
+            intro hs
+            -- 把 s ∈ {-2, -1, 0, 1, 2} 拆成五种情况
+            simp only [answer, Set.mem_insert_iff, Set.mem_singleton_iff] at hs
+            rcases hs with rfl | rfl | rfl | rfl | rfl
+            · -- s = -2，取 x = -1, y = -1
+            exact ⟨-1, -1, by norm_num, by norm_num, by norm_num⟩
+            · -- s = -1，取 x = -1, y = 0
+            exact ⟨-1, 0, by norm_num, by norm_num, by norm_num⟩
+            · -- s = 0，取 x = 0, y = 0
+            exact ⟨0, 0, by norm_num, by norm_num, by norm_num⟩
+            · -- s = 1，取 x = 1, y = 0
+            exact ⟨1, 0, by norm_num, by norm_num, by norm_num⟩
+            · -- s = 2，取 x = 1, y = 1
+            exact ⟨1, 1, by norm_num, by norm_num, by norm_num⟩
+
+
+
+    </code></pre>
+</body>
+</html>

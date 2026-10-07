@@ -5,15 +5,22 @@
     <link>https://fingerecho.com/lives/</link>
     <description>FingerEcho 生活随笔与技术分享</description>
     <language>zh-CN</language>
-    <lastBuildDate>Tue, 06 Oct 2026 17:05:39 </lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 12:01:00 </lastBuildDate>
     <generator>gen_RSS_for_lives.py</generator>
     <atom:link href="https://fingerecho.com/lives/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>试图证明leanoj.org的第70题(Switzerland 2003)</title>
+      <link>https://fingerecho.com/lives/try_to_prove_leanoj.org_NO.70_items_20261007.html</link>
+      <guid isPermaLink="true">https://fingerecho.com/lives/try_to_prove_leanoj.org_NO.70_items_20261007.html</guid>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 </pubDate>
+      <description>试图证明leanoj.org的第70题(Switzerland 2003)，在我的lean4.34.1中证明成功，但是oj判定不通过</description>
+    </item>
     <item>
       <title>尝试证明my_add_comm(自定义加法交换律)</title>
       <link>https://fingerecho.com/lives/try_to_prove_my_add_commutation_20261002.html</link>
       <guid isPermaLink="true">https://fingerecho.com/lives/try_to_prove_my_add_commutation_20261002.html</guid>
       <pubDate>Fri, 02 Oct 2026 00:00:00 </pubDate>
-      <description>尝试定义我自己的加法交换律</description>
+      <description>尝试定义我自己的加法交换律，从Peano的5个公理出发</description>
     </item>
     <item>
       <title>尝试证明leanoj.org这个OJ的第36题(最简单)</title>
