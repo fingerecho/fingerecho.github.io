@@ -91,6 +91,7 @@ https://fingerecho.com/navcontent/program-language.html
 https://fingerecho.com/navcontent/sql.html
 https://fingerecho.com/navcontent/web_0.html
 https://fingerecho.com/navcontent/web_secure.html
+https://fingerecho.com/projects.html
 https://fingerecho.com/resources.html
 https://fingerecho.com/resources/常用的200个专业数学的英文单词.pdf
 https://fingerecho.com/resources/数学常用希腊字母表.pdf

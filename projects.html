@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="4" data-page="projects">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name="description" content="方克铖的编程项目展示">
+<meta name="author" content="fingerecho">
+<link rel="icon" href="jpg/icon/favicon.gif">
+<title>编程项目 - 小方个人网</title>
+<link rel="stylesheet" type="text/css" href="lives/css/blog.css">
+<style>
+	.projects-page {
+		width: min(1180px, calc(100% - 32px));
+	}
+
+	.projects-head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 16px 28px;
+		margin-bottom: 6px;
+	}
+
+	.projects-head h1 {
+		margin: 0 0 10px;
+	}
+
+	.projects-sub {
+		color: var(--ink-soft);
+		font-size: 15px;
+		line-height: 1.8;
+	}
+
+	.back-link {
+		display: inline-flex;
+		align-items: center;
+		padding: 9px 18px;
+		border: 1px solid rgba(255, 255, 255, .16);
+		border-radius: 999px;
+		background: rgba(12, 16, 30, .7);
+		background-image: none;
+		color: #dfe6ff;
+		font-size: 13px;
+		font-weight: 600;
+		white-space: nowrap;
+	}
+
+	.back-link:hover {
+		border-color: var(--a2);
+		color: #fff;
+		background-size: 0 0;
+		text-shadow: none;
+	}
+
+	.project-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 18px;
+		margin-top: 28px;
+	}
+
+	.project-card {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		padding: 26px 24px;
+		border: 1px solid rgba(255, 255, 255, .1);
+		border-radius: 20px;
+		background: linear-gradient(180deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .025));
+		box-shadow:
+			inset 0 1px 0 rgba(255, 255, 255, .12),
+			0 20px 50px -32px rgba(0, 0, 0, .9);
+	}
+
+	.project-card h2 {
+		margin: 0;
+		padding: 0;
+		color: #fff;
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 1.35;
+		letter-spacing: -.01em;
+		overflow-wrap: anywhere;
+		background: none;
+		-webkit-text-fill-color: initial;
+	}
+
+	.project-card h2::after {
+		display: none;
+	}
+
+	.project-desc {
+		color: var(--ink-soft);
+		font-size: 15px;
+		line-height: 1.82;
+		overflow-wrap: anywhere;
+	}
+
+	.project-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.project-tag {
+		display: inline-block;
+		padding: 4px 11px;
+		border: 1px solid rgba(255, 255, 255, .1);
+		border-radius: 999px;
+		background: rgba(255, 255, 255, .05);
+		color: var(--a3);
+		font-size: 12px;
+		font-weight: 600;
+		line-height: 1.5;
+	}
+
+	.project-foot {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		gap: 10px 16px;
+		margin-top: auto;
+		padding-top: 6px;
+	}
+
+	.project-status {
+		display: inline-flex;
+		align-items: center;
+		gap: 7px;
+		color: #86efac;
+		font-size: 12.5px;
+		font-weight: 600;
+	}
+
+	.project-status::before {
+		content: "";
+		width: 7px;
+		height: 7px;
+		border-radius: 50%;
+		background: #22c55e;
+	}
+
+	.project-link {
+		background-image: none;
+		color: var(--a3);
+		font-size: 14px;
+		font-weight: 600;
+		padding: 0;
+	}
+
+	.project-link:hover {
+		color: #fff;
+		background-size: 0 0;
+		text-shadow: none;
+	}
+
+	@media (max-width: 620px) {
+		.projects-page {
+			width: calc(100% - 20px);
+		}
+
+		.project-card {
+			padding: 22px 18px;
+		}
+
+		.projects-head {
+			align-items: flex-start;
+		}
+	}
+</style>
+</head>
+<body>
+<div class="blog-bg" aria-hidden="true"></div>
+<div class="blog-grid" aria-hidden="true"></div>
+<main class="article projects-page">
+	<div class="projects-head">
+		<div>
+			<h1>编程项目</h1>
+			<div class="projects-sub">持续学习，持续构建。这里收录我开源与自研的编程项目。</div>
+		</div>
+		<a class="back-link" href="index.html">← 返回首页</a>
+	</div>
+
+	<div class="project-grid">
+		<article class="project-card">
+			<h2>Fingerecho's Blog</h2>
+			<div class="project-desc">心若有所向往，何惧道阻且长。记录技术分享和生活感悟的个人博客。</div>
+			<div class="project-tags">
+				<span class="project-tag">技术分享</span>
+				<span class="project-tag">Blog</span>
+				<span class="project-tag">Markdown</span>
+			</div>
+			<div class="project-foot">
+				<span class="project-status">已完成</span>
+				<a class="project-link" href="https://fingerecho.com" target="_blank" rel="noopener noreferrer">查看项目 →</a>
+			</div>
+		</article>
+
+		<article class="project-card">
+			<h2>KC-CXIM(《铖信》即时通讯)</h2>
+			<div class="project-desc">KC-CXIM《铖信》是一个面向学习与二次开发的全栈即时通讯项目：自带 C++17 自研 IM 服务端（HTTP 鉴权 + TCP 长连接 + MariaDB）、Windows 桌面客户端与 Web 管理后台（Drogon 后端 + Vue3 前端），同时保留腾讯云 IM SDK 的接入示例。</div>
+			<div class="project-tags">
+				<span class="project-tag">Windows</span>
+				<span class="project-tag">即时通讯</span>
+				<span class="project-tag">仿QQ</span>
+			</div>
+			<div class="project-foot">
+				<span class="project-status">已完成</span>
+				<a class="project-link" href="https://github.com/fingerecho/KC-CXIM" target="_blank" rel="noopener noreferrer">查看项目 →</a>
+			</div>
+		</article>
+
+		<article class="project-card">
+			<h2>KCSystemConsole(克铖操作控制台)</h2>
+			<div class="project-desc">打造一款轻量、现代、高效的 Windows 系统监控与操作工具。</div>
+			<div class="project-tags">
+				<span class="project-tag">监控</span>
+				<span class="project-tag">AI Agent</span>
+				<span class="project-tag">实时数据</span>
+			</div>
+			<div class="project-foot">
+				<span class="project-status">已完成</span>
+				<a class="project-link" href="https://github.com/fingerecho/KCSystemConsole/tree/master" target="_blank" rel="noopener noreferrer">查看项目 →</a>
+			</div>
+		</article>
+
+		<article class="project-card">
+			<h2>KC-EchoPlayer(克铖音视频播放器)</h2>
+			<div class="project-desc">一个基于 Duilib 与 BASS 的 Windows 音乐播放器，支持多格式音频播放与实时频谱可视化。</div>
+			<div class="project-tags">
+				<span class="project-tag">Windows</span>
+				<span class="project-tag">音视频播放器</span>
+				<span class="project-tag">自研开源</span>
+			</div>
+			<div class="project-foot">
+				<span class="project-status">已完成</span>
+				<a class="project-link" href="https://github.com/fingerecho/KC-EchoPlayer" target="_blank" rel="noopener noreferrer">查看项目 →</a>
+			</div>
+		</article>
+
+		<article class="project-card">
+			<h2>KCEnvEditor(克铖环境变量管理器)</h2>
+			<div class="project-desc">一款轻量级 Windows 环境变量管理器，支持可视化查看、编辑、备份与回滚系统/用户变量，让 PATH 配置更安全、更省心。</div>
+			<div class="project-tags">
+				<span class="project-tag">Windows</span>
+				<span class="project-tag">环境变量</span>
+				<span class="project-tag">自研开源</span>
+			</div>
+			<div class="project-foot">
+				<span class="project-status">已完成</span>
+				<a class="project-link" href="https://github.com/fingerecho/KCEnvEditor" target="_blank" rel="noopener noreferrer">查看项目 →</a>
+			</div>
+		</article>
+
+		<article class="project-card">
+			<h2>KCMemMonitor(克铖内存监控器)</h2>
+			<div class="project-desc">基于 C++ 与 WinUI3 的 Windows 整机物理内存监控工具。界面实时展示总内存、已用内存、可用内存、占用百分比与内存压力等级五项指标，并以环形饼图和近 60 秒动态趋势图直观呈现。</div>
+			<div class="project-tags">
+				<span class="project-tag">Windows系统工具</span>
+				<span class="project-tag">内存监控</span>
+				<span class="project-tag">自研开源</span>
+			</div>
+			<div class="project-foot">
+				<span class="project-status">已完成</span>
+				<a class="project-link" href="https://github.com/fingerecho/KCMemMonitor" target="_blank" rel="noopener noreferrer">查看项目 →</a>
+			</div>
+		</article>
+
+		<article class="project-card">
+			<h2>KCCPUMonitor(克铖CPU性能监控器)</h2>
+			<div class="project-desc">本项目是基于 C++ 与 WinUI3 的 Windows 整机 CPU 性能监控工具，WinUI3 桌面应用，实时展示 CPU 名称、利用率、当前/基准频率、进程数、线程数、句柄数、正常运行时间、插槽、内核、逻辑处理器、虚拟化状态、L1/L2/L3 缓存。</div>
+			<div class="project-tags">
+				<span class="project-tag">Windows系统工具</span>
+				<span class="project-tag">CPU性能监控</span>
+				<span class="project-tag">自研开源</span>
+			</div>
+			<div class="project-foot">
+				<span class="project-status">已完成</span>
+				<a class="project-link" href="https://github.com/fingerecho/KCCPUMonitor" target="_blank" rel="noopener noreferrer">查看项目 →</a>
+			</div>
+		</article>
+
+		<article class="project-card">
+			<h2>KC-CodeLitePlugin-CodeStatsPanel(CodeLite 插件：智能代码统计与质量看板)</h2>
+			<div class="project-desc">本项目是 CodeLite 插件：基于 AST 的智能代码统计与质量看板。功能定位：在底部 Dock 面板做一个可视化的代码统计工具。支持统计项目内的代码行数、注释率、圈复杂度（粗略计算 if/for/while 数量），以及 TODO/FIXME 标记。</div>
+			<div class="project-tags">
+				<span class="project-tag">CodeLite IDE插件</span>
+				<span class="project-tag">AST代码统计</span>
+				<span class="project-tag">自研开源</span>
+			</div>
+			<div class="project-foot">
+				<span class="project-status">已完成</span>
+				<a class="project-link" href="https://github.com/fingerecho/KC-CodeLitePlugin-CodeStatsPanel" target="_blank" rel="noopener noreferrer">查看项目 →</a>
+			</div>
+		</article>
+
+		<article class="project-card">
+			<h2>trackingsite(知识图谱项目)</h2>
+			<div class="project-desc">开源、隐私友好的网站访问统计分析工具，提供详细的访问数据和洞察。</div>
+			<div class="project-tags">
+				<span class="project-tag">数据分析</span>
+				<span class="project-tag">统计</span>
+				<span class="project-tag">开源</span>
+			</div>
+			<div class="project-foot">
+				<span class="project-status">已完成</span>
+				<a class="project-link" href="https://github.com/fingerecho/trackingsite/tree/master" target="_blank" rel="noopener noreferrer">查看项目 →</a>
+			</div>
+		</article>
+	</div>
+</main>
+</body>
+</html>
