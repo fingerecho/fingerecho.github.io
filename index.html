@@ -19,6 +19,23 @@
 		a, p, span, table, td, tr, th {
 			font-family: var(--font-body);
 		}
+
+		@media (max-width: 991px) {
+			#main-content {
+				width: 100%;
+				margin: 0;
+			}
+		}
+
+		@media (max-width: 720px) {
+			#main-content > span {
+				display: block;
+				font-size: 18px;
+				font-weight: 500;
+				line-height: 1.85;
+				margin-bottom: 0;
+			}
+		}
 	</style>
 </head>
  <body>
