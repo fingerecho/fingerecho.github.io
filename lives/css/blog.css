@@ -70,38 +70,13 @@ body {
 	z-index: -2;
 	overflow: hidden;
 	pointer-events: none;
+	/* Static gradients only: no blur, blend modes or animation (GPU friendly). */
 	background:
-		radial-gradient(60% 50% at 12% 8%, var(--g1), transparent 70%),
-		radial-gradient(52% 46% at 88% 16%, var(--g2), transparent 70%),
-		radial-gradient(64% 60% at 50% 108%, var(--g3), transparent 70%),
+		radial-gradient(42% 38% at 8% 6%, var(--g1), transparent 70%),
+		radial-gradient(40% 36% at 92% 10%, var(--g2), transparent 72%),
+		radial-gradient(50% 46% at 84% 92%, var(--g3), transparent 74%),
+		radial-gradient(46% 42% at 14% 98%, var(--g2), transparent 74%),
 		linear-gradient(160deg, #070912 0%, #0a0e1c 52%, #05060c 100%);
-}
-
-.blog-bg::before,
-.blog-bg::after {
-	content: "";
-	position: absolute;
-	width: 62vmax;
-	height: 62vmax;
-	border-radius: 50%;
-	filter: blur(80px);
-	opacity: .55;
-	mix-blend-mode: screen;
-	animation: orb-float 20s ease-in-out infinite alternate;
-}
-
-.blog-bg::before {
-	top: -26%;
-	left: -18%;
-	background: radial-gradient(circle at 35% 35%, var(--g1), transparent 66%);
-}
-
-.blog-bg::after {
-	right: -20%;
-	bottom: -30%;
-	background: radial-gradient(circle at 65% 65%, var(--g2), transparent 66%);
-	animation-delay: -7s;
-	animation-duration: 26s;
 }
 
 .blog-grid {
@@ -115,12 +90,6 @@ body {
 	background-size: 62px 62px;
 	-webkit-mask-image: radial-gradient(circle at 50% 24%, #000 0%, transparent 76%);
 	mask-image: radial-gradient(circle at 50% 24%, #000 0%, transparent 76%);
-}
-
-@keyframes orb-float {
-	0%   { transform: translate3d(0, 0, 0) scale(1); }
-	50%  { transform: translate3d(4vw, 3vh, 0) scale(1.08); }
-	100% { transform: translate3d(-3vw, 5vh, 0) scale(.96); }
 }
 
 /* ---------- Article card ---------- */
@@ -143,9 +112,6 @@ body {
 		0 40px 90px -30px rgba(0, 0, 0, .85),
 		0 0 0 1px rgba(255, 255, 255, .02) inset,
 		inset 0 1px 0 rgba(255, 255, 255, .18);
-	-webkit-backdrop-filter: blur(20px) saturate(150%);
-	backdrop-filter: blur(20px) saturate(150%);
-	animation: card-in .8s var(--ease) both;
 }
 
 .article::after {
@@ -157,17 +123,11 @@ body {
 	height: 56%;
 	border-radius: 50%;
 	background: radial-gradient(circle, var(--g1), transparent 70%);
-	filter: blur(34px);
-	opacity: .5;
+	opacity: .4;
 	pointer-events: none;
 }
 
 .article > * { position: relative; z-index: 1; }
-
-@keyframes card-in {
-	from { transform: translateY(26px) scale(.985); }
-	to   { transform: none; }
-}
 
 /* ---------- Typography ---------- */
 .article h1,
@@ -380,12 +340,6 @@ body {
 	border-radius: 16px;
 	border: 1px solid rgba(255, 255, 255, .12);
 	box-shadow: 0 26px 62px -26px rgba(0, 0, 0, .9);
-	transition: transform .5s var(--ease), box-shadow .5s var(--ease);
-}
-
-.article img:hover {
-	transform: scale(1.015);
-	box-shadow: 0 32px 74px -24px var(--g1);
 }
 
 .article video {
@@ -595,7 +549,7 @@ body {
 	padding: 12px 18px;
 	border: 1px solid rgba(255, 255, 255, .16);
 	border-radius: 999px;
-	background: rgba(12, 16, 30, .62);
+	background: rgba(12, 16, 30, .92);
 	background-image: none;
 	color: #dfe6ff;
 	font: 600 13px/1 var(--font-body);
@@ -603,8 +557,6 @@ body {
 	cursor: pointer;
 	text-decoration: none;
 	text-shadow: none;
-	-webkit-backdrop-filter: blur(14px);
-	backdrop-filter: blur(14px);
 	box-shadow: 0 12px 30px -12px rgba(0, 0, 0, .85);
 	transition: border-color .3s, box-shadow .3s, color .3s;
 }
@@ -620,14 +572,14 @@ body {
 
 .blog-fab .top {
 	opacity: 0;
+	visibility: hidden;
 	pointer-events: none;
-	transform: translateY(10px);
 }
 
 .blog-fab.visible .top {
 	opacity: 1;
+	visibility: visible;
 	pointer-events: auto;
-	transform: none;
 }
 
 /* ---------- Index page ---------- */
@@ -702,19 +654,6 @@ html[data-page="index"] #main-nav tbody td:last-child {
 	text-align: right;
 	font-variant-numeric: tabular-nums;
 	font-size: 13px;
-}
-
-/* ---------- Page-specific harmonising ---------- */
-html[data-file="helloworld.html"] .article > div {
-	height: auto !important;
-	min-height: 46vh;
-	background: linear-gradient(165deg, rgba(255, 255, 255, .12), rgba(255, 255, 255, .03)) !important;
-	border: 1px solid rgba(255, 255, 255, .15);
-	border-radius: 20px;
-	color: #fff;
-	-webkit-backdrop-filter: blur(10px);
-	backdrop-filter: blur(10px);
-	box-shadow: 0 24px 60px -26px rgba(0, 0, 0, .9);
 }
 
 /* ---------- Scrollbars ---------- */

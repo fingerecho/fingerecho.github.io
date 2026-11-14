@@ -5,7 +5,7 @@
     <link>https://fingerecho.com/lives/</link>
     <description>FingerEcho 生活随笔与技术分享</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 14 Nov 2026 19:33:29 </lastBuildDate>
+    <lastBuildDate>Sat, 14 Nov 2026 20:08:06 </lastBuildDate>
     <generator>gen_RSS_for_lives.py</generator>
     <atom:link href="https://fingerecho.com/lives/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
@@ -70,118 +70,6 @@
       <guid isPermaLink="true">https://fingerecho.com/lives/eular_project_No580.html</guid>
       <pubDate>Sat, 01 Nov 2025 00:00:00 </pubDate>
       <description>分享https://pe-cn.github.io的第580题</description>
-    </item>
-    <item>
-      <title>面试笔试总结</title>
-      <link>https://fingerecho.com/lives/mianshibishi.html</link>
-      <guid isPermaLink="true">https://fingerecho.com/lives/mianshibishi.html</guid>
-      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
-      <description>2019年的面试笔试总结</description>
-    </item>
-    <item>
-      <title>书籍分享</title>
-      <link>https://fingerecho.com/lives/ffpic.html</link>
-      <guid isPermaLink="true">https://fingerecho.com/lives/ffpic.html</guid>
-      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
-      <description>2019-11月的书籍分享</description>
-    </item>
-    <item>
-      <title>阿里大牛的博客</title>
-      <link>https://fingerecho.com/lives/alibaba.html</link>
-      <guid isPermaLink="true">https://fingerecho.com/lives/alibaba.html</guid>
-      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
-      <description>分享阿里大牛的博客</description>
-    </item>
-    <item>
-      <title>约翰家的后花园</title>
-      <link>https://raw.githubusercontent.com/fingerecho/Algorithm/Default/LintCode/yuehan_jia_de_hou_hua_yuan_.py</link>
-      <guid isPermaLink="true">https://raw.githubusercontent.com/fingerecho/Algorithm/Default/LintCode/yuehan_jia_de_hou_hua_yuan_.py</guid>
-      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
-      <description>LintCode的某一题，采用python解决</description>
-    </item>
-    <item>
-      <title>程序员对联</title>
-      <link>https://fingerecho.com/lives/helloworld.html</link>
-      <guid isPermaLink="true">https://fingerecho.com/lives/helloworld.html</guid>
-      <pubDate>Fri, 01 Feb 2019 00:00:00 </pubDate>
-      <description>程序员对联(我2019/2的前端水平)</description>
-    </item>
-    <item>
-      <title>其他人的优秀博客</title>
-      <link>https://fingerecho.gitee.io/bmk/html/others_blogers_shares_2019_02_04.html</link>
-      <guid isPermaLink="true">https://fingerecho.gitee.io/bmk/html/others_blogers_shares_2019_02_04.html</guid>
-      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
-      <description>分享其他人的优秀的博客</description>
-    </item>
-    <item>
-      <title>机器学习资源</title>
-      <link>https://fingerecho.com/lives/learning_sutffs.html</link>
-      <guid isPermaLink="true">https://fingerecho.com/lives/learning_sutffs.html</guid>
-      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
-      <description>我要成为时代的弄潮儿 浙大、北大、中科大等重点大学的课程</description>
-    </item>
-    <item>
-      <title>回想起大学老师的一句话</title>
-      <link>https://fingerecho.com/lives/reovery_of_univisity.html</link>
-      <guid isPermaLink="true">https://fingerecho.com/lives/reovery_of_univisity.html</guid>
-      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
-      <description>回想起大学老师的一句话</description>
-    </item>
-    <item>
-      <title>离职缘由</title>
-      <link>https://fingerecho.com/lives/why_i_quit_from_lsutech.html</link>
-      <guid isPermaLink="true">https://fingerecho.com/lives/why_i_quit_from_lsutech.html</guid>
-      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
-      <description>关于我为什么从小海胆科技离职</description>
-    </item>
-    <item>
-      <title>项目来由</title>
-      <link>https://fingerecho.com/lives/why_i_create_this_blog_site.html</link>
-      <guid isPermaLink="true">https://fingerecho.com/lives/why_i_create_this_blog_site.html</guid>
-      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
-      <description>关于我为什么要做这个网站</description>
-    </item>
-    <item>
-      <title>项目方向</title>
-      <link>https://fingerecho.com/lives/fresh_content_about_this_site.html</link>
-      <guid isPermaLink="true">https://fingerecho.com/lives/fresh_content_about_this_site.html</guid>
-      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
-      <description>关于这个网站的重大后端更新、部分免责申明以及后续更新方向</description>
-    </item>
-    <item>
-      <title>阮一峰关于大学退学的消极看法</title>
-      <link>http://www.ruanyifeng.com/survivor/collapse/university.html</link>
-      <guid isPermaLink="true">http://www.ruanyifeng.com/survivor/collapse/university.html</guid>
-      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
-      <description>我终于找到了一点点安慰  20200826(现在是实在不敢苟同啊)</description>
-    </item>
-    <item>
-      <title>IP 定位snapshot</title>
-      <link>https://fingerecho.com/lives/who_are_you_20190703.html</link>
-      <guid isPermaLink="true">https://fingerecho.com/lives/who_are_you_20190703.html</guid>
-      <pubDate>Thu, 28 Nov 2019 00:00:00 </pubDate>
-      <description>这个到底是哪位呢?</description>
-    </item>
-    <item>
-      <title>1997~2019最具有价值的top10公司</title>
-      <link>https://fingerecho.com/lives/most_valuable_companies_in_the_world.html</link>
-      <guid isPermaLink="true">https://fingerecho.com/lives/most_valuable_companies_in_the_world.html</guid>
-      <pubDate>Wed, 25 Dec 2019 00:00:00 </pubDate>
-      <description>1997~2019最具有价值的top10公司</description>
-    </item>
-    <item>
-      <title>抗日时期局势变化过程</title>
-      <link>https://fingerecho.com/lives/anti_japan_area_process.html</link>
-      <guid isPermaLink="true">https://fingerecho.com/lives/anti_japan_area_process.html</guid>
-      <pubDate>Fri, 24 Jan 2020 00:00:00 </pubDate>
-      <description>抗日时期局势变化过程</description>
-    </item>
-    <item>
-      <title>转载分享:c/c++资源大全</title>
-      <link>https://fingerecho.com/lives/subcontent/cpp_value_items.htm</link>
-      <guid isPermaLink="true">https://fingerecho.com/lives/subcontent/cpp_value_items.htm</guid>
-      <pubDate>Wed, 18 Mar 2020 00:00:00 </pubDate>
-      <description>c/c++资源大全</description>
     </item>
   </channel>
 </rss>
