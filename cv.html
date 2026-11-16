@@ -1,18 +1,329 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">    
-    <link rel="icon" href="./jpg/icon/favicon.gif">
-    <title>关于我</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="lives/css/blog.css">
+<html lang="zh-CN" data-theme="4" data-page="cv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+<meta name="description" content="方克铖的个人简历 - 9年软件开发经验，C++开发工程师（桌面&后端），Qt/Boost.Asio/Drogon，可随时下载PDF版简历。">
+<meta name="author" content="fingerecho">
+<link rel="icon" href="jpg/icon/favicon.gif">
+<title>关于我 - 方克铖 | C++开发工程师简历</title>
+<link rel="stylesheet" type="text/css" href="lives/css/blog.css">
+<style>
+	/* Static page only: no JS, no animations, one stylesheet, minimal CPU/GPU/memory usage. */
+	.cv-page {
+		width: min(940px, calc(100% - 32px));
+	}
+
+	.cv-head {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		justify-content: space-between;
+		gap: 16px 28px;
+		margin-bottom: 6px;
+	}
+
+	.cv-head h1 {
+		margin: 0 0 10px;
+	}
+
+	.cv-sub {
+		color: var(--ink-soft);
+		font-size: 15px;
+		line-height: 1.8;
+	}
+
+	.cv-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	.cv-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 10px 20px;
+		border-radius: 999px;
+		font-size: 13.5px;
+		font-weight: 600;
+		white-space: nowrap;
+	}
+
+	.cv-btn-download {
+		border: 1px solid transparent;
+		background-color: transparent;
+		background-image: linear-gradient(96deg, var(--a1), var(--a2));
+		color: #061018;
+	}
+
+	.cv-btn-download:hover {
+		background-size: 0 0;
+		color: #fff;
+		text-shadow: none;
+		filter: brightness(1.12);
+	}
+
+	.cv-btn-back {
+		border: 1px solid rgba(255, 255, 255, .16);
+		background-color: rgba(12, 16, 30, .7);
+		background-image: none;
+		color: #dfe6ff;
+	}
+
+	.cv-btn-back:hover {
+		border-color: var(--a2);
+		color: #fff;
+		text-shadow: none;
+	}
+
+	.cv-section {
+		margin-top: 2.4em;
+	}
+
+	.cv-basic td:first-child {
+		color: #dbe2f5;
+		font-weight: 600;
+		white-space: nowrap;
+	}
+
+	.cv-item {
+		margin: 1.15em 0;
+		padding: 18px 22px 8px;
+		border: 1px solid rgba(255, 255, 255, .09);
+		border-left: 4px solid var(--a2);
+		border-radius: 14px;
+		background: rgba(255, 255, 255, .04);
+	}
+
+	.cv-item h3 {
+		margin: 0 0 4px;
+		font-size: clamp(17px, 2.2vw, 21px);
+	}
+
+	.cv-item-meta {
+		color: var(--a3);
+		font-size: 13.5px;
+		font-weight: 600;
+		letter-spacing: .02em;
+	}
+
+	.cv-item ul {
+		margin: .7em 0 .8em;
+		padding-left: 1.4em;
+	}
+
+	.cv-item li {
+		margin: .45em 0;
+		line-height: 1.78;
+	}
+
+	.cv-skills li {
+		margin: .8em 0;
+	}
+
+	.cv-edu {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 6px 18px;
+		margin: 1.2em 0;
+		padding: 14px 20px;
+		border: 1px solid rgba(255, 255, 255, .09);
+		border-radius: 14px;
+		background: rgba(255, 255, 255, .04);
+	}
+
+	.cv-edu strong {
+		font-size: 16.5px;
+	}
+
+	.cv-foot {
+		margin-top: 2.6em;
+		padding-top: 1.2em;
+		border-top: 1px solid rgba(255, 255, 255, .08);
+		color: var(--ink-mute, #8f9ab8);
+		font-size: 13px;
+		line-height: 1.8;
+	}
+
+	@media (max-width: 620px) {
+		.cv-page {
+			width: calc(100% - 20px);
+		}
+
+		.cv-head {
+			align-items: flex-start;
+		}
+
+		.cv-item {
+			padding: 15px 14px 6px;
+		}
+	}
+</style>
 </head>
 <body>
+<div class="blog-bg" aria-hidden="true"></div>
+<div class="blog-grid" aria-hidden="true"></div>
+<main class="article cv-page">
+	<div class="cv-head">
+		<div>
+			<h1>方克铖 · C++开发工程师</h1>
+			<div class="cv-sub">9年软件开发经验 · 桌面（Qt/WinUI/Duilib）与后端（Asio/Drogon/MySQL）双线能力 · 现居厦门</div>
+		</div>
+		<div class="cv-actions">
+			<a class="cv-btn cv-btn-download" href="cv.pdf" download="方克铖_9年工作经验_C++开发工程师_20261116.pdf">下载 PDF 版简历</a>
+			<a class="cv-btn cv-btn-back" href="index.html">← 返回首页</a>
+		</div>
+	</div>
 
-    
-	<script src="lives/js/blog-theme.js"></script>
+	<section class="cv-section">
+		<h2>基本信息</h2>
+		<div class="table-wrap">
+			<table class="cv-basic">
+				<tbody>
+					<tr><td>姓　名</td><td>方克铖</td><td>电　话</td><td>175-2009-2105</td></tr>
+					<tr><td>邮　箱</td><td><a href="mailto:fingerecho@163.com">fingerecho@163.com</a></td><td>现居城市</td><td>厦门</td></tr>
+					<tr><td>求职意向</td><td>C++开发工程师（桌面&amp;后端）</td><td>期望薪资</td><td>10K-15K</td></tr>
+					<tr><td>工作年限</td><td>9年</td><td>到岗时间</td><td>一周内</td></tr>
+					<tr><td>个人主页</td><td colspan="3"><a href="https://fingerecho.com" target="_blank" rel="noopener noreferrer">fingerecho.com</a> · <a href="https://www.fyping.cn/" target="_blank" rel="noopener noreferrer">fyping.cn</a></td></tr>
+					<tr><td>GitHub</td><td colspan="3"><a href="https://github.com/fingerecho" target="_blank" rel="noopener noreferrer">github.com/fingerecho</a></td></tr>
+				</tbody>
+			</table>
+		</div>
+	</section>
+
+	<section class="cv-section">
+		<h2>个人概述</h2>
+		<p>9年软件开发经验、6年+专注 C++，兼具“桌面（Qt/WinUI/Duilib）”与“后端（Asio/Drogon/MySQL）”双线能力，能从底层协议、网络通信一直写到高并发服务端与用户界面，独立交付完整产品。2026.08 起全职投入开源研发与 AI 辅助工程，可一周内到岗。</p>
+	</section>
+
+	<section class="cv-section">
+		<h2>专业技能</h2>
+		<ul class="cv-skills">
+			<li><strong>【C++ 桌面】</strong>精通 Qt5/Qt6 信号槽、事件循环与元对象系统，擅长 QWidget/Qt Quick 混合开发、自定义控件、QSS 与 Model/View 框架；熟练 Qt 多线程（QThread/线程池）、网络与文件 IO，具备高性能低延迟桌面开发能力；兼具 WinUI3 与 Duilib 开发经验；熟悉 Linux 信创环境 Qt 适配及 Shell 脚本协作。</li>
+			<li><strong>【C++ 后端】</strong>熟练使用 Boost.Asio/Beast 实现 TCP 长连接与 HTTP 服务，掌握“多线程 io_context + 每连接 strand + worker 线程池”并发模型；熟悉 MariaDB/MySQL 事务、索引与锁调优（gap lock 死锁定位、CAS 幂等、覆盖索引）；具备 Redis 缓存与会话、JWT 鉴权、RESTful/JSON（RapidJSON）接口开发经验，能用 Drogon 搭建后台服务，并在 Linux 环境下借助 Docker 完成构建与部署。</li>
+			<li><strong>【构建工程】</strong>CMake + vcpkg 跨平台构建；代码风格稳健，重视可测试性与可维护性。</li>
+			<li><strong>【底层经历】</strong>具备嵌入式（STM32、lwIP、航空总线协议）开发能力，理解从硬件到应用的完整链路。</li>
+			<li><strong>【AI 研发】</strong>熟练运用 OpenCode、Claude Code、QodeAssist 等 AI 工具与 MCP 集成，搭建覆盖代码生成、单元测试、重构与评审的 AI 辅助开发工作流。</li>
+			<li><strong>【拓展】</strong>了解 Lean 4 定理证明器与“命题即类型”范式，可用于高可靠模块的正确性验证。</li>
+		</ul>
+	</section>
+
+	<section class="cv-section">
+		<h2>工作经历</h2>
+
+		<div class="cv-item">
+			<h3>厦门威特科技有限公司 · Qt/C++研发工程师（信创桌面方向）</h3>
+			<div class="cv-item-meta">2024.05 – 2026.08</div>
+			<ul>
+				<li>主导虚拟化软件在信创 Linux 平台的全套桌面工具（Qt5/QWidget）开发，从 UI 架构到交付一体化负责</li>
+				<li>从 Chromium 源码编译定制浏览器内核并封装为 Qt 内嵌组件，解决跨进程渲染协同，为产品提供网页承载能力</li>
+				<li>基于 rime 内核 + cairo 用 Qt 完成中文输入法前端（候选窗、状态栏、设置界面），形成可交付的输入法方案</li>
+				<li>独立完成“设置程序”“安装引导程序”UI 架构设计，用 QSS 实现国产化定制皮肤，自定义委托 + 信号槽解耦业务逻辑</li>
+				<li>开发托盘常驻系统监控程序（Qt 事件 + 系统 API），并集成 Qt 界面与 Shell 脚本实现离线安装包自动化生成与校验</li>
+				<li>引入 OpenCode 等 AI 编程工具，采用“AI 生成 + 人工评审”完成界面原型与重复代码重构，整体开发周期缩短约 30%</li>
+			</ul>
+		</div>
+
+		<div class="cv-item">
+			<h3>上海瀚宇光纤通信技术有限公司 · C/C++开发工程师（外派中航615所）</h3>
+			<div class="cv-item-meta">2021.03 – 2023.10</div>
+			<ul>
+				<li>负责航电设备协议栈开发与调试，基于 STM32 平台完成 HAL 层编写与 lwIP 移植</li>
+				<li>开发 C 代码生成器，自动解析 XML 配置文件并生成 ARINC429/ARINC664 通信代码，提升效率 40%</li>
+				<li>参与 Minicab 机柜集成，编写 AFDX 协议驱动，使用 Visual Studio 开发上位机调试工具</li>
+			</ul>
+		</div>
+
+		<div class="cv-item">
+			<h3>北京市图创灵新科技有限公司 · 量化开发工程师（Python/C++）</h3>
+			<div class="cv-item-meta">2019.12 – 2021.03</div>
+			<ul>
+				<li>基于 Hummingbot 框架，用 C++/Python(Cython) 优化加密货币做市策略与执行链路，年化收益提升约 20%</li>
+				<li>独立搭建并运维 ETH/BTC 全节点钱包，保障链上数据服务高可用（服务端能力起点）</li>
+			</ul>
+		</div>
+
+		<div class="cv-item">
+			<h3>深圳市小海胆科技有限公司 · 后端开发工程师</h3>
+			<div class="cv-item-meta">2018.12 – 2019.12</div>
+			<ul>
+				<li>主导区块链溯源平台研发，基于 Apache Jena Fuseki 图数据库与 Flask，实现一物一码全流程追溯</li>
+				<li>设计 SPARQL 查询接口，支撑日均 10万+ 溯源请求</li>
+			</ul>
+		</div>
+
+		<div class="cv-item">
+			<h3>深圳市艾盟互联网服务有限公司 · 软件开发工程师（Python实习）</h3>
+			<div class="cv-item-meta">2017.07 – 2018.10</div>
+			<ul>
+				<li>参与广告精准投放系统开发，基于 Python Django 融合设备指纹与用户画像，日均处理 500万次请求</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="cv-section">
+		<h2>开源项目与技术分享</h2>
+
+		<div class="cv-item">
+			<h3>KC-CXIM · 《铖信》即时通讯软件（自研开源）</h3>
+			<div class="cv-item-meta">2026.11</div>
+			<ul>
+				<li><strong>定位：</strong>消息通道全链路自研、零第三方 IM 依赖的跨端 IM 系统；服务端为 C++17 高并发后端，客户端覆盖 Windows/Linux 桌面与微信小程序，管理后台基于 Drogon + Vue3</li>
+				<li><strong>后端架构：</strong>Boost.Asio/Beast 以“4 字节大端长度头 + JSON”自定义分帧的裸 TCP 长连接承载实时消息，HTTP 短连接承载注册登录与好友关系 API；RapidJSON 序列化，JWT(HS256)+bcrypt 鉴权，MariaDB 存储、Redis 缓存会话与热点数据，CMake + vcpkg 构建，Linux/Docker 部署</li>
+				<li><strong>并发模型：</strong>多线程 io_context 配合每连接 strand 实现无锁串行化，DB 阻塞调用隔离到独立 worker 线程池并懒建连接池</li>
+				<li><strong>消息“不丢、不重、不乱序”：</strong>用 MySQL LAST_INSERT_ID(expr) 在事务内原子分配会话级单调递增 seq；client_msg_id 事务内查重 + 唯一索引兜底实现幂等；离线消息“先写后 ACK 删”，投递/已读游标用 GREATEST() 保证只增不减、乱序 ACK 不回退；历史消息 keyset 分页规避深分页</li>
+				<li><strong>性能与稳定性：</strong>压测暴露 InnoDB gap lock 死锁后重构为“直接 INSERT 捕获 1062 + CAS 条件更新”并落地整事务退避重试；经 EXPLAIN 设计覆盖索引，将好友列表扫描行数从 651 降至 21 并消除 filesort</li>
+				<li><strong>项目源码：</strong><a href="https://github.com/fingerecho/KC-CXIM" target="_blank" rel="noopener noreferrer">github.com/fingerecho/KC-CXIM</a></li>
+			</ul>
+		</div>
+
+		<div class="cv-item">
+			<h3>克铖桌面开源系列 · 自研开源 · C++/Qt/WinUI 桌面</h3>
+			<div class="cv-item-meta">2026.08 – 2026.11</div>
+			<ul>
+				<li><strong>KC-EchoPlayer：</strong>C++20 + Duilib(DirectUI) + Skia + BASS 音视频播放器，内嵌 SQLite3 持久化，LRC 歌词实时高亮，DPI 自适应布局</li>
+				<li><strong>KCSystemConsole：</strong>C++17 + Qt 6 系统控制台，Win32 API 进程/网络采集在独立 QThread 定时刷新，接入 LLM（OpenAI 兼容）流式对话与 QProcess 工具调用</li>
+				<li><strong>KCCPUMonitor / KCMemMonitor：</strong>C++/WinRT + WinUI 3（Windows App SDK）硬件监控，PDH/WMI/CPUID/NtQuerySystemInformation 原生采集，MSIX 打包，自绘环形仪表与趋势图</li>
+				<li><strong>项目源码：</strong><a href="https://github.com/fingerecho" target="_blank" rel="noopener noreferrer">github.com/fingerecho</a></li>
+			</ul>
+		</div>
+
+		<div class="cv-item">
+			<h3>fingerecho · 独立开发者 &amp; 独立维护者</h3>
+			<div class="cv-item-meta">2016.04 – 至今</div>
+			<ul>
+				<li>个人长期维护多个 Qt/C++ 开源组件，涵盖日志库、异步网络工具、自定义控件集等</li>
+				<li>技术博客持续输出 C++ 开发实践、C++ 底层原理等原创文章数十篇，累计阅读量超 50万</li>
+				<li>独立开发个人技术站（<a href="https://fingerecho.com" target="_blank" rel="noopener noreferrer">fingerecho.com</a> 和 <a href="https://www.fyping.cn/" target="_blank" rel="noopener noreferrer">fyping.cn</a>），形成覆盖 Qt/C++、Lean4 形式化验证与纯数学的学习知识库</li>
+				<li>持续跟进 AI 自动编程与形式化验证前沿，输出 Lean 4 学习笔记与 AI 辅助 C++ 开发的实践案例，探索大模型 Agent 与桌面开发工作流的深度结合</li>
+			</ul>
+		</div>
+	</section>
+
+	<section class="cv-section">
+		<h2>自我评价</h2>
+		<ul class="cv-skills">
+			<li>以 C++ 为核心、横跨桌面与后端的开发工程师：能独立从底层协议与网络通信，做到高并发服务端，再到用户界面，交付完整可落地产品</li>
+			<li>9 年跨行业开发铸就快速拆解需求、独立搭建架构的能力，对复杂 UI 逻辑和系统级集成有丰富经验</li>
+			<li>坚持“代码即文档”的开源思维，以长期技术分享反哺开发，保持对技术细节的敏锐度</li>
+			<li>积极拥抱 AI 驱动的研发范式，善于将大模型编程工具落地到实际工程，在保证代码质量的前提下显著提升交付速度</li>
+		</ul>
+	</section>
+
+	<section class="cv-section">
+		<h2>教育背景</h2>
+		<div class="cv-edu">
+			<strong>江西农业大学 · 软件工程 · 本科（肄业）</strong>
+			<span class="cv-item-meta">2015.09 – 2017.11</span>
+		</div>
+	</section>
+
+	<div class="cv-foot">
+		简历更新于 2026.11.16 · 点击上方「下载 PDF 版简历」即可保存 <a href="cv.pdf" download="方克铖_9年工作经验_C++开发工程师_20261116.pdf">cv.pdf</a> 到本地
+	</div>
+</main>
 </body>
 </html>
