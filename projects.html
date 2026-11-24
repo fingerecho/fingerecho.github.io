@@ -101,6 +101,9 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: 8px;
+		/* 标签下移：由标签行承担底部对齐，紧贴「查看项目」链接上方 */
+		margin-top: auto;
+		padding-top: 6px;
 	}
 
 	.project-tag {
@@ -121,7 +124,6 @@
 		align-items: center;
 		justify-content: space-between;
 		gap: 10px 16px;
-		margin-top: auto;
 		padding-top: 6px;
 	}
 
@@ -142,6 +144,15 @@
 		background: #22c55e;
 	}
 
+	/* 进行中的项目：圆点与文字换成琥珀色 */
+	.project-status.is-doing {
+		color: #fcd34d;
+	}
+
+	.project-status.is-doing::before {
+		background: #f59e0b;
+	}
+
 	.project-link {
 		background-image: none;
 		color: var(--a3);
@@ -156,6 +167,39 @@
 		text-shadow: none;
 	}
 
+	/* GitHub / Gitee 两个仓库链接：右侧等宽并排，缺一个就只排一个 */
+	.project-links {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 8px;
+	}
+
+	.project-repo {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 88px;
+		padding: 6px 12px;
+		border: 1px solid rgba(255, 255, 255, .14);
+		border-radius: 999px;
+		background: rgba(255, 255, 255, .05);
+		font-size: 12.5px;
+		line-height: 1.5;
+		white-space: nowrap;
+	}
+
+	.project-repo:hover {
+		border-color: var(--a2);
+	}
+
+	.project-empty {
+		color: var(--ink-soft);
+		font-size: 15px;
+		line-height: 1.8;
+	}
+
 	@media (max-width: 620px) {
 		.projects-page {
 			width: calc(100% - 20px);
@@ -167,6 +211,16 @@
 
 		.projects-head {
 			align-items: flex-start;
+		}
+
+		/* 窄屏：两个仓库链接各占一半，避免挤压换行 */
+		.project-links {
+			width: 100%;
+		}
+
+		.project-repo {
+			flex: 1 1 0;
+			min-width: 0;
 		}
 	}
 </style>
@@ -183,133 +237,85 @@
 		<a class="back-link" href="index.html">← 返回首页</a>
 	</div>
 
-	<div class="project-grid">
-		<article class="project-card">
-			<h2>Fingerecho's Blog</h2>
-			<div class="project-desc">心若有所向往，何惧道阻且长。记录技术分享和生活感悟的个人博客。</div>
-			<div class="project-tags">
-				<span class="project-tag">技术分享</span>
-				<span class="project-tag">Blog</span>
-				<span class="project-tag">Markdown</span>
-			</div>
-			<div class="project-foot">
-				<span class="project-status">已完成</span>
-				<a class="project-link" href="https://fingerecho.com" target="_blank" rel="noopener noreferrer">查看项目 →</a>
-			</div>
-		</article>
-
-		<article class="project-card">
-			<h2>KC-CXIM(《铖信》即时通讯)</h2>
-			<div class="project-desc">KC-CXIM《铖信》是一个全栈即时通讯项目：自带 C++17 自研 IM 服务端（HTTP 鉴权 + TCP 长连接 + MariaDB）、Windows 桌面客户端与 Web 管理后台（Drogon 后端 + Vue3 前端），同时保留腾讯云 IM SDK 的接入示例。</div>
-			<div class="project-tags">
-				<span class="project-tag">Windows</span>
-				<span class="project-tag">即时通讯</span>
-				<span class="project-tag">仿QQ</span>
-			</div>
-			<div class="project-foot">
-				<span class="project-status">已完成</span>
-				<a class="project-link" href="https://github.com/fingerecho/KC-CXIM" target="_blank" rel="noopener noreferrer">查看项目 →</a>
-			</div>
-		</article>
-
-		<article class="project-card">
-			<h2>KCSystemConsole(克铖操作控制台)</h2>
-			<div class="project-desc">打造一款轻量、现代、高效的 Windows 系统监控与操作工具。</div>
-			<div class="project-tags">
-				<span class="project-tag">监控</span>
-				<span class="project-tag">AI Agent</span>
-				<span class="project-tag">实时数据</span>
-			</div>
-			<div class="project-foot">
-				<span class="project-status">已完成</span>
-				<a class="project-link" href="https://github.com/fingerecho/KCSystemConsole" target="_blank" rel="noopener noreferrer">查看项目 →</a>
-			</div>
-		</article>
-
-		<article class="project-card">
-			<h2>KC-EchoPlayer(克铖音视频播放器)</h2>
-			<div class="project-desc">一个基于 Duilib 与 BASS 的 Windows 音乐播放器，支持多格式音频播放与实时频谱可视化。</div>
-			<div class="project-tags">
-				<span class="project-tag">Windows</span>
-				<span class="project-tag">音视频播放器</span>
-				<span class="project-tag">自研开源</span>
-			</div>
-			<div class="project-foot">
-				<span class="project-status">已完成</span>
-				<a class="project-link" href="https://github.com/fingerecho/KC-EchoPlayer" target="_blank" rel="noopener noreferrer">查看项目 →</a>
-			</div>
-		</article>
-
-		<article class="project-card">
-			<h2>KCEnvEditor(克铖环境变量管理器)</h2>
-			<div class="project-desc">一款轻量级 Windows 环境变量管理器，支持可视化查看、编辑、备份与回滚系统/用户变量，让 PATH 配置更安全、更省心。</div>
-			<div class="project-tags">
-				<span class="project-tag">Windows</span>
-				<span class="project-tag">环境变量</span>
-				<span class="project-tag">自研开源</span>
-			</div>
-			<div class="project-foot">
-				<span class="project-status">已完成</span>
-				<a class="project-link" href="https://github.com/fingerecho/KCEnvEditor" target="_blank" rel="noopener noreferrer">查看项目 →</a>
-			</div>
-		</article>
-
-		<article class="project-card">
-			<h2>KCMemMonitor(克铖内存监控器)</h2>
-			<div class="project-desc">基于 C++ 与 WinUI3 的 Windows 整机物理内存监控工具。界面实时展示总内存、已用内存、可用内存、占用百分比与内存压力等级五项指标，并以环形饼图和近 60 秒动态趋势图直观呈现。</div>
-			<div class="project-tags">
-				<span class="project-tag">Windows系统工具</span>
-				<span class="project-tag">内存监控</span>
-				<span class="project-tag">自研开源</span>
-			</div>
-			<div class="project-foot">
-				<span class="project-status">已完成</span>
-				<a class="project-link" href="https://github.com/fingerecho/KCMemMonitor" target="_blank" rel="noopener noreferrer">查看项目 →</a>
-			</div>
-		</article>
-
-		<article class="project-card">
-			<h2>KCCPUMonitor(克铖CPU性能监控器)</h2>
-			<div class="project-desc">本项目是基于 C++ 与 WinUI3 的 Windows 整机 CPU 性能监控工具，WinUI3 桌面应用，实时展示 CPU 名称、利用率、当前/基准频率、进程数、线程数、句柄数、正常运行时间、插槽、内核、逻辑处理器、虚拟化状态、L1/L2/L3 缓存。</div>
-			<div class="project-tags">
-				<span class="project-tag">Windows系统工具</span>
-				<span class="project-tag">CPU性能监控</span>
-				<span class="project-tag">自研开源</span>
-			</div>
-			<div class="project-foot">
-				<span class="project-status">已完成</span>
-				<a class="project-link" href="https://github.com/fingerecho/KCCPUMonitor" target="_blank" rel="noopener noreferrer">查看项目 →</a>
-			</div>
-		</article>
-
-		<article class="project-card">
-			<h2>KC-CodeLitePlugin-CodeStatsPanel(CodeLite 插件：智能代码统计与质量看板)</h2>
-			<div class="project-desc">本项目是 CodeLite 插件：基于 AST 的智能代码统计与质量看板。功能定位：在底部 Dock 面板做一个可视化的代码统计工具。支持统计项目内的代码行数、注释率、圈复杂度（粗略计算 if/for/while 数量），以及 TODO/FIXME 标记。</div>
-			<div class="project-tags">
-				<span class="project-tag">CodeLite IDE插件</span>
-				<span class="project-tag">AST代码统计</span>
-				<span class="project-tag">自研开源</span>
-			</div>
-			<div class="project-foot">
-				<span class="project-status">已完成</span>
-				<a class="project-link" href="https://github.com/fingerecho/KC-CodeLitePlugin-CodeStatsPanel" target="_blank" rel="noopener noreferrer">查看项目 →</a>
-			</div>
-		</article>
-
-		<article class="project-card">
-			<h2>trackingsite(知识图谱项目)</h2>
-			<div class="project-desc">开源、隐私友好的网站访问统计分析工具，提供详细的访问数据和洞察。</div>
-			<div class="project-tags">
-				<span class="project-tag">数据分析</span>
-				<span class="project-tag">统计</span>
-				<span class="project-tag">开源</span>
-			</div>
-			<div class="project-foot">
-				<span class="project-status">已完成</span>
-				<a class="project-link" href="https://github.com/fingerecho/trackingsite/tree/master" target="_blank" rel="noopener noreferrer">查看项目 →</a>
-			</div>
-		</article>
-	</div>
+	<div class="project-grid" id="projectGrid"></div>
 </main>
+<script src="js/projects.data.js"></script>
+<script>
+/*
+ * 渲染策略（对应「不占资源」的前提）：
+ *   1. 全部卡片拼成一段字符串，只写一次 innerHTML —— 只触发一次样式计算与布局；
+ *   2. 不注册任何事件监听器、不用 setInterval / requestAnimationFrame；
+ *   3. 脚本在 <body> 末尾同步执行一次即结束，之后 CPU / GPU 占用归零，
+ *      页面动效仍只有原有的 hover 颜色过渡，没有新增动画。
+ */
+(function () {
+	var grid = document.getElementById("projectGrid");
+	if (!grid) { return; }
+
+	var list = window.PROJECTS || [];
+	if (!list.length) {
+		grid.innerHTML = '<div class="project-empty">项目配置为空，请检查 js/projects.data.js。</div>';
+		return;
+	}
+
+	// HTML 转义，保证描述里出现 < > & " 也不会破坏结构（属性一律用双引号，故单引号无需转义）
+	function esc(s) {
+		return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) {
+			return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c];
+		});
+	}
+
+	// 仓库链接标签：地址为空则返回空串，即完全不渲染
+	function repo(label, url, name) {
+		if (!url) { return ""; }
+		return '<a class="project-link project-repo" href="' + esc(url) +
+			'" target="_blank" rel="noopener noreferrer" title="在 ' + label + ' 查看 ' + esc(name) + '">' +
+			label + "</a>";
+	}
+
+	var out = [], i, p, t, tags, links, head;
+	for (i = 0; i < list.length; i++) {
+		p = list[i] || {};
+
+		tags = "";
+		for (t = 0; t < (p.tags || []).length; t++) {
+			tags += '<span class="project-tag">' + esc(p.tags[t]) + "</span>";
+		}
+
+		links = repo("GitHub", p.links && p.links.github, p.name) +
+				repo("Gitee", p.links && p.links.gitee, p.name);
+
+		// 有案例链接 → 用「查看案例」取代「已完成」；没有 → 显示完成度
+		head = (p.links && p.links.demo)
+			? '<a class="project-link" href="' + esc(p.links.demo) +
+			  '" target="_blank" rel="noopener noreferrer" title="查看在线案例">查看案例 →</a>'
+			: '<span class="project-status' + (p.done === false ? " is-doing" : "") + '">' +
+			  esc(p.progress || "已完成") + "</span>";
+
+		out.push(
+			'<article class="project-card">' +
+				"<h2>" + esc(p.name) + "</h2>" +
+				'<div class="project-desc">' + esc(p.desc) + "</div>" +
+				'<div class="project-tags">' + tags + "</div>" +
+				'<div class="project-foot">' + head +
+					'<div class="project-links">' + links + "</div>" +
+				"</div>" +
+			"</article>"
+		);
+	}
+
+	grid.innerHTML = out.join("");
+})();
+</script>
+<noscript>
+	<div class="article projects-page">
+		<div class="project-grid">
+			<article class="project-card">
+				<h2>需要开启 JavaScript</h2>
+				<div class="project-desc">项目列表由 js/projects.data.js 提供，请在浏览器中允许脚本后重新打开本页面。</div>
+			</article>
+		</div>
+	</div>
+</noscript>
 </body>
 </html>
